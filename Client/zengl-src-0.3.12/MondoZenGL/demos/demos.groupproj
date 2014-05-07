@@ -1,0 +1,240 @@
+﻿	<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+		<PropertyGroup>
+			<ProjectGuid>{9527B716-C54E-4AD3-BC74-8590F7D0BDC4}</ProjectGuid>
+		</PropertyGroup>
+		<ItemGroup>
+			<Projects Include="01_Initialization\MondoZenGLDemo01.dproj">
+				<Dependencies/>
+			</Projects>
+			<Projects Include="02_Input\MondoZenGLDemo02.dproj">
+				<Dependencies/>
+			</Projects>
+			<Projects Include="03_Primitives_2D\MondoZenGLDemo03.dproj">
+				<Dependencies/>
+			</Projects>
+			<Projects Include="04_Text\MondoZenGLDemo04.dproj">
+				<Dependencies/>
+			</Projects>
+			<Projects Include="05_Sprites_2D\MondoZenGLDemo05.dproj">
+				<Dependencies/>
+			</Projects>
+			<Projects Include="06_SEngine_2D\MondoZenGLDemo06.dproj">
+				<Dependencies/>
+			</Projects>
+			<Projects Include="08_Sound\MondoZenGLDemo08.dproj">
+				<Dependencies/>
+			</Projects>
+			<Projects Include="09_Render_to_Texture\MondoZenGLDemo09.dproj">
+				<Dependencies/>
+			</Projects>
+			<Projects Include="10_Particles_2D\MondoZenGLDemo10.dproj">
+				<Dependencies/>
+			</Projects>
+			<Projects Include="11_Physics_2D\MondoZenGLDemo11.dproj">
+				<Dependencies/>
+			</Projects>
+			<Projects Include="MZ01_Multiple_Scenes\MondoZenGLDemoMZ01.dproj">
+				<Dependencies/>
+			</Projects>
+			<Projects Include="MZ02_Events\MondoZenGLDemoMZ02.dproj">
+				<Dependencies/>
+			</Projects>
+			<Projects Include="MZ03_ZIP_Files\MondoZenGLDemoMZ03.dproj">
+				<Dependencies/>
+			</Projects>
+			<Projects Include="MZ04_Chipmunk_Demos\MondoZenGLDemoMZ04.dproj">
+				<Dependencies/>
+			</Projects>
+			<Projects Include="MZ05_Triangulation\MondoZenGLDemoMZ05.dproj">
+				<Dependencies/>
+			</Projects>
+			<Projects Include="MZ06_Distortion_Mesh\MondoZenGLDemoMZ06.dproj">
+				<Dependencies/>
+			</Projects>
+			<Projects Include="MZ07_Tile_Maps\MondoZenGLDemoMZ07.dproj">
+				<Dependencies/>
+			</Projects>
+			<Projects Include="MZ08_Video\MondoZenGLDemoMZ08.dproj">
+				<Dependencies/>
+			</Projects>
+		</ItemGroup>
+		<ProjectExtensions>
+			<Borland.Personality>Default.Personality.12</Borland.Personality>
+			<Borland.ProjectType/>
+			<BorlandProject>
+				<Default.Personality/>
+			</BorlandProject>
+		</ProjectExtensions>
+		<Target Name="MondoZenGLDemo01">
+			<MSBuild Projects="01_Initialization\MondoZenGLDemo01.dproj"/>
+		</Target>
+		<Target Name="MondoZenGLDemo01:Clean">
+			<MSBuild Projects="01_Initialization\MondoZenGLDemo01.dproj" Targets="Clean"/>
+		</Target>
+		<Target Name="MondoZenGLDemo01:Make">
+			<MSBuild Projects="01_Initialization\MondoZenGLDemo01.dproj" Targets="Make"/>
+		</Target>
+		<Target Name="MondoZenGLDemo02">
+			<MSBuild Projects="02_Input\MondoZenGLDemo02.dproj"/>
+		</Target>
+		<Target Name="MondoZenGLDemo02:Clean">
+			<MSBuild Projects="02_Input\MondoZenGLDemo02.dproj" Targets="Clean"/>
+		</Target>
+		<Target Name="MondoZenGLDemo02:Make">
+			<MSBuild Projects="02_Input\MondoZenGLDemo02.dproj" Targets="Make"/>
+		</Target>
+		<Target Name="MondoZenGLDemo03">
+			<MSBuild Projects="03_Primitives_2D\MondoZenGLDemo03.dproj"/>
+		</Target>
+		<Target Name="MondoZenGLDemo03:Clean">
+			<MSBuild Projects="03_Primitives_2D\MondoZenGLDemo03.dproj" Targets="Clean"/>
+		</Target>
+		<Target Name="MondoZenGLDemo03:Make">
+			<MSBuild Projects="03_Primitives_2D\MondoZenGLDemo03.dproj" Targets="Make"/>
+		</Target>
+		<Target Name="MondoZenGLDemo04">
+			<MSBuild Projects="04_Text\MondoZenGLDemo04.dproj"/>
+		</Target>
+		<Target Name="MondoZenGLDemo04:Clean">
+			<MSBuild Projects="04_Text\MondoZenGLDemo04.dproj" Targets="Clean"/>
+		</Target>
+		<Target Name="MondoZenGLDemo04:Make">
+			<MSBuild Projects="04_Text\MondoZenGLDemo04.dproj" Targets="Make"/>
+		</Target>
+		<Target Name="MondoZenGLDemo05">
+			<MSBuild Projects="05_Sprites_2D\MondoZenGLDemo05.dproj"/>
+		</Target>
+		<Target Name="MondoZenGLDemo05:Clean">
+			<MSBuild Projects="05_Sprites_2D\MondoZenGLDemo05.dproj" Targets="Clean"/>
+		</Target>
+		<Target Name="MondoZenGLDemo05:Make">
+			<MSBuild Projects="05_Sprites_2D\MondoZenGLDemo05.dproj" Targets="Make"/>
+		</Target>
+		<Target Name="MondoZenGLDemo06">
+			<MSBuild Projects="06_SEngine_2D\MondoZenGLDemo06.dproj"/>
+		</Target>
+		<Target Name="MondoZenGLDemo06:Clean">
+			<MSBuild Projects="06_SEngine_2D\MondoZenGLDemo06.dproj" Targets="Clean"/>
+		</Target>
+		<Target Name="MondoZenGLDemo06:Make">
+			<MSBuild Projects="06_SEngine_2D\MondoZenGLDemo06.dproj" Targets="Make"/>
+		</Target>
+		<Target Name="MondoZenGLDemo08">
+			<MSBuild Projects="08_Sound\MondoZenGLDemo08.dproj"/>
+		</Target>
+		<Target Name="MondoZenGLDemo08:Clean">
+			<MSBuild Projects="08_Sound\MondoZenGLDemo08.dproj" Targets="Clean"/>
+		</Target>
+		<Target Name="MondoZenGLDemo08:Make">
+			<MSBuild Projects="08_Sound\MondoZenGLDemo08.dproj" Targets="Make"/>
+		</Target>
+		<Target Name="MondoZenGLDemo09">
+			<MSBuild Projects="09_Render_to_Texture\MondoZenGLDemo09.dproj"/>
+		</Target>
+		<Target Name="MondoZenGLDemo09:Clean">
+			<MSBuild Projects="09_Render_to_Texture\MondoZenGLDemo09.dproj" Targets="Clean"/>
+		</Target>
+		<Target Name="MondoZenGLDemo09:Make">
+			<MSBuild Projects="09_Render_to_Texture\MondoZenGLDemo09.dproj" Targets="Make"/>
+		</Target>
+		<Target Name="MondoZenGLDemo10">
+			<MSBuild Projects="10_Particles_2D\MondoZenGLDemo10.dproj"/>
+		</Target>
+		<Target Name="MondoZenGLDemo10:Clean">
+			<MSBuild Projects="10_Particles_2D\MondoZenGLDemo10.dproj" Targets="Clean"/>
+		</Target>
+		<Target Name="MondoZenGLDemo10:Make">
+			<MSBuild Projects="10_Particles_2D\MondoZenGLDemo10.dproj" Targets="Make"/>
+		</Target>
+		<Target Name="MondoZenGLDemo11">
+			<MSBuild Projects="11_Physics_2D\MondoZenGLDemo11.dproj"/>
+		</Target>
+		<Target Name="MondoZenGLDemo11:Clean">
+			<MSBuild Projects="11_Physics_2D\MondoZenGLDemo11.dproj" Targets="Clean"/>
+		</Target>
+		<Target Name="MondoZenGLDemo11:Make">
+			<MSBuild Projects="11_Physics_2D\MondoZenGLDemo11.dproj" Targets="Make"/>
+		</Target>
+		<Target Name="MondoZenGLDemoMZ01">
+			<MSBuild Projects="MZ01_Multiple_Scenes\MondoZenGLDemoMZ01.dproj"/>
+		</Target>
+		<Target Name="MondoZenGLDemoMZ01:Clean">
+			<MSBuild Projects="MZ01_Multiple_Scenes\MondoZenGLDemoMZ01.dproj" Targets="Clean"/>
+		</Target>
+		<Target Name="MondoZenGLDemoMZ01:Make">
+			<MSBuild Projects="MZ01_Multiple_Scenes\MondoZenGLDemoMZ01.dproj" Targets="Make"/>
+		</Target>
+		<Target Name="MondoZenGLDemoMZ02">
+			<MSBuild Projects="MZ02_Events\MondoZenGLDemoMZ02.dproj"/>
+		</Target>
+		<Target Name="MondoZenGLDemoMZ02:Clean">
+			<MSBuild Projects="MZ02_Events\MondoZenGLDemoMZ02.dproj" Targets="Clean"/>
+		</Target>
+		<Target Name="MondoZenGLDemoMZ02:Make">
+			<MSBuild Projects="MZ02_Events\MondoZenGLDemoMZ02.dproj" Targets="Make"/>
+		</Target>
+		<Target Name="MondoZenGLDemoMZ03">
+			<MSBuild Projects="MZ03_ZIP_Files\MondoZenGLDemoMZ03.dproj"/>
+		</Target>
+		<Target Name="MondoZenGLDemoMZ03:Clean">
+			<MSBuild Projects="MZ03_ZIP_Files\MondoZenGLDemoMZ03.dproj" Targets="Clean"/>
+		</Target>
+		<Target Name="MondoZenGLDemoMZ03:Make">
+			<MSBuild Projects="MZ03_ZIP_Files\MondoZenGLDemoMZ03.dproj" Targets="Make"/>
+		</Target>
+		<Target Name="MondoZenGLDemoMZ04">
+			<MSBuild Projects="MZ04_Chipmunk_Demos\MondoZenGLDemoMZ04.dproj"/>
+		</Target>
+		<Target Name="MondoZenGLDemoMZ04:Clean">
+			<MSBuild Projects="MZ04_Chipmunk_Demos\MondoZenGLDemoMZ04.dproj" Targets="Clean"/>
+		</Target>
+		<Target Name="MondoZenGLDemoMZ04:Make">
+			<MSBuild Projects="MZ04_Chipmunk_Demos\MondoZenGLDemoMZ04.dproj" Targets="Make"/>
+		</Target>
+		<Target Name="MondoZenGLDemoMZ05">
+			<MSBuild Projects="MZ05_Triangulation\MondoZenGLDemoMZ05.dproj"/>
+		</Target>
+		<Target Name="MondoZenGLDemoMZ05:Clean">
+			<MSBuild Projects="MZ05_Triangulation\MondoZenGLDemoMZ05.dproj" Targets="Clean"/>
+		</Target>
+		<Target Name="MondoZenGLDemoMZ05:Make">
+			<MSBuild Projects="MZ05_Triangulation\MondoZenGLDemoMZ05.dproj" Targets="Make"/>
+		</Target>
+		<Target Name="MondoZenGLDemoMZ06">
+			<MSBuild Projects="MZ06_Distortion_Mesh\MondoZenGLDemoMZ06.dproj"/>
+		</Target>
+		<Target Name="MondoZenGLDemoMZ06:Clean">
+			<MSBuild Projects="MZ06_Distortion_Mesh\MondoZenGLDemoMZ06.dproj" Targets="Clean"/>
+		</Target>
+		<Target Name="MondoZenGLDemoMZ06:Make">
+			<MSBuild Projects="MZ06_Distortion_Mesh\MondoZenGLDemoMZ06.dproj" Targets="Make"/>
+		</Target>
+		<Target Name="MondoZenGLDemoMZ07">
+			<MSBuild Projects="MZ07_Tile_Maps\MondoZenGLDemoMZ07.dproj"/>
+		</Target>
+		<Target Name="MondoZenGLDemoMZ07:Clean">
+			<MSBuild Projects="MZ07_Tile_Maps\MondoZenGLDemoMZ07.dproj" Targets="Clean"/>
+		</Target>
+		<Target Name="MondoZenGLDemoMZ07:Make">
+			<MSBuild Projects="MZ07_Tile_Maps\MondoZenGLDemoMZ07.dproj" Targets="Make"/>
+		</Target>
+		<Target Name="MondoZenGLDemoMZ08">
+			<MSBuild Projects="MZ08_Video\MondoZenGLDemoMZ08.dproj"/>
+		</Target>
+		<Target Name="MondoZenGLDemoMZ08:Clean">
+			<MSBuild Projects="MZ08_Video\MondoZenGLDemoMZ08.dproj" Targets="Clean"/>
+		</Target>
+		<Target Name="MondoZenGLDemoMZ08:Make">
+			<MSBuild Projects="MZ08_Video\MondoZenGLDemoMZ08.dproj" Targets="Make"/>
+		</Target>
+		<Target Name="Build">
+			<CallTarget Targets="MondoZenGLDemo01;MondoZenGLDemo02;MondoZenGLDemo03;MondoZenGLDemo04;MondoZenGLDemo05;MondoZenGLDemo06;MondoZenGLDemo08;MondoZenGLDemo09;MondoZenGLDemo10;MondoZenGLDemo11;MondoZenGLDemoMZ01;MondoZenGLDemoMZ02;MondoZenGLDemoMZ03;MondoZenGLDemoMZ04;MondoZenGLDemoMZ05;MondoZenGLDemoMZ06;MondoZenGLDemoMZ07;MondoZenGLDemoMZ08"/>
+		</Target>
+		<Target Name="Clean">
+			<CallTarget Targets="MondoZenGLDemo01:Clean;MondoZenGLDemo02:Clean;MondoZenGLDemo03:Clean;MondoZenGLDemo04:Clean;MondoZenGLDemo05:Clean;MondoZenGLDemo06:Clean;MondoZenGLDemo08:Clean;MondoZenGLDemo09:Clean;MondoZenGLDemo10:Clean;MondoZenGLDemo11:Clean;MondoZenGLDemoMZ01:Clean;MondoZenGLDemoMZ02:Clean;MondoZenGLDemoMZ03:Clean;MondoZenGLDemoMZ04:Clean;MondoZenGLDemoMZ05:Clean;MondoZenGLDemoMZ06:Clean;MondoZenGLDemoMZ07:Clean;MondoZenGLDemoMZ08:Clean"/>
+		</Target>
+		<Target Name="Make">
+			<CallTarget Targets="MondoZenGLDemo01:Make;MondoZenGLDemo02:Make;MondoZenGLDemo03:Make;MondoZenGLDemo04:Make;MondoZenGLDemo05:Make;MondoZenGLDemo06:Make;MondoZenGLDemo08:Make;MondoZenGLDemo09:Make;MondoZenGLDemo10:Make;MondoZenGLDemo11:Make;MondoZenGLDemoMZ01:Make;MondoZenGLDemoMZ02:Make;MondoZenGLDemoMZ03:Make;MondoZenGLDemoMZ04:Make;MondoZenGLDemoMZ05:Make;MondoZenGLDemoMZ06:Make;MondoZenGLDemoMZ07:Make;MondoZenGLDemoMZ08:Make"/>
+		</Target>
+		<Import Condition="Exists('$(BDS)\Bin\CodeGear.Group.Targets')" Project="$(BDS)\Bin\CodeGear.Group.Targets"/>
+	</Project>

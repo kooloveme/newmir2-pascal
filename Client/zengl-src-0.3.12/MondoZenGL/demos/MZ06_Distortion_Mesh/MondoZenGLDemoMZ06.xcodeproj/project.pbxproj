@@ -1,0 +1,327 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		0307C9401589402900CD7CEA /* back01.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 0307C93D1589402900CD7CEA /* back01.jpg */; };
+		0307C9411589402900CD7CEA /* font-page0.png in Resources */ = {isa = PBXBuildFile; fileRef = 0307C93E1589402900CD7CEA /* font-page0.png */; };
+		0307C9421589402900CD7CEA /* font.zfi in Resources */ = {isa = PBXBuildFile; fileRef = 0307C93F1589402900CD7CEA /* font.zfi */; };
+		030D168214E6DEAE0033A3C0 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 030D168114E6DEAE0033A3C0 /* UIKit.framework */; };
+		030D168414E6DEAE0033A3C0 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 030D168314E6DEAE0033A3C0 /* Foundation.framework */; };
+		030D168614E6DEAE0033A3C0 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 030D168514E6DEAE0033A3C0 /* CoreGraphics.framework */; };
+		030D168C14E6DEAE0033A3C0 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 030D168A14E6DEAE0033A3C0 /* InfoPlist.strings */; };
+		030D168E14E6DEAE0033A3C0 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 030D168D14E6DEAE0033A3C0 /* main.m */; };
+		030D16A414E6DEEC0033A3C0 /* ipadicon.png in Resources */ = {isa = PBXBuildFile; fileRef = 030D16A314E6DEEC0033A3C0 /* ipadicon.png */; };
+		030D16A614E6DEF10033A3C0 /* Default-Landscape~ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = 030D16A514E6DEF10033A3C0 /* Default-Landscape~ipad.png */; };
+		030D16A814E6DF7A0033A3C0 /* demo.pas in Sources */ = {isa = PBXBuildFile; fileRef = 030D16A714E6DF7A0033A3C0 /* demo.pas */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		0307C93D1589402900CD7CEA /* back01.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = back01.jpg; path = ../bin/data/back01.jpg; sourceTree = "<group>"; };
+		0307C93E1589402900CD7CEA /* font-page0.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "font-page0.png"; path = "../bin/data/font-page0.png"; sourceTree = "<group>"; };
+		0307C93F1589402900CD7CEA /* font.zfi */ = {isa = PBXFileReference; lastKnownFileType = file; name = font.zfi; path = ../bin/data/font.zfi; sourceTree = "<group>"; };
+		030D167D14E6DEAE0033A3C0 /* MondoZenGLDemoMZ06.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MondoZenGLDemoMZ06.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		030D168114E6DEAE0033A3C0 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		030D168314E6DEAE0033A3C0 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		030D168514E6DEAE0033A3C0 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		030D168914E6DEAE0033A3C0 /* MondoZenGLDemoMZ06-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "MondoZenGLDemoMZ06-Info.plist"; sourceTree = "<group>"; };
+		030D168B14E6DEAE0033A3C0 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		030D168D14E6DEAE0033A3C0 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		030D168F14E6DEAF0033A3C0 /* MondoZenGLDemoMZ06-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "MondoZenGLDemoMZ06-Prefix.pch"; sourceTree = "<group>"; };
+		030D169014E6DEAF0033A3C0 /* ReadMe.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = ReadMe.txt; sourceTree = "<group>"; };
+		030D169414E6DEAF0033A3C0 /* MondoZenGLDemoMZ06.pas */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.pascal; path = MondoZenGLDemoMZ06.pas; sourceTree = "<group>"; };
+		030D16A314E6DEEC0033A3C0 /* ipadicon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ipadicon.png; sourceTree = "<group>"; };
+		030D16A514E6DEF10033A3C0 /* Default-Landscape~ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-Landscape~ipad.png"; sourceTree = "<group>"; };
+		030D16A714E6DF7A0033A3C0 /* demo.pas */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.pascal; path = demo.pas; sourceTree = SOURCE_ROOT; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		030D167914E6DEAE0033A3C0 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				030D168214E6DEAE0033A3C0 /* UIKit.framework in Frameworks */,
+				030D168414E6DEAE0033A3C0 /* Foundation.framework in Frameworks */,
+				030D168614E6DEAE0033A3C0 /* CoreGraphics.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		030D167114E6DEAE0033A3C0 = {
+			isa = PBXGroup;
+			children = (
+				0307C93D1589402900CD7CEA /* back01.jpg */,
+				0307C93E1589402900CD7CEA /* font-page0.png */,
+				0307C93F1589402900CD7CEA /* font.zfi */,
+				030D16A514E6DEF10033A3C0 /* Default-Landscape~ipad.png */,
+				030D16A314E6DEEC0033A3C0 /* ipadicon.png */,
+				030D168714E6DEAE0033A3C0 /* MondoZenGLDemoMZ06 */,
+				030D168014E6DEAE0033A3C0 /* Frameworks */,
+				030D167E14E6DEAE0033A3C0 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		030D167E14E6DEAE0033A3C0 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				030D167D14E6DEAE0033A3C0 /* MondoZenGLDemoMZ06.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		030D168014E6DEAE0033A3C0 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				030D168114E6DEAE0033A3C0 /* UIKit.framework */,
+				030D168314E6DEAE0033A3C0 /* Foundation.framework */,
+				030D168514E6DEAE0033A3C0 /* CoreGraphics.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		030D168714E6DEAE0033A3C0 /* MondoZenGLDemoMZ06 */ = {
+			isa = PBXGroup;
+			children = (
+				030D169014E6DEAF0033A3C0 /* ReadMe.txt */,
+				030D168814E6DEAE0033A3C0 /* Supporting Files */,
+			);
+			path = MondoZenGLDemoMZ06;
+			sourceTree = "<group>";
+		};
+		030D168814E6DEAE0033A3C0 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				030D16A714E6DF7A0033A3C0 /* demo.pas */,
+				030D168914E6DEAE0033A3C0 /* MondoZenGLDemoMZ06-Info.plist */,
+				030D168A14E6DEAE0033A3C0 /* InfoPlist.strings */,
+				030D168D14E6DEAE0033A3C0 /* main.m */,
+				030D168F14E6DEAF0033A3C0 /* MondoZenGLDemoMZ06-Prefix.pch */,
+				030D169414E6DEAF0033A3C0 /* MondoZenGLDemoMZ06.pas */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		030D167C14E6DEAE0033A3C0 /* MondoZenGLDemoMZ06 */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 030D169B14E6DEAF0033A3C0 /* Build configuration list for PBXNativeTarget "MondoZenGLDemoMZ06" */;
+			buildPhases = (
+				030D167814E6DEAE0033A3C0 /* Sources */,
+				030D167914E6DEAE0033A3C0 /* Frameworks */,
+				030D167A14E6DEAE0033A3C0 /* Resources */,
+				030D167B14E6DEAE0033A3C0 /* ShellScript */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = MondoZenGLDemoMZ06;
+			productName = MondoZenGLDemoMZ06;
+			productReference = 030D167D14E6DEAE0033A3C0 /* MondoZenGLDemoMZ06.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		030D167314E6DEAE0033A3C0 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0420;
+				ORGANIZATIONNAME = N/A;
+			};
+			buildConfigurationList = 030D167614E6DEAE0033A3C0 /* Build configuration list for PBXProject "MondoZenGLDemoMZ06" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 030D167114E6DEAE0033A3C0;
+			productRefGroup = 030D167E14E6DEAE0033A3C0 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				030D167C14E6DEAE0033A3C0 /* MondoZenGLDemoMZ06 */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		030D167A14E6DEAE0033A3C0 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				030D168C14E6DEAE0033A3C0 /* InfoPlist.strings in Resources */,
+				030D16A414E6DEEC0033A3C0 /* ipadicon.png in Resources */,
+				030D16A614E6DEF10033A3C0 /* Default-Landscape~ipad.png in Resources */,
+				0307C9401589402900CD7CEA /* back01.jpg in Resources */,
+				0307C9411589402900CD7CEA /* font-page0.png in Resources */,
+				0307C9421589402900CD7CEA /* font.zfi in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		030D167B14E6DEAE0033A3C0 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "set -e\nif [ $PLATFORM_NAME = \"iphonesimulator\" ]; then\n  OUT_FILES=\"-FU$OBJECT_FILE_DIR_normal/$CURRENT_ARCH -o$BUILT_PRODUCTS_DIR/$EXECUTABLE_PATH\"\n  CMD_LINE=\"$FPC_SIM_COMPILER $FPC_COMMON $FPC_CONFIG $FPC_SIM_UNITS $FPC_SIM $OUT_FILES $FPC_MAIN_FILE\"\n  echo $CMD_LINE\n  $CMD_LINE\nelse\n  if [ \"$ARCHS\" = \"armv6\" ]; then\n    OUT_FILES=\"-FU$OBJECT_FILE_DIR_normal/armv6 -o$BUILT_PRODUCTS_DIR/$EXECUTABLE_PATH\"\n    CMD_LINE=\"$FPC_ARM_COMPILER $FPC_COMMON $FPC_CONFIG $FPC_ARM_UNITS $FPC_ARMV6 $OUT_FILES $FPC_MAIN_FILE\"\n    echo $CMD_LINE\n    $CMD_LINE\n  elif [ \"$ARCHS\" = \"armv7\" ]; then\n    OUT_FILES=\"-FU$OBJECT_FILE_DIR_normal/armv7 -o$BUILT_PRODUCTS_DIR/$EXECUTABLE_PATH\"\n    CMD_LINE=\"$FPC_ARM_COMPILER $FPC_COMMON $FPC_CONFIG $FPC_ARM_UNITS $FPC_ARMV7 $OUT_FILES $FPC_MAIN_FILE\"\n    echo $CMD_LINE\n    $CMD_LINE\n  else\n    OUT_FILES=\"-FU$OBJECT_FILE_DIR_normal/armv6 -o$OBJECT_FILE_DIR_normal/armv6/$EXECUTABLE_NAME\"\n    CMD_LINE=\"$FPC_ARM_COMPILER $FPC_COMMON $FPC_CONFIG $FPC_ARM_UNITS $FPC_ARMV6 $OUT_FILES $FPC_MAIN_FILE\"\n    echo $CMD_LINE\n    $CMD_LINE\n    OUT_FILES=\"-FU$OBJECT_FILE_DIR_normal/armv7 -o$OBJECT_FILE_DIR_normal/armv7/$EXECUTABLE_NAME\"\n    CMD_LINE=\"$FPC_ARM_COMPILER $FPC_COMMON $FPC_CONFIG $FPC_ARM_UNITS $FPC_ARMV7 $OUT_FILES $FPC_MAIN_FILE\"\n    echo $CMD_LINE\n    $CMD_LINE\n    CMD_LINE=\"/usr/bin/lipo -create $OBJECT_FILE_DIR_normal/armv6/$EXECUTABLE_NAME $OBJECT_FILE_DIR_normal/armv7/$EXECUTABLE_NAME -output $BUILT_PRODUCTS_DIR/$EXECUTABLE_PATH\"\n    echo $CMD_LINE\n    $CMD_LINE\n  fi\nfi\n/Developer/usr/bin/dsymutil --verbose $BUILT_PRODUCTS_DIR/$EXECUTABLE_PATH -o $BUILT_PRODUCTS_DIR/$PROJECT_NAME.app.dSYM";
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		030D167814E6DEAE0033A3C0 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				030D168E14E6DEAE0033A3C0 /* main.m in Sources */,
+				030D16A814E6DF7A0033A3C0 /* demo.pas in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		030D168A14E6DEAE0033A3C0 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				030D168B14E6DEAE0033A3C0 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		030D169914E6DEAF0033A3C0 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_UNIVERSAL_IPHONE_OS)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 4.0;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = 2;
+			};
+			name = Debug;
+		};
+		030D169A14E6DEAF0033A3C0 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_UNIVERSAL_IPHONE_OS)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 4.0;
+				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = 2;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		030D169C14E6DEAF0033A3C0 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMPRESS_PNG_FILES = NO;
+				FPC_ARMV6 = "-Cparmv6 -Cfvfpv2 -FD/Developer/Platforms/iPhoneOS.platform/Developer/usr/bin";
+				FPC_ARMV7 = "-Cparmv7 -Cfvfpv3 -FD/Developer/Platforms/iPhoneOS.platform/Developer/usr/bin";
+				FPC_ARM_COMPILER = /usr/local/bin/ppcarm;
+				FPC_ARM_UNITS = "-Fu$(SRCROOT)/../../../lib/jpeg/arm-darwin -Fu$(SRCROOT)/../../../lib/ogg/arm-darwin -Fu$(SRCROOT)/../../../lib/zlib/arm-darwin -Fu$(SRCROOT)/../../../lib/zip/arm-darwin -Fu$(SRCROOT)/../../../lib/chipmunk/arm-darwin";
+				FPC_COMMON = "-Mdelphi -XX -k-ios_version_min -k$(IPHONEOS_DEPLOYMENT_TARGET) -XR$(SDKROOT) -Fu$(SRCROOT)/../../../src -Fu$(SRCROOT)/../../../extra -Fu/Developer/FreePascalCompiler/iOS5/uikit-skel/src -dCHIPMUNK_STATIC -Fu$(SRCROOT)/../../src";
+				FPC_CONFIG = "-Xg -gl";
+				FPC_MAIN_FILE = "$(SRCROOT)/$(PROJECT_NAME)/$(PROJECT_NAME).pas";
+				FPC_SIM = "-Tiphonesim";
+				FPC_SIM_COMPILER = /usr/local/bin/ppc386;
+				FPC_SIM_UNITS = "-Fu$(SRCROOT)/../../../lib/jpeg/i386-iphonesim -Fu$(SRCROOT)/../../../lib/ogg/i386-iphonesim -Fu$(SRCROOT)/../../../lib/zlib/i386-iphonesim -Fu$(SRCROOT)/../../../lib/zip/i386-iphonesim -Fu$(SRCROOT)/../../../lib/chipmunk/i386-iphonesim";
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "MondoZenGLDemoMZ06/MondoZenGLDemoMZ06-Prefix.pch";
+				INFOPLIST_FILE = "MondoZenGLDemoMZ06/MondoZenGLDemoMZ06-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		030D169D14E6DEAF0033A3C0 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMPRESS_PNG_FILES = NO;
+				FPC_ARMV6 = "-Cparmv6 -Cfvfpv2 -FD/Developer/Platforms/iPhoneOS.platform/Developer/usr/bin";
+				FPC_ARMV7 = "-Cparmv7 -Cfvfpv3 -FD/Developer/Platforms/iPhoneOS.platform/Developer/usr/bin";
+				FPC_ARM_COMPILER = /usr/local/bin/ppcarm;
+				FPC_ARM_UNITS = "-Fu$(SRCROOT)/../../../lib/jpeg/arm-darwin -Fu$(SRCROOT)/../../../lib/ogg/arm-darwin -Fu$(SRCROOT)/../../../lib/zlib/arm-darwin -Fu$(SRCROOT)/../../../lib/zip/arm-darwin -Fu$(SRCROOT)/../../../lib/chipmunk/arm-darwin";
+				FPC_COMMON = "-Mdelphi -XX -k-ios_version_min -k$(IPHONEOS_DEPLOYMENT_TARGET) -XR$(SDKROOT) -Fu$(SRCROOT)/../../../src -Fu$(SRCROOT)/../../../extra -Fu/Developer/FreePascalCompiler/iOS5/uikit-skel/src -dCHIPMUNK_STATIC -Fu$(SRCROOT)/../../src";
+				FPC_CONFIG = "-O2 -XsX";
+				FPC_MAIN_FILE = "$(SRCROOT)/$(PROJECT_NAME)/$(PROJECT_NAME).pas";
+				FPC_SIM = "-Tiphonesim";
+				FPC_SIM_COMPILER = /usr/local/bin/ppc386;
+				FPC_SIM_UNITS = "-Fu$(SRCROOT)/../../../lib/jpeg/i386-iphonesim -Fu$(SRCROOT)/../../../lib/ogg/i386-iphonesim -Fu$(SRCROOT)/../../../lib/zlib/i386-iphonesim -Fu$(SRCROOT)/../../../lib/zip/i386-iphonesim -Fu$(SRCROOT)/../../../lib/chipmunk/i386-iphonesim";
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "MondoZenGLDemoMZ06/MondoZenGLDemoMZ06-Prefix.pch";
+				INFOPLIST_FILE = "MondoZenGLDemoMZ06/MondoZenGLDemoMZ06-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				VALIDATE_PRODUCT = YES;
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		030D167614E6DEAE0033A3C0 /* Build configuration list for PBXProject "MondoZenGLDemoMZ06" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				030D169914E6DEAF0033A3C0 /* Debug */,
+				030D169A14E6DEAF0033A3C0 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		030D169B14E6DEAF0033A3C0 /* Build configuration list for PBXNativeTarget "MondoZenGLDemoMZ06" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				030D169C14E6DEAF0033A3C0 /* Debug */,
+				030D169D14E6DEAF0033A3C0 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 030D167314E6DEAE0033A3C0 /* Project object */;
+}

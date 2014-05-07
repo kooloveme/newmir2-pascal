@@ -1,0 +1,54 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<BorlandProject>
+	<Transactions>
+    <Transaction>2014/04/05 18:58:37.630.bdsproj,C:\Users\kadin\Documents\RAD Studio\Projects\Project1.bdsproj=C:\Users\kadin\Documents\RAD Studio\Projects\Convert2kpp.bdsproj</Transaction>
+    <Transaction>2014/04/05 18:59:33.500.dfm,C:\Users\kadin\Documents\RAD Studio\Projects\Unit1.dfm=C:\Users\kadin\Documents\RAD Studio\Projects\main.dfm</Transaction>
+    <Transaction>2014/04/05 18:59:33.500.pas,C:\Users\kadin\Documents\RAD Studio\Projects\Unit1.pas=C:\Users\kadin\Documents\RAD Studio\Projects\main.pas</Transaction>
+    <Transaction>2014/04/05 19:00:01.494.pas,C:\Users\kadin\Documents\RAD Studio\Projects\main.pas=D:\SnakeMir2\tools\main.pas</Transaction>
+    <Transaction>2014/04/05 19:00:01.494.dfm,C:\Users\kadin\Documents\RAD Studio\Projects\main.dfm=D:\SnakeMir2\tools\main.dfm</Transaction>
+    <Transaction>2014/04/05 19:00:04.044.bdsproj,C:\Users\kadin\Documents\RAD Studio\Projects\Convert2kpp.bdsproj=D:\SnakeMir2\tools\Convert2kpp.bdsproj</Transaction>
+    <Transaction>2014/04/05 19:57:07.508.bdsproj,D:\SnakeMir2\tools\convert2kpp\Convert2kpp.bdsproj=D:\SnakeMir2\tools\convert2kpp\Convert2kpp.bdsproj</Transaction>
+    <Transaction>2014/04/05 21:10:37.017.pas,D:\SnakeMir2\tools\convert2kpp\DIB.pas=</Transaction>
+    <Transaction>2014/04/05 21:39:52.944.bdsproj,D:\SnakeMir2\tools\convert2kpp\Convert2kpp.bdsproj=D:\SnakeMir2\tools\convert2kpp\Convert2kpp.bdsproj</Transaction>
+    <Transaction>2014/04/07 15:17:59.234.pas,D:\SnakeMir2\tools\convert2kpp\Unit1.pas=D:\SnakeMir2\tools\convert2kpp\Mir2ImageFactory.pas</Transaction>
+    <Transaction>2014/04/07 15:42:22.379.pas,D:\SnakeMir2\tools\convert2kpp\mir2resources\MirShare.pas=</Transaction>
+    <Transaction>2014/04/17 20:54:06.000.753,D:\SnakeMir2\tools\convert2kpp_XE5\mir2resources\Textures.pas=</Transaction>
+    <Transaction>2014/04/17 20:57:01.000.354,=D:\SnakeMir2\tools\convert2kpp_XE5\delphix_all_in_one_12\Source\DIB.pas</Transaction>
+    <Transaction>2014/04/17 20:57:32.000.080,=D:\SnakeMir2\tools\convert2kpp_XE5\delphix_all_in_one_12\Source\DXConsts.pas</Transaction>
+    <Transaction>2014/04/17 20:57:32.000.040,=D:\SnakeMir2\tools\convert2kpp_XE5\delphix_all_in_one_12\Source\DirectX.pas</Transaction>
+    <Transaction>2014/04/17 20:57:32.000.063,=D:\SnakeMir2\tools\convert2kpp_XE5\delphix_all_in_one_12\Source\DXClass.pas</Transaction>
+    <Transaction>2014/04/17 20:57:59.000.494,=D:\SnakeMir2\Client\Texture.pas</Transaction>
+    <Transaction>2014/04/17 21:31:20.000.015,=D:\SnakeMir2\tools\convert2kpp_XE5\Unit1.pas</Transaction>
+    <Transaction>2014/04/17 21:34:47.000.053,D:\SnakeMir2\tools\convert2kpp_XE5\Convert.pas=D:\SnakeMir2\tools\convert2kpp_XE5\Unit1.pas</Transaction>
+  </Transactions>
+	<ProjectSortOrder AutoSort="0" SortType="0">
+    <File Path="D:\SnakeMir2"/>
+    <File Path="..\..\Client"/>
+    <File Path="..\..\Client\Texture.pas"/>
+    <File Path="delphix_all_in_one_12"/>
+    <File Path="delphix_all_in_one_12\Source"/>
+    <File Path="delphix_all_in_one_12\Source\DIB.pas"/>
+    <File Path="delphix_all_in_one_12\Source\DirectX.pas"/>
+    <File Path="delphix_all_in_one_12\Source\DXClass.pas"/>
+    <File Path="delphix_all_in_one_12\Source\DXConsts.pas"/>
+    <File Path="mir2resources"/>
+    <File Path="mir2resources\CompressUnit.pas"/>
+    <File Path="mir2resources\CompressUnit1.pas"/>
+    <File Path="mir2resources\GameImages.pas"/>
+    <File Path="mir2resources\HUtil32.pas"/>
+    <File Path="mir2resources\MapFiles.pas"/>
+    <File Path="mir2resources\Wil.pas"/>
+    <File Path="mir2resources\Wis.pas"/>
+    <File Path="mir2resources\wmUtil.pas"/>
+    <File Path="mir2resources\Wzl.pas"/>
+    <File Path="ModelSupport_Convert2kpp"/>
+    <File Path="ModelSupport_Convert2kpp\default.txaPackage"/>
+    <File Path="ZLib"/>
+    <File Path="ZLib\ZLibEx.pas"/>
+    <File Path="ZLib\zLibx.pas"/>
+    <File Path="main.pas"/>
+    <File Path="main.dfm"/>
+    <File Path="Mir2ImageFactory.pas"/>
+    <File Path="Convert.pas"/>
+  </ProjectSortOrder>
+</BorlandProject>

@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CONFIG>
+  <Compiler Value="C:\lazarus\fpc\2.6.2\bin\i386-win32\fpc.exe" Date="1146920661"/>
+  <Params Value=" -MDelphi -Scaghi -O1 -gs -gl -XX -WG -vewnhi -FiD:\SnakeMir2\Client\zengl-src-0.3.12\MondoZenGL\demos\units\i386-win32 -FuD:\SnakeMir2\Client\zengl-src-0.3.12\MondoZenGL\src -FuD:\SnakeMir2\Client\zengl-src-0.3.12\headers -FuD:\SnakeMir2\Client\zengl-src-0.3.12\extra -FuD:\SnakeMir2\Client\zengl-src-0.3.12\src -FuD:\SnakeMir2\Client\zengl-src-0.3.12\lib\jpeg\i386-win32 -FuD:\SnakeMir2\Client\zengl-src-0.3.12\lib\msvcrt\i386 -FuD:\SnakeMir2\Client\zengl-src-0.3.12\lib\ogg\i386-win32 -FuD:\SnakeMir2\Client\zengl-src-0.3.12\lib\theora\i386-win32 -FuD:\SnakeMir2\Client\zengl-src-0.3.12\lib\zlib\i386-win32 -FuD:\SnakeMir2\Client\zengl-src-0.3.12\lib\zip\i386-win32 -FuD:\SnakeMir2\Client\zengl-src-0.3.12\MondoZenGL\demos\06_SEngine_2D\ -FUD:\SnakeMir2\Client\zengl-src-0.3.12\MondoZenGL\demos\units\i386-win32\ -l -vm5024 -FED:\SnakeMir2\Client\zengl-src-0.3.12\MondoZenGL\demos\bin\i386\ -dMEMCHECK MondoZenGLDemo06.lpr"/>
+</CONFIG>

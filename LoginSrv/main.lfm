@@ -1,0 +1,88 @@
+object MainForm: TMainForm
+  Left = 776
+  Height = 186
+  Top = 209
+  Width = 293
+  Caption = 'LoginSrv'
+  ClientHeight = 166
+  ClientWidth = 293
+  Menu = MMenu
+  OnCreate = FormCreate
+  LCLVersion = '1.2.0.3'
+  object stat: TStatusBar
+    Left = 0
+    Height = 22
+    Top = 144
+    Width = 293
+    Panels = <>
+  end
+  object LogMemo: TMemo
+    Left = 0
+    Height = 144
+    Top = 0
+    Width = 293
+    Align = alClient
+    ScrollBars = ssBoth
+    TabOrder = 1
+  end
+  object MMenu: TMainMenu
+    left = 8
+    top = 8
+    object Mitem_Server: TMenuItem
+      Caption = '服务'
+      OnClick = Mitem_ServerClick
+      object MI_ServerStart: TMenuItem
+        Caption = '开启服务'
+        OnClick = MI_ServerStartClick
+      end
+      object MI_StopServer: TMenuItem
+        Caption = '停止服务'
+        OnClick = MI_StopServerClick
+      end
+    end
+    object MI_Config: TMenuItem
+      Caption = '设置'
+      OnClick = MI_ConfigClick
+      object MI_Option: TMenuItem
+        Caption = '服务设置'
+        OnClick = MI_OptionClick
+      end
+    end
+    object Mi_DB: TMenuItem
+      Caption = '数据管理'
+      object Mi_Account: TMenuItem
+        Caption = '账户管理'
+        OnClick = Mi_AccountClick
+      end
+    end
+  end
+  object ZConnection1: TZConnection
+    ControlsCodePage = cCP_UTF8
+    AutoEncodeStrings = False
+    Properties.Strings = (
+      'AutoEncodeStrings=ON'
+      'controls_cp=CP_UTF8'
+    )
+    BeforeConnect = ZConnection1BeforeConnect
+    AfterConnect = ZConnection1AfterConnect
+    AfterDisconnect = ZConnection1AfterDisconnect
+    Port = 3050
+    User = 'SYSDBA'
+    Password = 'masterkey'
+    Protocol = 'firebird-2.5'
+    left = 104
+    top = 8
+  end
+  object ZQuery1: TZQuery
+    Connection = ZConnection1
+    Params = <>
+    left = 48
+    top = 8
+  end
+  object ZStoredProc1: TZStoredProc
+    Connection = ZConnection1
+    Params = <>
+    left = 160
+    top = 8
+  end
+end

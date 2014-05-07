@@ -1,0 +1,504 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CONFIG>
+  <ProjectSession>
+    <PathDelim Value="\"/>
+    <Version Value="9"/>
+    <BuildModes Active="Default"/>
+    <Units Count="41">
+      <Unit0>
+        <Filename Value="LoginSrv.lpr"/>
+        <IsPartOfProject Value="True"/>
+        <UnitName Value="LoginSrv"/>
+        <EditorIndex Value="2"/>
+        <WindowIndex Value="0"/>
+        <TopLine Value="1"/>
+        <CursorPos X="14" Y="12"/>
+        <UsageCount Value="76"/>
+        <Loaded Value="True"/>
+      </Unit0>
+      <Unit1>
+        <Filename Value="main.pas"/>
+        <IsPartOfProject Value="True"/>
+        <ComponentName Value="MainForm"/>
+        <HasResources Value="True"/>
+        <ResourceBaseClass Value="Form"/>
+        <UnitName Value="Main"/>
+        <EditorIndex Value="7"/>
+        <WindowIndex Value="0"/>
+        <TopLine Value="87"/>
+        <CursorPos X="77" Y="104"/>
+        <UsageCount Value="76"/>
+        <Loaded Value="True"/>
+        <LoadedDesigner Value="True"/>
+      </Unit1>
+      <Unit2>
+        <Filename Value="ufrmconfig.pas"/>
+        <IsPartOfProject Value="True"/>
+        <ComponentName Value="FrmConfig"/>
+        <HasResources Value="True"/>
+        <ResourceBaseClass Value="Form"/>
+        <UnitName Value="ufrmConfig"/>
+        <IsVisibleTab Value="True"/>
+        <EditorIndex Value="5"/>
+        <WindowIndex Value="0"/>
+        <TopLine Value="46"/>
+        <CursorPos X="51" Y="63"/>
+        <UsageCount Value="47"/>
+        <Loaded Value="True"/>
+        <LoadedDesigner Value="True"/>
+      </Unit2>
+      <Unit3>
+        <Filename Value="loginsrvconfig.pas"/>
+        <IsPartOfProject Value="True"/>
+        <UnitName Value="LoginSrvConfig"/>
+        <EditorIndex Value="6"/>
+        <WindowIndex Value="0"/>
+        <TopLine Value="42"/>
+        <CursorPos X="74" Y="74"/>
+        <UsageCount Value="43"/>
+        <Loaded Value="True"/>
+      </Unit3>
+      <Unit4>
+        <Filename Value="ufrmdb.pas"/>
+        <IsPartOfProject Value="True"/>
+        <ComponentName Value="frmDB"/>
+        <HasResources Value="True"/>
+        <ResourceBaseClass Value="Form"/>
+        <UnitName Value="ufrmDB"/>
+        <EditorIndex Value="0"/>
+        <WindowIndex Value="0"/>
+        <TopLine Value="21"/>
+        <CursorPos X="10" Y="44"/>
+        <UsageCount Value="37"/>
+        <Loaded Value="True"/>
+      </Unit4>
+      <Unit5>
+        <Filename Value="AccountDB.pas"/>
+        <IsPartOfProject Value="True"/>
+        <UnitName Value="AccountDB"/>
+        <EditorIndex Value="3"/>
+        <WindowIndex Value="0"/>
+        <TopLine Value="92"/>
+        <CursorPos X="15" Y="101"/>
+        <UsageCount Value="25"/>
+        <Loaded Value="True"/>
+      </Unit5>
+      <Unit6>
+        <Filename Value="LoginServer.pas"/>
+        <IsPartOfProject Value="True"/>
+        <UnitName Value="LoginServer"/>
+        <EditorIndex Value="1"/>
+        <WindowIndex Value="0"/>
+        <TopLine Value="10"/>
+        <CursorPos X="37" Y="47"/>
+        <UsageCount Value="25"/>
+        <Loaded Value="True"/>
+      </Unit6>
+      <Unit7>
+        <Filename Value="unit1.pas"/>
+        <UnitName Value="Unit1"/>
+        <WindowIndex Value="0"/>
+        <TopLine Value="1"/>
+        <CursorPos X="1" Y="1"/>
+        <UsageCount Value="20"/>
+      </Unit7>
+      <Unit8>
+        <Filename Value="LoginSrv.pas"/>
+        <UnitName Value="LoginSrv"/>
+        <WindowIndex Value="0"/>
+        <TopLine Value="19"/>
+        <CursorPos X="1" Y="1"/>
+        <UsageCount Value="20"/>
+      </Unit8>
+      <Unit9>
+        <Filename Value="netserver.pas"/>
+        <UnitName Value="NetServer"/>
+        <WindowIndex Value="0"/>
+        <TopLine Value="10"/>
+        <CursorPos X="36" Y="20"/>
+        <UsageCount Value="37"/>
+      </Unit9>
+      <Unit10>
+        <Filename Value="Account.pas"/>
+        <UnitName Value="Account"/>
+        <WindowIndex Value="0"/>
+        <TopLine Value="13"/>
+        <CursorPos X="20" Y="40"/>
+        <UsageCount Value="62"/>
+      </Unit10>
+      <Unit11>
+        <Filename Value="xmlfile.pas"/>
+        <UnitName Value="XMLFile"/>
+        <WindowIndex Value="0"/>
+        <TopLine Value="91"/>
+        <CursorPos X="14" Y="108"/>
+        <UsageCount Value="26"/>
+      </Unit11>
+      <Unit12>
+        <Filename Value="shareconfig.pas"/>
+        <UnitName Value="ShareConfig"/>
+        <WindowIndex Value="0"/>
+        <TopLine Value="1"/>
+        <CursorPos X="21" Y="8"/>
+        <UsageCount Value="35"/>
+      </Unit12>
+      <Unit13>
+        <Filename Value="C:\lazarus\lcl\forms.pp"/>
+        <UnitName Value="Forms"/>
+        <WindowIndex Value="0"/>
+        <TopLine Value="1355"/>
+        <CursorPos X="15" Y="1365"/>
+        <UsageCount Value="14"/>
+      </Unit13>
+      <Unit14>
+        <Filename Value="database.pas"/>
+        <UnitName Value="DataBase"/>
+        <WindowIndex Value="0"/>
+        <TopLine Value="1"/>
+        <CursorPos X="13" Y="1"/>
+        <UsageCount Value="17"/>
+      </Unit14>
+      <Unit15>
+        <Filename Value="..\Lib\ZEOSDBO-7.1.3a-stable\src\component\ZDataset.pas"/>
+        <UnitName Value="ZDataset"/>
+        <WindowIndex Value="0"/>
+        <TopLine Value="82"/>
+        <CursorPos X="24" Y="83"/>
+        <UsageCount Value="14"/>
+        <DefaultSyntaxHighlighter Value="Delphi"/>
+      </Unit15>
+      <Unit16>
+        <Filename Value="..\Lib\ZEOSDBO-7.1.3a-stable\src\component\ZAbstractDataset.pas"/>
+        <UnitName Value="ZAbstractDataset"/>
+        <WindowIndex Value="0"/>
+        <TopLine Value="73"/>
+        <CursorPos X="3" Y="83"/>
+        <UsageCount Value="16"/>
+        <DefaultSyntaxHighlighter Value="Delphi"/>
+      </Unit16>
+      <Unit17>
+        <Filename Value="..\Lib\ZEOSDBO-7.1.3a-stable\src\component\ZAbstractRODataset.pas"/>
+        <UnitName Value="ZAbstractRODataset"/>
+        <WindowIndex Value="0"/>
+        <TopLine Value="106"/>
+        <CursorPos X="21" Y="119"/>
+        <UsageCount Value="17"/>
+        <DefaultSyntaxHighlighter Value="Delphi"/>
+      </Unit17>
+      <Unit18>
+        <Filename Value="C:\lazarus\fpc\2.6.2\source\packages\fcl-db\src\base\db.pas"/>
+        <UnitName Value="db"/>
+        <WindowIndex Value="0"/>
+        <TopLine Value="1109"/>
+        <CursorPos X="9" Y="1115"/>
+        <UsageCount Value="25"/>
+      </Unit18>
+      <Unit19>
+        <Filename Value="C:\lazarus\fpc\2.6.2\source\rtl\objpas\sysutils\sysstrh.inc"/>
+        <WindowIndex Value="0"/>
+        <TopLine Value="115"/>
+        <CursorPos X="10" Y="125"/>
+        <UsageCount Value="14"/>
+      </Unit19>
+      <Unit20>
+        <Filename Value="C:\lazarus\fpc\2.6.2\source\rtl\objpas\sysutils\sysinth.inc"/>
+        <WindowIndex Value="0"/>
+        <TopLine Value="14"/>
+        <CursorPos X="3" Y="33"/>
+        <UsageCount Value="14"/>
+      </Unit20>
+      <Unit21>
+        <Filename Value="..\Lib\ZEOSDBO-7.1.3a-stable\src\dbc\ZDbcInterbase6Utils.pas"/>
+        <UnitName Value="ZDbcInterbase6Utils"/>
+        <WindowIndex Value="0"/>
+        <TopLine Value="828"/>
+        <CursorPos X="1" Y="837"/>
+        <UsageCount Value="17"/>
+        <DefaultSyntaxHighlighter Value="Delphi"/>
+      </Unit21>
+      <Unit22>
+        <Filename Value="..\Lib\ZEOSDBO-7.1.3a-stable\src\dbc\ZDbcInterbase6Statement.pas"/>
+        <UnitName Value="ZDbcInterbase6Statement"/>
+        <WindowIndex Value="0"/>
+        <TopLine Value="636"/>
+        <CursorPos X="1" Y="646"/>
+        <UsageCount Value="17"/>
+        <DefaultSyntaxHighlighter Value="Delphi"/>
+      </Unit22>
+      <Unit23>
+        <Filename Value="C:\lazarus\lcl\include\control.inc"/>
+        <WindowIndex Value="0"/>
+        <TopLine Value="2700"/>
+        <CursorPos X="1" Y="2713"/>
+        <UsageCount Value="17"/>
+      </Unit23>
+      <Unit24>
+        <Filename Value="C:\lazarus\lcl\include\buttoncontrol.inc"/>
+        <WindowIndex Value="0"/>
+        <TopLine Value="11"/>
+        <CursorPos X="1" Y="16"/>
+        <UsageCount Value="17"/>
+      </Unit24>
+      <Unit25>
+        <Filename Value="C:\lazarus\lcl\include\buttons.inc"/>
+        <WindowIndex Value="0"/>
+        <TopLine Value="334"/>
+        <CursorPos X="1" Y="350"/>
+        <UsageCount Value="17"/>
+      </Unit25>
+      <Unit26>
+        <Filename Value="C:\lazarus\lcl\include\wincontrol.inc"/>
+        <WindowIndex Value="0"/>
+        <TopLine Value="5319"/>
+        <CursorPos X="1" Y="5328"/>
+        <UsageCount Value="17"/>
+      </Unit26>
+      <Unit27>
+        <Filename Value="C:\lazarus\lcl\lclmessageglue.pas"/>
+        <UnitName Value="LCLMessageGlue"/>
+        <WindowIndex Value="0"/>
+        <TopLine Value="110"/>
+        <CursorPos X="4" Y="123"/>
+        <UsageCount Value="17"/>
+      </Unit27>
+      <Unit28>
+        <Filename Value="C:\lazarus\lcl\interfaces\win32\win32callback.inc"/>
+        <WindowIndex Value="0"/>
+        <TopLine Value="2616"/>
+        <CursorPos X="1" Y="2632"/>
+        <UsageCount Value="17"/>
+      </Unit28>
+      <Unit29>
+        <Filename Value="C:\lazarus\lcl\interfaces\win32\win32wsforms.pp"/>
+        <UnitName Value="Win32WSForms"/>
+        <WindowIndex Value="0"/>
+        <TopLine Value="305"/>
+        <CursorPos X="1" Y="316"/>
+        <UsageCount Value="17"/>
+      </Unit29>
+      <Unit30>
+        <Filename Value="C:\lazarus\fpc\2.6.2\source\rtl\objpas\sysutils\sysutilh.inc"/>
+        <WindowIndex Value="0"/>
+        <TopLine Value="79"/>
+        <CursorPos X="4" Y="101"/>
+        <UsageCount Value="16"/>
+      </Unit30>
+      <Unit31>
+        <Filename Value="C:\lazarus\components\lazutils\laz2_xmlread.pas"/>
+        <UnitName Value="laz2_XMLRead"/>
+        <WindowIndex Value="0"/>
+        <TopLine Value="1479"/>
+        <CursorPos X="1" Y="1510"/>
+        <UsageCount Value="11"/>
+      </Unit31>
+      <Unit32>
+        <Filename Value="C:\lazarus\fpc\2.6.2\source\rtl\objpas\sysutils\datih.inc"/>
+        <WindowIndex Value="0"/>
+        <TopLine Value="131"/>
+        <CursorPos X="10" Y="141"/>
+        <UsageCount Value="11"/>
+      </Unit32>
+      <Unit33>
+        <Filename Value="..\Lib\lnet\lib\lnet.pp"/>
+        <UnitName Value="lNet"/>
+        <WindowIndex Value="0"/>
+        <TopLine Value="190"/>
+        <CursorPos X="2" Y="222"/>
+        <UsageCount Value="16"/>
+      </Unit33>
+      <Unit34>
+        <Filename Value="..\Lib\lnet\lazaruspackage\lnetcomponents.pas"/>
+        <UnitName Value="lNetComponents"/>
+        <WindowIndex Value="0"/>
+        <TopLine Value="35"/>
+        <CursorPos X="17" Y="53"/>
+        <UsageCount Value="16"/>
+      </Unit34>
+      <Unit35>
+        <Filename Value="C:\lazarus\lcl\dbgrids.pas"/>
+        <UnitName Value="DBGrids"/>
+        <WindowIndex Value="0"/>
+        <TopLine Value="508"/>
+        <CursorPos X="14" Y="517"/>
+        <UsageCount Value="14"/>
+      </Unit35>
+      <Unit36>
+        <Filename Value="C:\lazarus\lcl\controls.pp"/>
+        <UnitName Value="Controls"/>
+        <WindowIndex Value="0"/>
+        <TopLine Value="146"/>
+        <CursorPos X="63" Y="157"/>
+        <UsageCount Value="13"/>
+      </Unit36>
+      <Unit37>
+        <Filename Value="C:\lazarus\fpc\2.6.2\source\rtl\objpas\classes\classesh.inc"/>
+        <EditorIndex Value="4"/>
+        <WindowIndex Value="0"/>
+        <TopLine Value="1585"/>
+        <CursorPos X="17" Y="1602"/>
+        <UsageCount Value="14"/>
+        <Loaded Value="True"/>
+      </Unit37>
+      <Unit38>
+        <Filename Value="..\Lib\ZEOSDBO-7.1.3a-stable\src\component\ZStoredProcedure.pas"/>
+        <UnitName Value="ZStoredProcedure"/>
+        <WindowIndex Value="0"/>
+        <TopLine Value="88"/>
+        <CursorPos X="15" Y="68"/>
+        <UsageCount Value="12"/>
+        <DefaultSyntaxHighlighter Value="Delphi"/>
+      </Unit38>
+      <Unit39>
+        <Filename Value="C:\lazarus\fpc\2.6.2\source\rtl\inc\objpash.inc"/>
+        <WindowIndex Value="0"/>
+        <TopLine Value="182"/>
+        <CursorPos X="23" Y="192"/>
+        <UsageCount Value="10"/>
+      </Unit39>
+      <Unit40>
+        <Filename Value="..\Lib\ZEOSDBO-7.1.3a-stable\src\component\ZAbstractConnection.pas"/>
+        <UnitName Value="ZAbstractConnection"/>
+        <EditorIndex Value="8"/>
+        <WindowIndex Value="0"/>
+        <TopLine Value="272"/>
+        <CursorPos X="14" Y="280"/>
+        <UsageCount Value="11"/>
+        <Loaded Value="True"/>
+        <DefaultSyntaxHighlighter Value="Delphi"/>
+      </Unit40>
+    </Units>
+    <General>
+      <ActiveWindowIndexAtStart Value="0"/>
+    </General>
+    <JumpHistory Count="30" HistoryIndex="29">
+      <Position1>
+        <Filename Value="ufrmconfig.pas"/>
+        <Caret Line="50" Column="1" TopLine="46"/>
+      </Position1>
+      <Position2>
+        <Filename Value="ufrmconfig.pas"/>
+        <Caret Line="49" Column="1" TopLine="45"/>
+      </Position2>
+      <Position3>
+        <Filename Value="main.pas"/>
+        <Caret Line="29" Column="32" TopLine="14"/>
+      </Position3>
+      <Position4>
+        <Filename Value="main.pas"/>
+        <Caret Line="99" Column="33" TopLine="92"/>
+      </Position4>
+      <Position5>
+        <Filename Value="main.pas"/>
+        <Caret Line="100" Column="33" TopLine="93"/>
+      </Position5>
+      <Position6>
+        <Filename Value="LoginServer.pas"/>
+        <Caret Line="92" Column="7" TopLine="71"/>
+      </Position6>
+      <Position7>
+        <Filename Value="LoginServer.pas"/>
+        <Caret Line="28" Column="31" TopLine="18"/>
+      </Position7>
+      <Position8>
+        <Filename Value="LoginServer.pas"/>
+        <Caret Line="26" Column="39" TopLine="16"/>
+      </Position8>
+      <Position9>
+        <Filename Value="LoginServer.pas"/>
+        <Caret Line="25" Column="36" TopLine="15"/>
+      </Position9>
+      <Position10>
+        <Filename Value="LoginServer.pas"/>
+        <Caret Line="59" Column="20" TopLine="49"/>
+      </Position10>
+      <Position11>
+        <Filename Value="AccountDB.pas"/>
+        <Caret Line="58" Column="31" TopLine="47"/>
+      </Position11>
+      <Position12>
+        <Filename Value="AccountDB.pas"/>
+        <Caret Line="8" Column="21" TopLine="1"/>
+      </Position12>
+      <Position13>
+        <Filename Value="LoginServer.pas"/>
+        <Caret Line="65" Column="103" TopLine="37"/>
+      </Position13>
+      <Position14>
+        <Filename Value="AccountDB.pas"/>
+        <Caret Line="98" Column="24" TopLine="76"/>
+      </Position14>
+      <Position15>
+        <Filename Value="main.pas"/>
+        <Caret Line="107" Column="21" TopLine="97"/>
+      </Position15>
+      <Position16>
+        <Filename Value="main.pas"/>
+        <Caret Line="10" Column="42" TopLine="1"/>
+      </Position16>
+      <Position17>
+        <Filename Value="LoginServer.pas"/>
+        <Caret Line="66" Column="48" TopLine="55"/>
+      </Position17>
+      <Position18>
+        <Filename Value="main.pas"/>
+        <Caret Line="9" Column="63" TopLine="1"/>
+      </Position18>
+      <Position19>
+        <Filename Value="ufrmconfig.pas"/>
+        <Caret Line="53" Column="28" TopLine="53"/>
+      </Position19>
+      <Position20>
+        <Filename Value="ufrmconfig.pas"/>
+        <Caret Line="65" Column="7" TopLine="55"/>
+      </Position20>
+      <Position21>
+        <Filename Value="main.pas"/>
+        <Caret Line="53" Column="13" TopLine="32"/>
+      </Position21>
+      <Position22>
+        <Filename Value="AccountDB.pas"/>
+        <Caret Line="74" Column="16" TopLine="60"/>
+      </Position22>
+      <Position23>
+        <Filename Value="LoginServer.pas"/>
+        <Caret Line="66" Column="30" TopLine="56"/>
+      </Position23>
+      <Position24>
+        <Filename Value="AccountDB.pas"/>
+        <Caret Line="55" Column="40" TopLine="37"/>
+      </Position24>
+      <Position25>
+        <Filename Value="AccountDB.pas"/>
+        <Caret Line="76" Column="23" TopLine="43"/>
+      </Position25>
+      <Position26>
+        <Filename Value="loginsrvconfig.pas"/>
+        <Caret Line="25" Column="57" TopLine="10"/>
+      </Position26>
+      <Position27>
+        <Filename Value="loginsrvconfig.pas"/>
+        <Caret Line="62" Column="59" TopLine="51"/>
+      </Position27>
+      <Position28>
+        <Filename Value="AccountDB.pas"/>
+        <Caret Line="101" Column="22" TopLine="80"/>
+      </Position28>
+      <Position29>
+        <Filename Value="ufrmconfig.pas"/>
+        <Caret Line="77" Column="39" TopLine="55"/>
+      </Position29>
+      <Position30>
+        <Filename Value="main.pas"/>
+        <Caret Line="102" Column="61" TopLine="75"/>
+      </Position30>
+    </JumpHistory>
+  </ProjectSession>
+  <Debugging>
+    <Watches Count="1">
+      <Item1>
+        <Expression Value="SQL"/>
+      </Item1>
+    </Watches>
+  </Debugging>
+  <EditorMacros Count="0"/>
+</CONFIG>

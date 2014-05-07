@@ -1,0 +1,11 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<BorlandProject>
+	<Transactions>
+    <Transaction>2014/04/06 22:14:32.507.bdsproj,C:\Users\kadin\Documents\RAD Studio\Projects\Project2.bdsproj=C:\Users\kadin\Documents\RAD Studio\Projects\TestKpp.bdsproj</Transaction>
+    <Transaction>2014/04/06 22:14:41.798.dfm,C:\Users\kadin\Documents\RAD Studio\Projects\Unit2.dfm=C:\Users\kadin\Documents\RAD Studio\Projects\Main.dfm</Transaction>
+    <Transaction>2014/04/06 22:14:41.798.pas,C:\Users\kadin\Documents\RAD Studio\Projects\Unit2.pas=C:\Users\kadin\Documents\RAD Studio\Projects\Main.pas</Transaction>
+    <Transaction>2014/04/06 22:18:10.905.dfm,C:\Users\kadin\Documents\RAD Studio\Projects\Main.dfm=D:\SnakeMir2\Client\Resource\TestKpp\Main.dfm</Transaction>
+    <Transaction>2014/04/06 22:18:10.905.pas,C:\Users\kadin\Documents\RAD Studio\Projects\Main.pas=D:\SnakeMir2\Client\Resource\TestKpp\Main.pas</Transaction>
+    <Transaction>2014/04/06 22:18:12.133.bdsproj,C:\Users\kadin\Documents\RAD Studio\Projects\TestKpp.bdsproj=D:\SnakeMir2\Client\Resource\TestKpp\TestKpp.bdsproj</Transaction>
+  </Transactions>
+</BorlandProject>
