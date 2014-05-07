@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CONFIG>
+  <Compiler Value="C:\lazarus\fpc\2.6.2\bin\i386-win32\fpc.exe" Date="1146920661"/>
+  <Params Value=" -MDelphi -Scghi -CX -O3 -Xs -XX -WG -vewi -FiD:\SnakeMir2\Client\zengui-0.1a\tools\GuiEditor\tmp\editor\i386-win32 -FiD:\SnakeMir2\Client\src -FuD:\SnakeMir2\Client\src -FuD:\SnakeMir2\Client\zengui-0.1a\src -FuD:\SnakeMir2\Client\lib\jpeg\i386-win32 -FuD:\SnakeMir2\Client\lib\ogg\i386-win32 -FuD:\SnakeMir2\Client\lib\theora\i386-win32 -FuD:\SnakeMir2\Client\lib\zlib\i386-win32 -FuD:\SnakeMir2\Client\lib\zip\i386-win32 -FuD:\SnakeMir2\Client\lib\msvcrt\i386 -FuC:\lazarus\components\ideintf\units\i386-win32\win32 -FuC:\lazarus\components\lazcontrols\lib\i386-win32\win32 -FuC:\lazarus\lcl\units\i386-win32\win32 -FuC:\lazarus\lcl\units\i386-win32 -FuC:\lazarus\components\lazutils\lib\i386-win32 -FuC:\lazarus\packager\units\i386-win32 -FuD:\SnakeMir2\Client\zengui-0.1a\tools\GuiEditor\Lazarus\ -FUD:\SnakeMir2\Client\zengui-0.1a\tools\GuiEditor\tmp\editor\i386-win32\ -l -FED:\SnakeMir2\Client\zengui-0.1a\bin\ -dLCL -dLCLwin32 -dGUI_USE_ALL -dGUI_USE_EDITOR -dSTATIC -Xd GuiEditor.lpr"/>
+  <Complete Value="False"/>
+</CONFIG>

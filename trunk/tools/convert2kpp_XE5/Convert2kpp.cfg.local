@@ -1,0 +1,12 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<BorlandProject>
+  <Transactions>
+    <Transaction>2014/04/05 18:58:37.630.bdsproj,C:\Users\kadin\Documents\RAD Studio\Projects\Project1.bdsproj=C:\Users\kadin\Documents\RAD Studio\Projects\Convert2kpp.bdsproj</Transaction>
+    <Transaction>2014/04/05 18:59:33.500.pas,C:\Users\kadin\Documents\RAD Studio\Projects\Unit1.pas=C:\Users\kadin\Documents\RAD Studio\Projects\main.pas</Transaction>
+    <Transaction>2014/04/05 18:59:33.500.dfm,C:\Users\kadin\Documents\RAD Studio\Projects\Unit1.dfm=C:\Users\kadin\Documents\RAD Studio\Projects\main.dfm</Transaction>
+    <Transaction>2014/04/05 19:00:01.494.pas,C:\Users\kadin\Documents\RAD Studio\Projects\main.pas=D:\SnakeMir2\tools\main.pas</Transaction>
+    <Transaction>2014/04/05 19:00:01.494.dfm,C:\Users\kadin\Documents\RAD Studio\Projects\main.dfm=D:\SnakeMir2\tools\main.dfm</Transaction>
+    <Transaction>2014/04/05 19:00:04.044.bdsproj,C:\Users\kadin\Documents\RAD Studio\Projects\Convert2kpp.bdsproj=D:\SnakeMir2\tools\Convert2kpp.bdsproj</Transaction>
+    <Transaction>2014/04/05 19:01:41.930.bdsproj,D:\SnakeMir2\tools\Convert2kpp.bdsproj=D:\SnakeMir2\tools\convert2kpp\Convert2kpp.cfg</Transaction>
+  </Transactions>
+</BorlandProject>

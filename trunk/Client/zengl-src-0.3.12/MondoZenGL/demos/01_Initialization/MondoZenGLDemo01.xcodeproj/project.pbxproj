@@ -1,0 +1,317 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		03EE939F14DEE0D80071438F /* ipadicon.png in Resources */ = {isa = PBXBuildFile; fileRef = 03EE939E14DEE0D80071438F /* ipadicon.png */; };
+		03EE93A114DEE0E30071438F /* Default-Landscape~ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = 03EE93A014DEE0E30071438F /* Default-Landscape~ipad.png */; };
+		EA95FE5214DB325A003F32CD /* demo.pas in Sources */ = {isa = PBXBuildFile; fileRef = EA95FE5114DB325A003F32CD /* demo.pas */; };
+		EAEA815714D9E71F00DB790A /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EAEA815614D9E71F00DB790A /* UIKit.framework */; };
+		EAEA815914D9E71F00DB790A /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EAEA815814D9E71F00DB790A /* Foundation.framework */; };
+		EAEA815B14D9E71F00DB790A /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EAEA815A14D9E71F00DB790A /* CoreGraphics.framework */; };
+		EAEA816114D9E71F00DB790A /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = EAEA815F14D9E71F00DB790A /* InfoPlist.strings */; };
+		EAEA816314D9E71F00DB790A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = EAEA816214D9E71F00DB790A /* main.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		03EE939E14DEE0D80071438F /* ipadicon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ipadicon.png; sourceTree = "<group>"; };
+		03EE93A014DEE0E30071438F /* Default-Landscape~ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-Landscape~ipad.png"; sourceTree = "<group>"; };
+		EA95FE5114DB325A003F32CD /* demo.pas */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.pascal; path = demo.pas; sourceTree = SOURCE_ROOT; };
+		EAEA815214D9E71F00DB790A /* MondoZenGLDemo01.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MondoZenGLDemo01.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		EAEA815614D9E71F00DB790A /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		EAEA815814D9E71F00DB790A /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		EAEA815A14D9E71F00DB790A /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		EAEA815E14D9E71F00DB790A /* MondoZenGLDemo01-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "MondoZenGLDemo01-Info.plist"; sourceTree = "<group>"; };
+		EAEA816014D9E71F00DB790A /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		EAEA816214D9E71F00DB790A /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		EAEA816414D9E71F00DB790A /* MondoZenGLDemo01-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "MondoZenGLDemo01-Prefix.pch"; sourceTree = "<group>"; };
+		EAEA816514D9E71F00DB790A /* ReadMe.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = ReadMe.txt; sourceTree = "<group>"; };
+		EAEA816914D9E71F00DB790A /* MondoZenGLDemo01.pas */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.pascal; path = MondoZenGLDemo01.pas; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		EAEA814E14D9E71F00DB790A /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				EAEA815714D9E71F00DB790A /* UIKit.framework in Frameworks */,
+				EAEA815914D9E71F00DB790A /* Foundation.framework in Frameworks */,
+				EAEA815B14D9E71F00DB790A /* CoreGraphics.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		EAEA814614D9E71F00DB790A = {
+			isa = PBXGroup;
+			children = (
+				03EE93A014DEE0E30071438F /* Default-Landscape~ipad.png */,
+				03EE939E14DEE0D80071438F /* ipadicon.png */,
+				EAEA815C14D9E71F00DB790A /* MondoZenGLDemo01 */,
+				EAEA815514D9E71F00DB790A /* Frameworks */,
+				EAEA815314D9E71F00DB790A /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		EAEA815314D9E71F00DB790A /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				EAEA815214D9E71F00DB790A /* MondoZenGLDemo01.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		EAEA815514D9E71F00DB790A /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				EAEA815614D9E71F00DB790A /* UIKit.framework */,
+				EAEA815814D9E71F00DB790A /* Foundation.framework */,
+				EAEA815A14D9E71F00DB790A /* CoreGraphics.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		EAEA815C14D9E71F00DB790A /* MondoZenGLDemo01 */ = {
+			isa = PBXGroup;
+			children = (
+				EAEA816514D9E71F00DB790A /* ReadMe.txt */,
+				EAEA815D14D9E71F00DB790A /* Supporting Files */,
+			);
+			path = MondoZenGLDemo01;
+			sourceTree = "<group>";
+		};
+		EAEA815D14D9E71F00DB790A /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				EA95FE5114DB325A003F32CD /* demo.pas */,
+				EAEA815E14D9E71F00DB790A /* MondoZenGLDemo01-Info.plist */,
+				EAEA815F14D9E71F00DB790A /* InfoPlist.strings */,
+				EAEA816214D9E71F00DB790A /* main.m */,
+				EAEA816414D9E71F00DB790A /* MondoZenGLDemo01-Prefix.pch */,
+				EAEA816914D9E71F00DB790A /* MondoZenGLDemo01.pas */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		EAEA815114D9E71F00DB790A /* MondoZenGLDemo01 */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = EAEA817D14D9E72000DB790A /* Build configuration list for PBXNativeTarget "MondoZenGLDemo01" */;
+			buildPhases = (
+				EAEA814D14D9E71F00DB790A /* Sources */,
+				EAEA814E14D9E71F00DB790A /* Frameworks */,
+				EAEA814F14D9E71F00DB790A /* Resources */,
+				EAEA815014D9E71F00DB790A /* ShellScript */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = MondoZenGLDemo01;
+			productName = MondoZenGLDemo01;
+			productReference = EAEA815214D9E71F00DB790A /* MondoZenGLDemo01.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		EAEA814814D9E71F00DB790A /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0420;
+				ORGANIZATIONNAME = Nefsis;
+			};
+			buildConfigurationList = EAEA814B14D9E71F00DB790A /* Build configuration list for PBXProject "MondoZenGLDemo01" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = EAEA814614D9E71F00DB790A;
+			productRefGroup = EAEA815314D9E71F00DB790A /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				EAEA815114D9E71F00DB790A /* MondoZenGLDemo01 */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		EAEA814F14D9E71F00DB790A /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				EAEA816114D9E71F00DB790A /* InfoPlist.strings in Resources */,
+				03EE939F14DEE0D80071438F /* ipadicon.png in Resources */,
+				03EE93A114DEE0E30071438F /* Default-Landscape~ipad.png in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		EAEA815014D9E71F00DB790A /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "set -e\nif [ $PLATFORM_NAME = \"iphonesimulator\" ]; then\n  OUT_FILES=\"-FU$OBJECT_FILE_DIR_normal/$CURRENT_ARCH -o$BUILT_PRODUCTS_DIR/$EXECUTABLE_PATH\"\n  CMD_LINE=\"$FPC_SIM_COMPILER $FPC_COMMON $FPC_CONFIG $FPC_SIM_UNITS $FPC_SIM $OUT_FILES $FPC_MAIN_FILE\"\n  echo $CMD_LINE\n  $CMD_LINE\nelse\n  if [ \"$ARCHS\" = \"armv6\" ]; then\n    OUT_FILES=\"-FU$OBJECT_FILE_DIR_normal/armv6 -o$BUILT_PRODUCTS_DIR/$EXECUTABLE_PATH\"\n    CMD_LINE=\"$FPC_ARM_COMPILER $FPC_COMMON $FPC_CONFIG $FPC_ARM_UNITS $FPC_ARMV6 $OUT_FILES $FPC_MAIN_FILE\"\n    echo $CMD_LINE\n    $CMD_LINE\n  elif [ \"$ARCHS\" = \"armv7\" ]; then\n    OUT_FILES=\"-FU$OBJECT_FILE_DIR_normal/armv7 -o$BUILT_PRODUCTS_DIR/$EXECUTABLE_PATH\"\n    CMD_LINE=\"$FPC_ARM_COMPILER $FPC_COMMON $FPC_CONFIG $FPC_ARM_UNITS $FPC_ARMV7 $OUT_FILES $FPC_MAIN_FILE\"\n    echo $CMD_LINE\n    $CMD_LINE\n  else\n    OUT_FILES=\"-FU$OBJECT_FILE_DIR_normal/armv6 -o$OBJECT_FILE_DIR_normal/armv6/$EXECUTABLE_NAME\"\n    CMD_LINE=\"$FPC_ARM_COMPILER $FPC_COMMON $FPC_CONFIG $FPC_ARM_UNITS $FPC_ARMV6 $OUT_FILES $FPC_MAIN_FILE\"\n    echo $CMD_LINE\n    $CMD_LINE\n    OUT_FILES=\"-FU$OBJECT_FILE_DIR_normal/armv7 -o$OBJECT_FILE_DIR_normal/armv7/$EXECUTABLE_NAME\"\n    CMD_LINE=\"$FPC_ARM_COMPILER $FPC_COMMON $FPC_CONFIG $FPC_ARM_UNITS $FPC_ARMV7 $OUT_FILES $FPC_MAIN_FILE\"\n    echo $CMD_LINE\n    $CMD_LINE\n    CMD_LINE=\"/usr/bin/lipo -create $OBJECT_FILE_DIR_normal/armv6/$EXECUTABLE_NAME $OBJECT_FILE_DIR_normal/armv7/$EXECUTABLE_NAME -output $BUILT_PRODUCTS_DIR/$EXECUTABLE_PATH\"\n    echo $CMD_LINE\n    $CMD_LINE\n  fi\nfi\n/Developer/usr/bin/dsymutil --verbose $BUILT_PRODUCTS_DIR/$EXECUTABLE_PATH -o $BUILT_PRODUCTS_DIR/$PROJECT_NAME.app.dSYM";
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		EAEA814D14D9E71F00DB790A /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				EAEA816314D9E71F00DB790A /* main.m in Sources */,
+				EA95FE5214DB325A003F32CD /* demo.pas in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		EAEA815F14D9E71F00DB790A /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				EAEA816014D9E71F00DB790A /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		EAEA817B14D9E72000DB790A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = armv6;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 4.0;
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "";
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		EAEA817C14D9E72000DB790A /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = armv6;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 4.0;
+				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "";
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		EAEA817E14D9E72000DB790A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				FPC_ARMV6 = "-Cparmv6 -Cfvfpv2 -FD/Developer/Platforms/iPhoneOS.platform/Developer/usr/bin";
+				FPC_ARMV7 = "-Cparmv7 -Cfvfpv3 -FD/Developer/Platforms/iPhoneOS.platform/Developer/usr/bin";
+				FPC_ARM_COMPILER = /usr/local/bin/ppcarm;
+				FPC_ARM_UNITS = "-Fu$(SRCROOT)/../../../lib/jpeg/arm-darwin -Fu$(SRCROOT)/../../../lib/ogg/arm-darwin -Fu$(SRCROOT)/../../../lib/zlib/arm-darwin -Fu$(SRCROOT)/../../../lib/zip/arm-darwin";
+				FPC_COMMON = "-Mdelphi -XX -k-ios_version_min -k$(IPHONEOS_DEPLOYMENT_TARGET) -XR$(SDKROOT) -Fu$(SRCROOT)/../../../src -Fu/Developer/FreePascalCompiler/iOS5/uikit-skel/src  -Fu$(SRCROOT)/../../src";
+				FPC_CONFIG = "-Xg -gl";
+				FPC_MAIN_FILE = "$(SRCROOT)/$(PROJECT_NAME)/$(PROJECT_NAME).pas";
+				FPC_SIM = "-Tiphonesim";
+				FPC_SIM_COMPILER = /usr/local/bin/ppc386;
+				FPC_SIM_UNITS = "-Fu$(SRCROOT)/../../../lib/jpeg/i386-iphonesim -Fu$(SRCROOT)/../../../lib/ogg/i386-iphonesim -Fu$(SRCROOT)/../../../lib/zlib/i386-iphonesim -Fu$(SRCROOT)/../../../lib/zip/i386-iphonesim";
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "MondoZenGLDemo01/MondoZenGLDemo01-Prefix.pch";
+				INFOPLIST_FILE = "MondoZenGLDemo01/MondoZenGLDemo01-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = 2;
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		EAEA817F14D9E72000DB790A /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				FPC_ARMV6 = "-Cparmv6 -Cfvfpv2 -FD/Developer/Platforms/iPhoneOS.platform/Developer/usr/bin";
+				FPC_ARMV7 = "-Cparmv7 -Cfvfpv3 -FD/Developer/Platforms/iPhoneOS.platform/Developer/usr/bin";
+				FPC_ARM_COMPILER = /usr/local/bin/ppcarm;
+				FPC_ARM_UNITS = "-Fu$(SRCROOT)/../../../lib/jpeg/arm-darwin -Fu$(SRCROOT)/../../../lib/ogg/arm-darwin -Fu$(SRCROOT)/../../../lib/zlib/arm-darwin -Fu$(SRCROOT)/../../../lib/zip/arm-darwin";
+				FPC_COMMON = "-Mdelphi -XX -k-ios_version_min -k$(IPHONEOS_DEPLOYMENT_TARGET) -XR$(SDKROOT) -Fu$(SRCROOT)/../../../src -Fu/Developer/FreePascalCompiler/iOS5/uikit-skel/src  -Fu$(SRCROOT)/../../src";
+				FPC_CONFIG = "-O2 -XsX";
+				FPC_MAIN_FILE = "$(SRCROOT)/$(PROJECT_NAME)/$(PROJECT_NAME).pas";
+				FPC_SIM = "-Tiphonesim";
+				FPC_SIM_COMPILER = /usr/local/bin/ppc386;
+				FPC_SIM_UNITS = "-Fu$(SRCROOT)/../../../lib/jpeg/i386-iphonesim -Fu$(SRCROOT)/../../../lib/ogg/i386-iphonesim -Fu$(SRCROOT)/../../../lib/zlib/i386-iphonesim -Fu$(SRCROOT)/../../../lib/zip/i386-iphonesim";
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "MondoZenGLDemo01/MondoZenGLDemo01-Prefix.pch";
+				INFOPLIST_FILE = "MondoZenGLDemo01/MondoZenGLDemo01-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = 2;
+				VALIDATE_PRODUCT = YES;
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		EAEA814B14D9E71F00DB790A /* Build configuration list for PBXProject "MondoZenGLDemo01" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				EAEA817B14D9E72000DB790A /* Debug */,
+				EAEA817C14D9E72000DB790A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		EAEA817D14D9E72000DB790A /* Build configuration list for PBXNativeTarget "MondoZenGLDemo01" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				EAEA817E14D9E72000DB790A /* Debug */,
+				EAEA817F14D9E72000DB790A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = EAEA814814D9E71F00DB790A /* Project object */;
+}

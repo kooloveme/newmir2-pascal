@@ -1,0 +1,42 @@
+object frmDB: TfrmDB
+  Left = 75
+  Height = 198
+  Top = 323
+  Width = 707
+  Caption = '数据管理'
+  ClientHeight = 178
+  ClientWidth = 707
+  Menu = M_DB
+  OnCreate = FormCreate
+  LCLVersion = '1.2.0.3'
+  object DBGrid1: TDBGrid
+    Left = 0
+    Height = 210
+    Top = 0
+    Width = 688
+    Color = clWindow
+    Columns = <>
+    DataSource = Datasource1
+    TabOrder = 0
+  end
+  object Datasource1: TDatasource
+    DataSet = MainForm.ZQuery1
+    left = 136
+    top = 40
+  end
+  object M_DB: TMainMenu
+    left = 186
+    top = 39
+    object MI_DB: TMenuItem
+      Caption = '账号'
+      object MI_LOAD: TMenuItem
+        Caption = '载入所有账号'
+        OnClick = MI_LOADClick
+      end
+      object Mi_QACCOUNT: TMenuItem
+        Caption = '查询账号'
+        OnClick = Mi_QACCOUNTClick
+      end
+    end
+  end
+end

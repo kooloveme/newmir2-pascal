@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CONFIG>
+  <Compiler Value="C:\lazarus\fpc\2.6.2\bin\i386-win32\fpc.exe" Date="1146920661"/>
+  <Params Value=" -MDelphi -Scghi -CX -O3 -Xs -XX -WG -vew -FiD:\SnakeMir2\Client\zengl-src-0.3.12\demos\Lazarus\tmp\i386-win32 -FiD:\SnakeMir2\Client\zengl-src-0.3.12\headers -FuD:\SnakeMir2\Client\zengl-src-0.3.12\headers -FuD:\SnakeMir2\Client\zengl-src-0.3.12\extra -FuD:\SnakeMir2\Client\zengl-src-0.3.12\src -FuD:\SnakeMir2\Client\zengl-src-0.3.12\lib\jpeg\i386-win32 -FuD:\SnakeMir2\Client\zengl-src-0.3.12\lib\msvcrt\i386 -FuD:\SnakeMir2\Client\zengl-src-0.3.12\lib\ogg\i386-win32 -FuD:\SnakeMir2\Client\zengl-src-0.3.12\lib\theora\i386-win32 -FuD:\SnakeMir2\Client\zengl-src-0.3.12\lib\zlib\i386-win32 -FuD:\SnakeMir2\Client\zengl-src-0.3.12\lib\zip\i386-win32 &quot;-FuD:\SnakeMir2\Client\zengl-src-0.3.12\demos\Lazarus\15 - Video\&quot; -FUD:\SnakeMir2\Client\zengl-src-0.3.12\demos\Lazarus\tmp\i386-win32\ -l -FED:\SnakeMir2\Client\zengl-src-0.3.12\bin\i386-win32\ demo15.lpr"/>
+</CONFIG>

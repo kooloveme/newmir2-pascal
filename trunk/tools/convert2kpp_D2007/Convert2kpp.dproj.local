@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<BorlandProject>
+	<Transactions>
+    <Transaction>2014/04/05 18:58:37.630.bdsproj,C:\Users\kadin\Documents\RAD Studio\Projects\Convert2kpp.bdsproj=C:\Users\kadin\Documents\RAD Studio\Projects\Project1.bdsproj</Transaction>
+    <Transaction>2014/04/05 18:59:33.500.dfm,C:\Users\kadin\Documents\RAD Studio\Projects\main.dfm=C:\Users\kadin\Documents\RAD Studio\Projects\Unit1.dfm</Transaction>
+    <Transaction>2014/04/05 18:59:33.500.pas,C:\Users\kadin\Documents\RAD Studio\Projects\main.pas=C:\Users\kadin\Documents\RAD Studio\Projects\Unit1.pas</Transaction>
+    <Transaction>2014/04/05 19:00:01.494.dfm,D:\SnakeMir2\tools\main.dfm=C:\Users\kadin\Documents\RAD Studio\Projects\main.dfm</Transaction>
+    <Transaction>2014/04/05 19:00:01.494.pas,D:\SnakeMir2\tools\main.pas=C:\Users\kadin\Documents\RAD Studio\Projects\main.pas</Transaction>
+    <Transaction>2014/04/05 19:00:04.044.bdsproj,D:\SnakeMir2\tools\Convert2kpp.bdsproj=C:\Users\kadin\Documents\RAD Studio\Projects\Convert2kpp.bdsproj</Transaction>
+    <Transaction>2014/04/05 19:57:07.508.bdsproj,D:\SnakeMir2\tools\convert2kpp\Convert2kpp.bdsproj=D:\SnakeMir2\tools\convert2kpp\Convert2kpp.bdsproj</Transaction>
+    <Transaction>2014/04/05 21:10:37.017.pas,D:\SnakeMir2\tools\convert2kpp\DIB.pas=</Transaction>
+    <Transaction>2014/04/05 21:39:52.944.bdsproj,D:\SnakeMir2\tools\convert2kpp\Convert2kpp.bdsproj=D:\SnakeMir2\tools\convert2kpp\Convert2kpp.bdsproj</Transaction>
+    <Transaction>2014/04/07 15:17:59.234.pas,D:\SnakeMir2\tools\convert2kpp\Mir2ImageFactory.pas=D:\SnakeMir2\tools\convert2kpp\Unit1.pas</Transaction>
+    <Transaction>2014/04/07 15:42:22.379.pas,D:\SnakeMir2\tools\convert2kpp\mir2resources\MirShare.pas=</Transaction>
+  </Transactions>
+</BorlandProject>

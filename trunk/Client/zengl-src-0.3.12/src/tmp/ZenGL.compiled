@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CONFIG>
+  <Compiler Value="C:\lazarus\fpc\2.6.2\bin\i386-win32\fpc.exe" Date="1146920661"/>
+  <Params Value=" -MDelphi -Sg -CX -O3 -Xs -XX -WG -vew -FiD:\SnakeMir2\Client\zengl-src-0.3.12\src\tmp -FuD:\SnakeMir2\Client\zengl-src-0.3.12\lib\jpeg\i386-win32 -FuD:\SnakeMir2\Client\zengl-src-0.3.12\lib\ogg\i386-win32 -FuD:\SnakeMir2\Client\zengl-src-0.3.12\lib\theora\i386-win32 -FuD:\SnakeMir2\Client\zengl-src-0.3.12\lib\zlib\i386-win32 -FuD:\SnakeMir2\Client\zengl-src-0.3.12\lib\zip\i386-win32 -FuD:\SnakeMir2\Client\zengl-src-0.3.12\src\Lazarus\ -FUD:\SnakeMir2\Client\zengl-src-0.3.12\src\tmp\ -l -olibZenGL.dll ..\ZenGL.pas"/>
+  <Complete Value="False"/>
+</CONFIG>

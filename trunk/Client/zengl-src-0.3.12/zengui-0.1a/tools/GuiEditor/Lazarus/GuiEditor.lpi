@@ -1,0 +1,203 @@
+<?xml version="1.0"?>
+<CONFIG>
+  <ProjectOptions>
+    <Version Value="9"/>
+    <General>
+      <Flags>
+        <MainUnitHasCreateFormStatements Value="False"/>
+        <MainUnitHasTitleStatement Value="False"/>
+      </Flags>
+      <SessionStorage Value="InProjectDir"/>
+      <MainUnit Value="0"/>
+      <UseAppBundle Value="False"/>
+      <ResourceType Value="res"/>
+      <UseXPManifest Value="True"/>
+      <Icon Value="0"/>
+    </General>
+    <i18n>
+      <EnableI18N LFM="False"/>
+    </i18n>
+    <VersionInfo>
+      <StringTable ProductVersion=""/>
+    </VersionInfo>
+    <BuildModes Count="2">
+      <Item1 Name="Release" Default="True"/>
+      <Item2 Name="Debug">
+        <CompilerOptions>
+          <Version Value="11"/>
+          <PathDelim Value="\"/>
+          <Target>
+            <Filename Value="..\..\..\bin\GuiEditor"/>
+          </Target>
+          <SearchPaths>
+            <IncludeFiles Value="$(ProjOutDir);$(LazarusDir)\lcl;$(LazarusDir)\lcl\widgetset;$(LazarusDir)\lcl\interfaces\win32;$(LazarusDir)\lcl\units\i386-win32;$(LazarusDir)\lcl\include;..\..\..\..\src;..\..\..\src;..\..\..\..\lib\jpeg\$(TargetCPU)-$(TargetOS);..\..\..\..\lib\ogg\$(TargetCPU)-$(TargetOS);..\..\..\..\lib\theora\$(TargetCPU)-$(TargetOS);..\..\..\..\lib\zlib\$(TargetCPU)-$(TargetOS);..\..\..\..\lib\zip\$(TargetCPU)-$(TargetOS);..\..\..\..\lib\msvcrt\$(TargetCPU)"/>
+            <Libraries Value="..\..\..\..\lib\jpeg\$(TargetCPU)-$(TargetOS);..\..\..\..\lib\ogg\$(TargetCPU)-$(TargetOS);..\..\..\..\lib\theora\$(TargetCPU)-$(TargetOS);..\..\..\..\lib\zlib\$(TargetCPU)-$(TargetOS);..\..\..\..\lib\zip\$(TargetCPU)-$(TargetOS);..\..\..\..\lib\msvcrt\$(TargetCPU)"/>
+            <OtherUnitFiles Value="..;$(LazarusDir)\components\rtticontrols;$(LazarusDir)\lcl;$(LazarusDir)\lcl\widgetset;$(LazarusDir)\ideintf;$(LazarusDir)\lcl\interfaces\win32;..\..\..\..\src;..\..\..\src;..\..\..\..\lib\jpeg\$(TargetCPU)-$(TargetOS);..\..\..\..\lib\ogg\$(TargetCPU)-$(TargetOS);..\..\..\..\lib\theora\$(TargetCPU)-$(TargetOS);..\..\..\..\lib\zlib\$(TargetCPU)-$(TargetOS);..\..\..\..\lib\zip\$(TargetCPU)-$(TargetOS);..\..\..\..\lib\msvcrt\$(TargetCPU)"/>
+            <UnitOutputDirectory Value="..\..\..\crap\editor\$(TargetCPU)-$(TargetOS)"/>
+          </SearchPaths>
+          <Parsing>
+            <SyntaxOptions>
+              <SyntaxMode Value="Delphi"/>
+            </SyntaxOptions>
+          </Parsing>
+          <Linking>
+            <LinkSmart Value="True"/>
+            <Options>
+              <Win32>
+                <GraphicApplication Value="True"/>
+              </Win32>
+            </Options>
+          </Linking>
+          <Other>
+            <Verbosity>
+              <ShowNotes Value="False"/>
+              <ShowHints Value="False"/>
+            </Verbosity>
+            <CompilerMessages>
+              <UseMsgFile Value="True"/>
+            </CompilerMessages>
+            <CustomOptions Value="-dGUI_USE_ALL -dGUI_USE_EDITOR -dSTATIC"/>
+            <CompilerPath Value="$(CompPath)"/>
+          </Other>
+        </CompilerOptions>
+      </Item2>
+    </BuildModes>
+    <PublishOptions>
+      <Version Value="2"/>
+      <IncludeFileFilter Value="*.(pas|pp|inc|lfm|lpr|lrs|lpi|lpk|sh|xml)"/>
+      <ExcludeFileFilter Value="*.(bak|ppu|o|so);*~;backup"/>
+    </PublishOptions>
+    <RunParams>
+      <local>
+        <FormatVersion Value="1"/>
+        <LaunchingApplication PathPlusParams="/usr/bin/xterm -T 'Lazarus Run Output' -e $(LazarusDir)/tools/runwait.sh $(TargetCmdLine)"/>
+      </local>
+    </RunParams>
+    <RequiredPackages Count="2">
+      <Item1>
+        <PackageName Value="IDEIntf"/>
+        <MinVersion Major="1" Valid="True"/>
+      </Item1>
+      <Item2>
+        <PackageName Value="LCL"/>
+        <MinVersion Major="1" Valid="True"/>
+      </Item2>
+    </RequiredPackages>
+    <Units Count="11">
+      <Unit0>
+        <Filename Value="GuiEditor.lpr"/>
+        <IsPartOfProject Value="True"/>
+        <UnitName Value="GuiEditor"/>
+      </Unit0>
+      <Unit1>
+        <Filename Value="../../zglHeader.pas"/>
+        <IsPartOfProject Value="True"/>
+        <UnitName Value="zglHeader"/>
+      </Unit1>
+      <Unit2>
+        <Filename Value="../../zglGui.pas"/>
+        <IsPartOfProject Value="True"/>
+        <UnitName Value="zglGui"/>
+      </Unit2>
+      <Unit3>
+        <Filename Value="../Source/u_editor.pas"/>
+        <IsPartOfProject Value="True"/>
+        <UnitName Value="u_editor"/>
+      </Unit3>
+      <Unit4>
+        <Filename Value="../Source/u_components.pas"/>
+        <IsPartOfProject Value="True"/>
+        <UnitName Value="u_components"/>
+      </Unit4>
+      <Unit5>
+        <Filename Value="../Source/u_editorgui.pas"/>
+        <IsPartOfProject Value="True"/>
+        <UnitName Value="u_editorgui"/>
+      </Unit5>
+      <Unit6>
+        <Filename Value="../Source/RegExpr.pas"/>
+        <IsPartOfProject Value="True"/>
+        <UnitName Value="RegExpr"/>
+      </Unit6>
+      <Unit7>
+        <Filename Value="C:/lazarus/lcl/include/winapih.inc"/>
+        <IsPartOfProject Value="True"/>
+      </Unit7>
+      <Unit8>
+        <Filename Value="C:/lazarus/lcl/widgetset/wslclclasses.pp"/>
+        <IsPartOfProject Value="True"/>
+        <UnitName Value="WSLCLClasses"/>
+      </Unit8>
+      <Unit9>
+        <Filename Value="C:/lazarus/ideintf/graphpropedits.pas"/>
+        <IsPartOfProject Value="True"/>
+        <UnitName Value="GraphPropEdits"/>
+      </Unit9>
+      <Unit10>
+        <Filename Value="C:/lazarus/lcl/interfaces/win32/interfaces.pp"/>
+        <IsPartOfProject Value="True"/>
+        <UnitName Value="Interfaces"/>
+      </Unit10>
+    </Units>
+  </ProjectOptions>
+  <CompilerOptions>
+    <Version Value="11"/>
+    <PathDelim Value="\"/>
+    <Target>
+      <Filename Value="..\..\..\bin\GuiEditor"/>
+    </Target>
+    <SearchPaths>
+      <IncludeFiles Value="$(ProjOutDir);..\..\..\..\src"/>
+      <OtherUnitFiles Value="..\..\..\..\src;..\..\..\src;..\..\..\..\lib\jpeg\$(TargetCPU)-$(TargetOS);..\..\..\..\lib\ogg\$(TargetCPU)-$(TargetOS);..\..\..\..\lib\theora\$(TargetCPU)-$(TargetOS);..\..\..\..\lib\zlib\$(TargetCPU)-$(TargetOS);..\..\..\..\lib\zip\$(TargetCPU)-$(TargetOS);..\..\..\..\lib\msvcrt\$(TargetCPU)"/>
+      <UnitOutputDirectory Value="..\tmp\editor\$(TargetCPU)-$(TargetOS)"/>
+    </SearchPaths>
+    <Parsing>
+      <SyntaxOptions>
+        <SyntaxMode Value="Delphi"/>
+      </SyntaxOptions>
+    </Parsing>
+    <CodeGeneration>
+      <SmartLinkUnit Value="True"/>
+      <Optimizations>
+        <OptimizationLevel Value="3"/>
+      </Optimizations>
+    </CodeGeneration>
+    <Linking>
+      <Debugging>
+        <GenerateDebugInfo Value="False"/>
+        <UseLineInfoUnit Value="False"/>
+        <StripSymbols Value="True"/>
+      </Debugging>
+      <LinkSmart Value="True"/>
+      <Options>
+        <Win32>
+          <GraphicApplication Value="True"/>
+        </Win32>
+      </Options>
+    </Linking>
+    <Other>
+      <Verbosity>
+        <ShowNotes Value="False"/>
+        <ShowHints Value="False"/>
+      </Verbosity>
+      <CompilerMessages>
+        <UseMsgFile Value="True"/>
+      </CompilerMessages>
+      <CustomOptions Value="-dGUI_USE_ALL -dGUI_USE_EDITOR -dSTATIC -Xd"/>
+      <CompilerPath Value="$(CompPath)"/>
+    </Other>
+  </CompilerOptions>
+  <Debugging>
+    <Exceptions Count="3">
+      <Item1>
+        <Name Value="EAbort"/>
+      </Item1>
+      <Item2>
+        <Name Value="ECodetoolError"/>
+      </Item2>
+      <Item3>
+        <Name Value="EFOpenError"/>
+      </Item3>
+    </Exceptions>
+  </Debugging>
+</CONFIG>

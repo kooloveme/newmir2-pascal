@@ -1,0 +1,20 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<BorlandProject>
+	<ProjectSortOrder AutoSort="0" SortType="0">
+    <File Path="..\..\GuiEditor"/>
+    <File Path="..\units"/>
+    <File Path="..\units\RegExpr.pas"/>
+    <File Path="..\units\u_components.pas"/>
+    <File Path="..\units\u_editor.pas"/>
+    <File Path="..\units\u_editorgui.pas"/>
+    <File Path="..\..\..\..\gui"/>
+    <File Path="..\..\..\bin"/>
+    <File Path="..\..\..\bin\Icon.ico"/>
+    <File Path="..\..\..\src"/>
+    <File Path="..\..\..\src\zglGui.pas"/>
+  </ProjectSortOrder>
+	<Transactions>
+    <Transaction>2012.06.29 20:40:18.894.pas,D:\Constructor\Omega\svn\gui\tools\GuiEditor\units\u_editor.pas=D:\Constructor\Omega\svn\gui\tools\GuiEditor\units\u_editor_.pas</Transaction>
+    <Transaction>2012.06.29 20:40:24.523.pas,D:\Constructor\Omega\svn\gui\tools\GuiEditor\units\u_editor_.pas=D:\Constructor\Omega\svn\gui\tools\GuiEditor\units\u_editor.pas</Transaction>
+  </Transactions>
+</BorlandProject>

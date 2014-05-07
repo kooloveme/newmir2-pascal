@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<config>
+  <DataBase>
+    <IP>127.0.0.1</IP>
+    <Port>3050</Port>
+    <User>SYSDBA</User>
+    <Password>masterkey</Password>
+    <DBName>D:\Mir2.fdb</DBName>
+    <Table>TB_ACCOUNT</Table>
+  </DataBase>
+  <Server>
+    <ListenPort>7000</ListenPort>
+    <ServerKey>onmyway</ServerKey>
+    <MaxLoginGateCount>8</MaxLoginGateCount>
+    <LoginSrvKey>123456</LoginSrvKey>
+    <QueryInterval>10</QueryInterval>
+  </Server>
+</config>

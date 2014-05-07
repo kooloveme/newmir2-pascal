@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CONFIG>
+  <ProjectSession>
+    <PathDelim Value="\"/>
+    <Version Value="9"/>
+    <BuildModes Active="Release"/>
+    <Units Count="11">
+      <Unit0>
+        <Filename Value="GuiEditor.lpr"/>
+        <IsPartOfProject Value="True"/>
+        <UnitName Value="GuiEditor"/>
+        <IsVisibleTab Value="True"/>
+        <EditorIndex Value="0"/>
+        <WindowIndex Value="0"/>
+        <TopLine Value="24"/>
+        <CursorPos X="13" Y="35"/>
+        <UsageCount Value="20"/>
+        <Loaded Value="True"/>
+        <DefaultSyntaxHighlighter Value="Delphi"/>
+      </Unit0>
+      <Unit1>
+        <Filename Value="..\..\zglHeader.pas"/>
+        <IsPartOfProject Value="True"/>
+        <UnitName Value="zglHeader"/>
+        <UsageCount Value="20"/>
+      </Unit1>
+      <Unit2>
+        <Filename Value="..\..\zglGui.pas"/>
+        <IsPartOfProject Value="True"/>
+        <UnitName Value="zglGui"/>
+        <UsageCount Value="20"/>
+      </Unit2>
+      <Unit3>
+        <Filename Value="..\Source\u_editor.pas"/>
+        <IsPartOfProject Value="True"/>
+        <UnitName Value="u_editor"/>
+        <UsageCount Value="20"/>
+      </Unit3>
+      <Unit4>
+        <Filename Value="..\Source\u_components.pas"/>
+        <IsPartOfProject Value="True"/>
+        <UnitName Value="u_components"/>
+        <UsageCount Value="20"/>
+      </Unit4>
+      <Unit5>
+        <Filename Value="..\Source\u_editorgui.pas"/>
+        <IsPartOfProject Value="True"/>
+        <UnitName Value="u_editorgui"/>
+        <UsageCount Value="20"/>
+      </Unit5>
+      <Unit6>
+        <Filename Value="..\Source\RegExpr.pas"/>
+        <IsPartOfProject Value="True"/>
+        <UnitName Value="RegExpr"/>
+        <UsageCount Value="20"/>
+      </Unit6>
+      <Unit7>
+        <Filename Value="C:\lazarus\lcl\include\winapih.inc"/>
+        <IsPartOfProject Value="True"/>
+        <UsageCount Value="20"/>
+      </Unit7>
+      <Unit8>
+        <Filename Value="C:\lazarus\lcl\widgetset\wslclclasses.pp"/>
+        <IsPartOfProject Value="True"/>
+        <UnitName Value="WSLCLClasses"/>
+        <UsageCount Value="20"/>
+      </Unit8>
+      <Unit9>
+        <Filename Value="C:\lazarus\ideintf\graphpropedits.pas"/>
+        <IsPartOfProject Value="True"/>
+        <UnitName Value="GraphPropEdits"/>
+        <UsageCount Value="20"/>
+      </Unit9>
+      <Unit10>
+        <Filename Value="C:\lazarus\lcl\interfaces\win32\interfaces.pp"/>
+        <IsPartOfProject Value="True"/>
+        <UnitName Value="Interfaces"/>
+        <UsageCount Value="20"/>
+      </Unit10>
+    </Units>
+    <General>
+      <ActiveWindowIndexAtStart Value="0"/>
+    </General>
+    <JumpHistory Count="0" HistoryIndex="-1"/>
+  </ProjectSession>
+  <EditorMacros Count="0"/>
+</CONFIG>

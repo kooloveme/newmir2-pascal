@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CONFIG>
+  <Compiler Value="C:\lazarus\fpc\2.6.2\bin\i386-win32\fpc.exe" Date="1146920661"/>
+  <Params Value=" -MObjFPC -Sgim -CX -O2 -gs -gl -vew -FiD:\SnakeMir2\Lib\lnet\lib\sys -FuD:\SnakeMir2\Lib\lnet\lib -FuD:\SnakeMir2\Lib\lnet\lazaruspackage\ -FUD:\SnakeMir2\Lib\lnet\lazaruspackage\lib\i386-win32\ -l -dLNET_BASE lnetbase.pas"/>
+</CONFIG>
