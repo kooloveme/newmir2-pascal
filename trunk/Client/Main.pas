@@ -36,9 +36,6 @@ begin
   MainFont:=TGfxFont.Create('ËÎÌו',12,false,false,False);
   Application.SetScene(TLoadingScene.create);
   GuiForm.Free;
-
 end;
-
-
 
 end.
