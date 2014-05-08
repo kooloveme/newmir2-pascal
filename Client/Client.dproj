@@ -65,7 +65,7 @@
     <PropertyGroup Condition="'$(Cfg_2_Win32)'!=''">
         <DCC_ExeOutput>D:\热血传奇</DCC_ExeOutput>
         <Icon_MainIcon>$(BDS)\bin\delphi_PROJECTICON.ico</Icon_MainIcon>
-        <DCC_UnitSearchPath>D:\SnakeMir2\Client\zengl-src-0.3.12\src;D:\SnakeMir2\Client\zengl-src-0.3.12\lib\zlib\delphi;D:\SnakeMir2\Client\zengl-src-0.3.12\lib\zip\delphi;D:\SnakeMir2\Client\zengl-src-0.3.12\lib\theora\delphi;D:\SnakeMir2\Client\zengl-src-0.3.12\MondoZenGL\src;D:\SnakeMir2\Client\zengl-src-0.3.12\zengui-0.1a\src;D:\SnakeMir2\Client\zengl-src-0.3.12\headers;D:\SnakeMir2\Lib\Zlib;$(DCC_UnitSearchPath)</DCC_UnitSearchPath>
+        <DCC_UnitSearchPath>..\Client\zengl-src-0.3.12\src;..\Client\zengl-src-0.3.12\lib\zlib\delphi;..\Client\zengl-src-0.3.12\lib\zip\delphi;..\Client\zengl-src-0.3.12\lib\theora\delphi;..\Client\zengl-src-0.3.12\MondoZenGL\src;zengl-src-0.3.12\src;..\Lib\Zlib;zengl-src-0.3.12\headers;$(DCC_UnitSearchPath)</DCC_UnitSearchPath>
         <DCC_Define>STATIC;$(DCC_Define)</DCC_Define>
         <VerInfo_Locale>1033</VerInfo_Locale>
         <Manifest_File>None</Manifest_File>
