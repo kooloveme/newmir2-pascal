@@ -14,8 +14,8 @@ type
      Reserved  : array[0..24] of char;
   end;
   TMapInfo = packed record
-    wBkImg: Word;
-    wMidImg: Word;
+    wBkImg: Word;  //tiles 的值 最高位为1表示不可行走
+    wMidImg: Word; //smtiles的值 最高位为一表示不可行走
     wFrImg: Word;
     btDoorIndex: byte;
     btDoorOffset: byte;

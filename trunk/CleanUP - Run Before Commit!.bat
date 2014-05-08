@@ -1,0 +1,11 @@
+del *.bak /s
+del *.log /s
+del *.ddp /s
+del *.dcu /s
+del *.exe /s
+del *.~* /s
+del *.sav /s
+del *.prc /s
+del *.drc /s
+del *.identcache /s
+del *.dproj /s
