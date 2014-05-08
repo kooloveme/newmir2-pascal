@@ -159,7 +159,6 @@ begin
   if InRange(X, Y) then
   begin
     Result:=True;
-    TGuiManager.FoucsGui:=Self;
     if Assigned(OnClick) then OnClick(key,nx,ny);
   end;
 end;
@@ -313,7 +312,7 @@ begin
 
   for I := 0 to SubGuiObjects.Count - 1 do
   begin
-    GuiObject := SubGuiObjects[i];
+     GuiObject := SubGuiObjects[i];
     if GuiObject.MouseDown(key,Button,nX, nY) then
     begin
       Result:=True;
@@ -324,6 +323,7 @@ begin
     if InRange(X, Y) then
     begin
      Result:=True;
+     TGuiManager.FoucsGui:=Self;
     if Assigned(OnMouseDown) then OnMouseDown(key,Button, nx, ny);
     end;
 
@@ -661,9 +661,10 @@ begin
   //»­±ß¿ò
   if IsDrawRectLine then s.Canvas.DrawRect(DrawX,DrawY,Rect.W,Rect.H,RectLineColor,$FF,[]);
   //»­ÎÄ×Ö
-  FontSize:=Font.GetTextSize(PWideChar(Text));
-  FontWidth:=FontSize.cx;
-  FontHeight:=FontSize.cy;
+  //FontSize:=Font.GetTextSize(PWideChar(Text));
+  FontWidth:=Font.TextWidth(Text);
+  //FontWidth:=FontSize.cx;
+ // FontHeight:=FontSize.cy;
 
 
 
@@ -685,16 +686,18 @@ begin
            DrawText[i]:=PassWordChar;
          end;
       end;
-     Font.Print(DrawX+2,DrawY+3,PWideChar(DrawText));
+     Font.Print(DrawX+2,DrawY+3,DrawText);
     end;
+
      //»­¹â±ê
      if not Equals(TGuiManager.FoucsGui) then Exit;
-     Font.Print(0,30,PWideChar(IntToStr(CursorPos)));
+
      if CursorPos > 0 then
       begin
        Tmp:=Copy(DrawText,0,CursorPos);
-       FontSize:=Font.GetTextSize(PWideChar(Tmp));
-       s.Canvas.FillRect(DrawX+FontSize.cx+2,DrawY+2,1,Rect.H-4,$FFFFFF,CursorLineAlpha);
+       //FontSize:=Font.GetTextSize(PWideChar(Tmp));
+       FontWidth:=Font.TextWidth(Tmp);
+       s.Canvas.FillRect(DrawX+FontWidth+2,DrawY+2,1,Rect.H-4,$FFFFFF,CursorLineAlpha);
       end else
       begin
       s.Canvas.FillRect(DrawX+2,DrawY+2,1,Rect.H-4,$FFFFFF,CursorLineAlpha);
@@ -776,7 +779,7 @@ begin
    end;
    end;
    if CursorPos < 0 then CursorPos:=0;
-   if CursorPos> Length(Text) then CursorPos:=Length(Text);
+   if CursorPos > Length(Text) then CursorPos:=Length(Text);
    TMZKeyboard.EndReadText;
    TMZKeyboard.BeginReadText();
   end;

@@ -32,13 +32,16 @@ type
     destructor Destroy(); override;
   public
     // 渲染文本
-    procedure Print(X: Single; Y: Single; Text: PWideChar);
+    procedure Print(X: Single; Y: Single; Text: PWideChar);overload;
+    procedure Print(x,y:Integer;Text:string);overload;
     // 设置与获取颜色
     procedure SetColor(Color: Cardinal);overload;
     Procedure SetColor(Color:TColor);overload;
     function GetColor: Cardinal;
     // 获取文本宽高
     function GetTextSize(Text: PWideChar): TSize;
+    Function TextWidth(Text:String):Integer;
+    Function TextHeight(Text:String):Integer;
     // 根据坐标获取字符
     function GetCharacterFromPos(Text: PWideChar; Pixel_X, Pixel_Y: Single): WideChar;
     // 设置字间距
@@ -97,7 +100,7 @@ var
   mat: MAT2;
   gm: GLYPHMETRICS;
   nLen: Cardinal;
- // hTex: ITexture; //纹理
+   // hTex: ITexture; //纹理
   hTex:zglPTexture;
   lpBuf: PByteAry;
   lpSrc: PByteAry;
@@ -401,6 +404,17 @@ begin
     Result := m_nFontSize/2;
 end;
 
+procedure TGfxFont.Print(x, y: Integer; Text: string);
+var
+  pWideStr:PWideChar;
+  TextLength:Integer;
+  lx,ly:Single;
+begin
+  if Text='' then exit;
+  lx:=x;
+  ly:=y;
+  Print(lx,ly,PWideChar(Text));
+end;
 procedure TGfxFont.Print(X, Y: Single; Text: PWideChar);
 var
   OffsetX, OffsetY: Single;
@@ -461,8 +475,7 @@ procedure TGfxFont.SetColor(Color: TColor);
 var
 R,G,B,A:Byte;
 begin
-//BGR
-//RGBA 是颜色顺序。 蛋是是倒过来的
+  //TColor颜色顺序是BGR
   B:=Color shr 16;
   G:=Color shr 8;
   R:=Color and $FF;
@@ -481,6 +494,16 @@ end;
 procedure TGfxFont.SetKerningWidth(Kerning: Single);
 begin
   m_nKerningWidth := Kerning;
+end;
+
+function TGfxFont.TextHeight(Text: String): Integer;
+begin
+  Result:=GetTextSize(PWideChar(Text)).cy;
+end;
+
+function TGfxFont.TextWidth(Text: String): Integer;
+begin
+  Result:=GetTextSize(PWideChar(Text)).cx;
 end;
 
 function RGBA(const R, G, B, A: Byte): Longword; inline;
