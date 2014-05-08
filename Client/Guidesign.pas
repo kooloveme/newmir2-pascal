@@ -10,7 +10,6 @@ Const
 GUILabelCaption='¿Ø¼þÃèÊö:';
 type
   TfrmGuiDesgin = class(TForm)
-    TreeV: TRzTreeView;
     btn_loadGuiList: TButton;
     se_X: TSpinEdit;
     se_Y: TSpinEdit;
@@ -19,6 +18,7 @@ type
     lbl1: TLabel;
     lbl2: TLabel;
     btn_update: TButton;
+    TReeV: TTreeView;
     procedure btn_loadGuiListClick(Sender: TObject);
     procedure TreeVChange(Sender: TObject; Node: TTreeNode);
     Procedure AddChildList(Node: TTreeNode; Gui: TGuiObject);

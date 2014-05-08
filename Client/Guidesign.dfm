@@ -13,23 +13,13 @@ object frmGuiDesgin: TfrmGuiDesgin
   OldCreateOrder = False
   PixelsPerInch = 96
   TextHeight = 13
-  object TreeV: TRzTreeView
-    Left = 8
-    Top = 8
-    Width = 193
-    Height = 401
-    SelectionPen.Color = clBtnShadow
-    Indent = 19
-    TabOrder = 0
-    OnChange = TreeVChange
-  end
   object grp_GUi: TGroupBox
     Left = 215
     Top = 8
     Width = 194
     Height = 225
     Caption = 'GUI'#25805#20316
-    TabOrder = 1
+    TabOrder = 0
     object lbl1: TLabel
       Left = 24
       Top = 56
@@ -97,5 +87,14 @@ object frmGuiDesgin: TfrmGuiDesgin
       TabOrder = 4
       OnClick = btn_updateClick
     end
+  end
+  object TReeV: TTreeView
+    Left = 8
+    Top = 8
+    Width = 193
+    Height = 400
+    Indent = 19
+    TabOrder = 1
+    OnChange = TreeVChange
   end
 end

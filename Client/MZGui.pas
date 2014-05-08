@@ -152,8 +152,8 @@ begin
    if GuiObject.Click(key,nx,ny) then
    begin
    //如果子控件处理了。则退出。
-   Result:=True;
-   Exit;
+     Result:=True;
+     Exit;
    end;
    end;
   if InRange(X, Y) then
