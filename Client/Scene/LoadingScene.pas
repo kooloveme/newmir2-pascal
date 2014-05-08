@@ -30,8 +30,8 @@ begin
   inherited;
   Percent:=TResManager.GetInstance.LoadPercent;
   ShowText:='正在加载资源...'+IntToStr(Percent)+'%';
-  TextWidth:=MainFont.GetTextSize(PWideChar(ShowText)).cx;
-  MainFont.Print(Application.ScreenWidth / 2-TextWidth div 2,Application.ScreenHeight/2,PWideChar(ShowText));
+  TextWidth:=g_MainFont.GetTextSize(PWideChar(ShowText)).cx;
+  g_MainFont.Print(Application.ScreenWidth / 2-TextWidth div 2,Application.ScreenHeight/2,PWideChar(ShowText));
   if Percent = 100 then
   begin
     Application.SetScene(TLoginScene.create);

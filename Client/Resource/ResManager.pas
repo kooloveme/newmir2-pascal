@@ -87,7 +87,7 @@ end;
 class function TResManager.GetInstance: TResManager;
 begin
   if not assigned(FInstance) then
-    FInstance := TResManager.Create(ClientPath+'Data\');
+    FInstance := TResManager.Create(g_sClientPath+'Data\');
   result := FInstance;
 end;
 
