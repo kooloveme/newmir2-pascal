@@ -72,11 +72,12 @@
         <DCC_Define>DEBUG;$(DCC_Define)</DCC_Define>
     </PropertyGroup>
     <PropertyGroup Condition="'$(Cfg_2_Win32)'!=''">
+        <Icon_MainIcon>$(BDS)\bin\delphi_PROJECTICON.ico</Icon_MainIcon>
         <VerInfo_Locale>1033</VerInfo_Locale>
         <DCC_ExeOutput>D:\热血传奇\</DCC_ExeOutput>
         <Manifest_File>None</Manifest_File>
         <VerInfo_Keys>CompanyName=;FileDescription=;FileVersion=1.0.0.0;InternalName=;LegalCopyright=;LegalTrademarks=;OriginalFilename=;ProductName=;ProductVersion=1.0.0.0;Comments=</VerInfo_Keys>
-        <DCC_UnitSearchPath>zengl-src-0.3.12\src;D:\newmir2-pascal\Client\zengl-src-0.3.12\lib\theora\delphi;D:\newmir2-pascal\Client\zengl-src-0.3.12\lib\zip\delphi;D:\newmir2-pascal\Client\zengl-src-0.3.12\lib\zlib\delphi;D:\newmir2-pascal\Client\zengl-src-0.3.12\MondoZenGL\src;D:\newmir2-pascal\Client\zengl-src-0.3.12\headers;D:\newmir2-pascal\Lib\Zlib;$(DCC_UnitSearchPath)</DCC_UnitSearchPath>
+        <DCC_UnitSearchPath>zengl-src-0.3.12\src;zengl-src-0.3.12\lib\theora\delphi;zengl-src-0.3.12\lib\zip\delphi;zengl-src-0.3.12\lib\zlib\delphi;zengl-src-0.3.12\MondoZenGL\src;zengl-src-0.3.12\headers;..\Lib\Zlib;$(DCC_UnitSearchPath)</DCC_UnitSearchPath>
     </PropertyGroup>
     <ItemGroup>
         <DelphiCompile Include="$(MainSource)">
