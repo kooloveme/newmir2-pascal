@@ -9,7 +9,7 @@ unit GfxFont;
 
 interface
 uses
-  Windows, {HGE, HGESprite,}zgl_main,zgl_textures,zgl_sprite_2d,zgl_types,zgl_fx,Graphics;
+  Windows, {HGE, HGESprite,}zgl_main,zgl_textures,zgl_sprite_2d,zgl_types,zgl_fx,Vcl.Graphics;
 
 const
   Font_Count = High(Word);
