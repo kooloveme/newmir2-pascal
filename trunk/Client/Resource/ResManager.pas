@@ -1,7 +1,7 @@
 unit ResManager;
 
 interface
-uses  Classes, sysutils, Texture,Gameimage,Kpp,Forms,Wil,Wzl;
+uses  Classes, sysutils, Texture,Gameimage,Kpp,vcl.forms,Wil,Wzl;
 const
   PrguseCount = 3; //界面文件数量
 
