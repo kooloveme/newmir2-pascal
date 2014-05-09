@@ -119,7 +119,7 @@ for I := 0 to List.Count - 1 do
   begin
   Tex:=List[i];
   if not Assigned(Tex) then Continue;
-  if TThread.GetTickCount-Tex.LastCheckTime > FFreeTextureTick then
+  if TThread.GetTickCount-Tex.m_nLastCheckTime > FFreeTextureTick then
   begin
     Tex.Free;
     List[i]:=nil;
@@ -241,7 +241,7 @@ begin
     Result:=GetCacheTexture(index);
     List[index]:=Result; //保存到列表
   end;
-  Result.LastCheckTime:=TThread.GetTickCount;
+  Result.m_nLastCheckTime:=TThread.GetTickCount;
   FTextureInfoList.UnlockList;//解锁列表
 end;
 

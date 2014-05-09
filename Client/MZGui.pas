@@ -483,7 +483,7 @@ begin
   begin
     ConvertLocalToScene(0, 0, nX, nY);
     if Assigned(Texture) then
-    DrawTexture2Canvas(S.Canvas, Texture.Texture, nX, nY);
+    DrawTexture2Canvas(S.Canvas, Texture.m_Texture, nX, nY);
   end;
 
 end;
@@ -537,8 +537,8 @@ constructor TGuiForm.Create(Texture:TTexture);
 begin
   inherited Create;
   BackgroundTexture:=Texture;
-  Rect.W:=Texture.Texture.Width;
-  Rect.H:=Texture.Texture.Height;
+  Rect.W:=Texture.m_Texture.Width;
+  Rect.H:=Texture.m_Texture.Height;
 end;
 
 destructor TGuiForm.Destroy;
@@ -553,7 +553,7 @@ begin
 
   if Assigned(S) then
   begin
-    if Assigned(BackgroundTexture) then DrawTexture2Canvas(S.Canvas,BackgroundTexture.Texture,Rect.X,Rect.Y);
+    if Assigned(BackgroundTexture) then DrawTexture2Canvas(S.Canvas,BackgroundTexture.m_Texture,Rect.X,Rect.Y);
   end;
   inherited;
 end;
@@ -686,7 +686,7 @@ begin
            DrawText[i]:=PassWordChar;
          end;
       end;
-     Font.Print(DrawX+2,DrawY+3,DrawText);
+     Font.TextOut(DrawX+2,DrawY+3,DrawText);
     end;
 
      //»­¹â±ê

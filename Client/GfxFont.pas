@@ -26,20 +26,21 @@ type
   TENGINEFONTGLYPH = tagEngineFontGlyph;
 
   TGfxFont = class
+  private
+     procedure Print(X: Single; Y: Single; Text: PWideChar);
+     function GetTextSize(Text: PWideChar): TSize;
   public
     constructor Create(const FontName: PWideChar; FaceSize: Integer; bBold: Boolean = False;
       bItalic: Boolean = False; bAntialias: Boolean = True);
     destructor Destroy(); override;
   public
     // 渲染文本
-    procedure Print(X: Single; Y: Single; Text: PWideChar);overload;
-    procedure Print(x,y:Integer;Text:string);overload;
+    procedure TextOut(x,y:Single;Text:string);
     // 设置与获取颜色
     procedure SetColor(Color: Cardinal);overload;
     Procedure SetColor(Color:TColor);overload;
     function GetColor: Cardinal;
     // 获取文本宽高
-    function GetTextSize(Text: PWideChar): TSize;
     Function TextWidth(Text:String):Integer;
     Function TextHeight(Text:String):Integer;
     // 根据坐标获取字符
@@ -404,10 +405,8 @@ begin
     Result := m_nFontSize/2;
 end;
 
-procedure TGfxFont.Print(x, y: Integer; Text: string);
+procedure TGfxFont.TextOut(x, y: Single; Text: string);
 var
-  pWideStr:PWideChar;
-  TextLength:Integer;
   lx,ly:Single;
 begin
   if Text='' then exit;

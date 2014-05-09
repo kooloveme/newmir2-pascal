@@ -41,7 +41,7 @@ procedure TLoginScene.RenderFrame;
 begin
   inherited;
   m_TmpTexture := TResManager.GetInstance.GetOtherTexture(CHRSEL,22);
-  DrawTexture2Canvas(Canvas,m_TmpTexture.Texture,0,0);
+  DrawTexture2Canvas(Canvas,m_TmpTexture.m_Texture,0,0);
   TGuiManager.GetInstance.Draw;
 end;
 
@@ -78,8 +78,8 @@ begin
     Rect.X         := 170;
     Rect.Y         := 164;
     TexturePressed := TResManager.GetInstance.GetPrguseTexture(1,62,False);
-    Rect.W         := TexturePressed.Texture.Width;
-    Rect.H         := TexturePressed.Texture.Height;
+    Rect.W         := TexturePressed.m_Texture.Width;
+    Rect.H         := TexturePressed.m_Texture.Height;
     Caption        := '提交按钮';
   end;
   frm_LoginForm.Add(btn_LoginOk);
@@ -115,8 +115,8 @@ begin
    //TextureNormal := TexturePressed;
     Rect.X         := 252;
     Rect.Y         := 28;
-    Rect.W         := TexturePressed.Texture.Width;
-    Rect.H         := TexturePressed.Texture.Height;
+    Rect.W         := TexturePressed.m_Texture.Width;
+    Rect.H         := TexturePressed.m_Texture.Height;
     Caption        := '关闭按钮';
   end;
   frm_LoginForm.Add(btn_Cls);
@@ -127,8 +127,8 @@ begin
     Rect.Y            := 207;
     TexturePressed    := TResManager.GetInstance.GetPrguseTexture(1,61,False);
     //TextureNormal   := TexturePressed;
-    Rect.W            := TexturePressed.Texture.Width;
-    Rect.H            := TexturePressed.Texture.Height;
+    Rect.W            := TexturePressed.m_Texture.Width;
+    Rect.H            := TexturePressed.m_Texture.Height;
     Caption           := '新用户按钮';
     OnClick           := NewAccountClick;
   end;
@@ -140,8 +140,8 @@ begin
      Rect.Y         := 207;
      TexturePressed := TResManager.GetInstance.GetPrguseTexture(1,53,False);
      //TextureNormal:= TexturePressed;
-     Rect.W         := TexturePressed.Texture.Width;
-     Rect.H         := TexturePressed.Texture.Height;
+     Rect.W         := TexturePressed.m_Texture.Width;
+     Rect.H         := TexturePressed.m_Texture.Height;
      Caption        := '修改密码按钮';
   end;
   frm_LoginForm.Add(btn_ChangePw);

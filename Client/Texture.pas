@@ -6,11 +6,11 @@ MondoZenGL;
 type
   TTexture=class
     Public
-    Texture:TMZTexture;
-    X:Smallint;
-    Y:Smallint;
-    LastCheckTime:Cardinal;
-    constructor Create(Tex:TMZTexture;XX,YY:Smallint);
+    m_Texture:TMZTexture;
+    m_nX:Smallint;
+    m_nY:Smallint;
+    m_nLastCheckTime:Cardinal;
+    constructor Create(Tex:TMZTexture;X,Y:Smallint);
     destructor Destroy; override;
   end;
 
@@ -21,17 +21,17 @@ Classes;
 { TTexture }
 
 
-constructor TTexture.Create(Tex:TMZTexture;XX,YY:Smallint);
+constructor TTexture.Create(Tex:TMZTexture;X,Y:Smallint);
 begin
-Texture:=Tex;
-X:=XX;
-Y:=YY;
-LastCheckTime:=TThread.GetTickCount;
+m_Texture:=Tex;
+m_nX:=X;
+m_nY:=Y;
+m_nLastCheckTime:=TThread.GetTickCount;
 end;
 
 destructor TTexture.Destroy;
 begin
-  Texture.Free;
+  m_Texture.Free;
   inherited;
 end;
 
