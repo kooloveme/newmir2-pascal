@@ -100,37 +100,37 @@ begin
  {$POINTERMATH ON}
 case Colorbit of
   8:begin
-    outLen:=Len*4;
+    outLen := Len*4;
     GetMem(PtexData,OutLen);
-    Pbits:=P;
-    for I := 0 to Len-1 do
+    Pbits := P;
+    for I  :=  0 to Len-1 do
     begin
-      ColorIndex:=pbits[i];
-      Pixel:=ColorPalette[ColorIndex];
-      ptexData[i]:=Pixel;
+      ColorIndex := pbits[i];
+      Pixel := ColorPalette[ColorIndex];
+      ptexData[i] := Pixel;
     end;
   end;
   16:begin
-    outLen:=Len*2;
+    outLen := Len*2;
     GetMem(ptexData,OutLen);
-    PBits16:=P;
-    for i := 0 to (Len div 2) -1 do
+    PBits16 := P;
+    for i  :=  0 to (Len div 2) -1 do
     begin
-      Color565:=Pbits16[i];
-      Pixel:=RGB565ToABGR(Color565);
-      ptexData[i]:=Pixel;
+      Color565 := Pbits16[i];
+      Pixel := RGB565ToABGR(Color565);
+      ptexData[i] := Pixel;
     end;
 
   end;
 end;
- Ptex:=ptexData;
+ Ptex := ptexData;
 {$POINTERMATH OFF}
 end;
 
 constructor TWzlImage.Create(FileName: String);
 begin
   inherited Create;
-  m_sFileName:=FileName;
+  m_sFileName := FileName;
 end;
 
 procedure TWzlImage.CreateFile;
@@ -161,23 +161,23 @@ var
   MZTex:TMZTexture;
   ZipLen:Cardinal;
 begin
-  Result:=nil;
+  Result := nil;
   if  not ((idx >= 0) and (idx < ImageCount) and (m_FileStream <> Nil))  then Exit;
-  Offset:=m_nArr_Index[idx];
+  Offset := m_nArr_Index[idx];
   m_FileStream.Seek(Offset,soBeginning);
   m_FileStream.Read(ImageInfo,SizeOf(TWzlImageInfo));
   //计算原始长度
   case ImageInfo.bt1 of
     3:begin
-      OrginalLen:=ImageInfo.nWidth*ImageInfo.nHeight;
-      ColorBit:=8;
+      OrginalLen := ImageInfo.nWidth*ImageInfo.nHeight;
+      ColorBit := 8;
     end;
     5:begin
-      OrginalLen:=ImageInfo.nWidth*ImageInfo.nHeight*2;
-      ColorBit:=16;
+      OrginalLen := ImageInfo.nWidth*ImageInfo.nHeight*2;
+      ColorBit := 16;
     end;
   end;
-  MZTex:=TMZTexture.create(ImageInfo.nWidth,ImageInfo.nHeight,$FFFFFFFF,[]);
+  MZTex := TMZTexture.create(ImageInfo.nWidth,ImageInfo.nHeight,$FFFFFFFF,[]);
   if ImageInfo.Length<=0 then //当内部记录长度为0时候说明此文件并未压缩。不需要解压。
   begin
     //直接读入不需要解压
@@ -189,7 +189,7 @@ begin
   begin
     GetMem(PZipBits,ImageInfo.Length);
     m_FileStream.Read(PZipBits^,ImageInfo.Length);
-    ZipLen:=OrginalLen;
+    ZipLen := OrginalLen;
     DecompressBuf(PZipBits,ImageInfo.Length,ZipLen,Pbits,OutZipLen);
     FreeMem(PZipBits,ImageInfo.Length);
     ConvertTextureDate(Pbits,OutZipLen,ColorBit,PtexData,TexDataLen);
@@ -199,28 +199,29 @@ begin
   //组合纹理
   MZTex.SetData(PTexData,0,0,ImageInfo.nWidth,ImageInfo.nHeight);
   FreeMem(PtexData,TexDataLen);
-  Result:=TTexture.Create(MZTex,ImageInfo.px,ImageInfo.py);
+  Result := TTexture.Create(MZTex,ImageInfo.px,ImageInfo.py);
 
 end;
 
 function TWzlImage.GetTexture(idx: Integer; AutoFree: Boolean): TTexture;
 var
-List:TList;
+  List:TList;
 begin
-if  not ((idx >= 0) and (idx < ImageCount) and (m_FileStream <> Nil))  then Exit;
+  Result := nil;
+  if  not ((idx >= 0) and (idx < ImageCount) and (m_FileStream <> Nil))  then Exit;
   if AutoFree then
   begin
-    Result:=ReadyLoadTexture(idx);
+    Result := ReadyLoadTexture(idx);
     if Result=nil then
     begin
-      Result:=GetCacheTexture(idx);
-      List:=m_TextureList.lockList;
-      List[idx]:=Result;
+      Result := GetCacheTexture(idx);
+      List := m_TextureList.lockList;
+      List[idx] := Result;
       m_TextureList.UnLockList;
     end;
   end else
   begin
-    Result:=GetCacheTexture(idx);
+    Result := GetCacheTexture(idx);
   end
 end;
 
@@ -232,15 +233,16 @@ begin
   inherited;
   if not FileExists(m_sFileName) then Exit;
   try
-    m_FileStream:=TFileStream.Create(m_sFileName,fmOpenRead or fmShareExclusive);
+    m_FileStream := TFileStream.Create(m_sFileName,fmOpenRead or fmShareExclusive);
     m_FileStream.Read(Header,SizeOf(TWzlImageHeader));
-    m_nFImageCount:=Header.ImageCount;
-    List:=m_TextureList.lockList;
-    List.Count:=m_nFImageCount;
+    m_nFImageCount := Header.ImageCount;
+    List := m_TextureList.lockList;
+    List.Count := m_nFImageCount;
     m_TextureList.UnLockList;
     LoadIndex;
-  finally
-
+  except
+    m_FileStream.Free;
+    TMZLog.Log('Can not Read:'+m_sFileName);
   end;
 end;
 
@@ -256,13 +258,13 @@ var
   idxFile:string;
   IndexCount:integer;
 begin
-  idxFile:=ExtractFilePath(m_sFileName) + ExtractFileNameOnly(m_sFileName) + '.WZX';
+  idxFile := ExtractFilePath(m_sFileName) + ExtractFileNameOnly(m_sFileName) + '.WZX';
   if FileExists(idxFile) then
   begin
     try
-      S:=TFileStream.Create(idxFile,fmOpenRead);
+      S := TFileStream.Create(idxFile,fmOpenRead);
       s.Read(Header,SizeOf(TWzlIndexHeader));
-      IndexCount:=Header.IndexCount;
+      IndexCount := Header.IndexCount;
       SetLength(m_nArr_Index,IndexCount);
       s.Read(m_nArr_Index[0],IndexCount*4);
     finally

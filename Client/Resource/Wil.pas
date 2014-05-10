@@ -162,8 +162,7 @@ begin
   except
     m_FileStream.free;
     m_FileStream:=nil;
-    //输出Log 无法打开文件,暂未实现
-
+    TMZLog.Log('Can not Read:'+m_sFileName);
   end;
   if m_FileStream <> nil then
   begin
