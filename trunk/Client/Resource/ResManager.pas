@@ -3,11 +3,11 @@ unit ResManager;
 interface
 uses  Classes, sysutils, Texture,Gameimage,Kpp,vcl.forms,Wil,Wzl;
 const
+
   PrguseCount = 3; //界面文件数量
-
-  KppFileCount = 4; //资源管理器维护文件的数量
+  MapObjectsCount = 255; //Objects.wil文件数组上标
   OtherFileCount = 1; //无规则的单项文件数量
-
+  FileCount = PrguseCount+MapObjectsCount-1+OtherFileCount; //资源管理器维护文件的数量
   {数组下标}
   CHRSEL = 1;
 type
@@ -19,6 +19,7 @@ type
     class var FInstance: TResManager;
     PrguseFile: array[1..PrguseCount] of TGameImage;
     OtherFile: array[1..OtherFileCount] of TGameImage; //单项文件数组
+    MapObjectFile :array [1..MapObjectsCount] of TGameImage;
     AllFileList: TList;
     function FileNameFormat(sfile: string; index: integer): string;
     procedure LoadFile;
@@ -31,10 +32,11 @@ type
     class function GetInstance: TResManager;
     destructor Destroy; override;
     procedure WriteLog(s: string);
-    function GetPrguseTexture(PrguseIndex: integer; Index: integer; AutoFree:
+    function GetPrguseTexture(PrguseIndex: integer; ImageIndex: integer; AutoFree:
       Boolean = True): TTexture;
-    function GetOtherTexture(OtherFileIndex: integer; index: integer; AutoFree:
+    function GetOtherTexture(OtherFileIndex: integer; Imageindex: integer; AutoFree:
       Boolean = True): TTexture;
+    Function GetMapObjects(ObjectsIndex :Integer; Imageindex :Integer; AutoFree :Boolean = True):TTexture;
     Function GetTexture(ImageFile:TGameImage;index:Integer;AutoFree:Boolean=True):TTexture;
     property LoadPercent: integer read FLoadPercent;
   end;
@@ -91,22 +93,31 @@ begin
   result := FInstance;
 end;
 
-function TResManager.GetOtherTexture(OtherFileIndex, index: integer; AutoFree:
+function TResManager.GetMapObjects(ObjectsIndex, Imageindex: Integer;
+  AutoFree: Boolean): TTexture;
+begin
+  Result := nil;
+  if not ObjectsIndex in [1..MapObjectsCount] then
+    Exit;
+    Result:=OtherFile[ObjectsIndex].GetTexture(Imageindex,AutoFree);
+end;
+
+function TResManager.GetOtherTexture(OtherFileIndex, Imageindex: integer; AutoFree:
   Boolean): TTexture;
 begin
   Result := nil;
   if not OtherFileIndex in [1..OtherFileCount] then
     Exit;
-    Result:=OtherFile[OtherFileIndex].GetTexture(index,AutoFree);
+    Result:=OtherFile[OtherFileIndex].GetTexture(Imageindex,AutoFree);
 end;
 
-function TResManager.GetPrguseTexture(PrguseIndex, Index: integer; AutoFree:
+function TResManager.GetPrguseTexture(PrguseIndex, ImageIndex: integer; AutoFree:
   Boolean): TTexture;
 begin
   Result := nil;
   if not PrguseIndex in [1..PrguseCount] then
     exit;
-  Result:=PrguseFile[PrguseIndex].GetTexture(index,AutoFree);
+  Result:=PrguseFile[PrguseIndex].GetTexture(Imageindex,AutoFree);
 end;
 
 function TResManager.GetTexture(ImageFile: TGameImage; index: Integer;
@@ -117,7 +128,6 @@ if Assigned(ImageFile) then
 begin
  Result:=ImageFile.GetTexture(index,AutoFree);
 end;
-
 end;
 
 procedure TResManager.LoadFile;
@@ -127,21 +137,29 @@ var
 begin
   FLoadPercent := 0;
   LoadedFileCount := 0;
+  //载入界面文件
   for I := 1 to PrguseCount do
   begin
-
       PrguseFile[i] := LoadResFile(FileNameformat('Prguse', i));
       AllFileList.Add(PrguseFile[I]);
       inc(LoadedFileCount);
       CalcPercent(LoadedFileCount);
       //Sleep(500);
   end;
-
+  //载入杂项文件
   for I := 1 to OtherFileCount do
   begin
     OtherFile[i] := LoadResFile(FileNameformat('ChrSel', i));
     inc(LoadedFileCount);
     AllFileList.Add(OtherFile[I]);
+    CalcPercent(LoadedFileCount);
+  end;
+  //载入地图Object文件
+  for I := 1 to MapObjectsCount do
+  begin
+    MapObjectFile[i] := LoadResFile(FileNameFormat('Objects',i));
+    Inc(LoadedFileCount);
+    AllFileList.Add(MapObjectFile[i]);
     CalcPercent(LoadedFileCount);
   end;
 
@@ -183,7 +201,7 @@ end;
 
 procedure TResManager.CalcPercent(loaded: integer);
 begin
-  FLoadPercent := trunc((Loaded / KppFileCount) * 100);
+  FLoadPercent := trunc((Loaded / FileCount) * 100);
 end;
 
 constructor TResManager.Create(sRoot: string);
