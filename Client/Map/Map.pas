@@ -19,10 +19,12 @@ type
     Protected
       m_nWidth         :Integer;
       m_nHeight        :Integer;
-      m_TargetTexture  :TMZRenderTarget; //地图表面的纹理
+      m_TilesTarget    :TMZRenderTarget; //地图表面的纹理
+      m_ObjsTarget     :TMZRenderTarget;
       m_sMapPath       :string; //地图文件路径。
       m_sMapCode       :string; //地图代码 M001.MAP 那么这个地图代码就是M001;
       m_bArr_WalkFlag  :array of array of Boolean;
+      m_LastDrawRect   :TMZRect;
       m_Scene          :TMZScene;
       Function GetWalkFlag(x,y :integer):Boolean;
     Public
@@ -68,13 +70,14 @@ constructor TGameMap.Create(FileName: string; TextureWidth,
   TextureHeight: Integer);
 begin
   m_sMapPath      := FileName;
-  m_TargetTexture := TMZRenderTarget.Create(TMZTexture.Create(TextureWidth,TextureHeight,0,[]));
+  //m_TargetTexture := TMZRenderTarget.Create(TMZTexture.Create(TextureWidth,TextureHeight,0,[]));
   m_sMapCode      := '';
+  m_LastDrawRect  := TMZRect.Create(0,0,0,0);
 end;
 
 destructor TGameMap.Destroy;
 begin
-  m_TargetTexture.Free;
+  //m_TargetTexture.Free;
   SetLength(m_bArr_WalkFlag,0);
   inherited;
 end;

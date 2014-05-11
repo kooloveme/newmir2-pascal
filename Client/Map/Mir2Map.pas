@@ -3,6 +3,9 @@ unit Mir2Map;
 interface
 uses
 Map;
+Const
+UNITX = 48;
+UNITY = 32;
 type
    TMapInfo = packed record
       wBkImg: Word;  //tiles 的值 最高位为1表示不可行走
@@ -40,11 +43,13 @@ type
       Constructor Create(FileName:string;TextureWidth,TextureHeight:Integer);override;
       destructor Destroy; override;
       procedure LoadMap(sFileName:string);override;
+      procedure DrawTile(x: Integer; y: Integer); override;//xy为地图的像素坐标
+      procedure DrawObject(x: Integer; y: Integer); override;
     end;
 
 implementation
 uses
-System.Classes,System.SysUtils;
+System.Classes,System.SysUtils,Share,Texture,ResManager,DrawEx,MondoZenGL;
 { TMir2Map }
 
 constructor TMir2Map.Create(FileName: string; TextureWidth,
@@ -58,6 +63,69 @@ destructor TMir2Map.Destroy;
 begin
 
   inherited;
+end;
+
+procedure TMir2Map.DrawObject(x, y: Integer);
+var
+  i,j:Integer;
+  Xt,Yt:Integer;
+  aX,aY:Integer;
+  tex:TTexture;
+  ImageIndex:Integer;
+  FileIndex:Integer;
+  NowRect:TMZRect;
+  overLapeTex:TMZTexture;
+  OverlapeRect:TMZRect;//被截取纹理的区域
+  xx,yy:Single;
+begin
+  inherited;
+  Xt:=(g_nClientWidth div UNITX) + 1;
+  Yt:=(g_nClientHeight div UNITY ) + 1;
+  if not Assigned(m_Scene) then Exit;
+  // 计算本次绘制的区域。
+  NowRect.X:=x;
+  NowRect.Y:=0;
+  NowRect.W:=TMZApplication.Instance.ScreenWidth;
+  NowRect.H:=TMZApplication.Instance.ScreenHeight;
+  //判断本次绘制的区域和上次绘制的区域是否存在重叠区域。
+  if NowRect.Equals(m_LastDrawRect) then Exit;{如果本次区域和上次区域相同的话则退出}
+  xx := abs(m_LastDrawRect.X-NowRect.X);
+  yy := Abs(m_LastDrawRect.Y-NowRect.y);
+  OverlapeRect.W := NowRect.W-xx;
+  OverlapeRect.H := NowRect.H-yy;
+  OverlapeRect.X := X-m_LastDrawRect.X;
+  OverlapeRect.Y := Y-m_LastDrawRect.Y;
+  if OverlapeRect.X < 0 then OverlapeRect.X:=0;
+  if OverlapeRect.Y < 0 then OverlapeRect.Y:=0;
+  //如果存在重叠区域。那么把重叠区域纹理取出来
+  overLapeTex:=m_ObjsTarget.Texture;
+
+  //把重叠区域绘制在目标纹理上。
+ // m_Scene.Canvas.RenderTarget:=m_ObjsTarget;
+  //绘制非重叠区域的纹理。
+
+  for I := 0 to xt do
+  begin
+    for j := 0 to Yt do
+    begin
+      //如果I,J不在合法范围之内 则跳过
+      aX := x+i;
+      aY := y+j;
+      if (aX < 0) or (aX >= m_nWidth)  then Continue;
+      if (aY < 0) or (aY >= m_nHeight) then Continue;
+      ImageIndex := m_Arr_TilesInfo[aX,aY].wFrImg and $7FFF;
+      FileIndex := m_Arr_TilesInfo[aX,aY].btArea+1;
+      tex := TResManager.GetInstance.GetTexture(MAPOBJ,FileIndex,ImageIndex);
+      DrawTexture2Canvas(m_Scene.Canvas,Tex.m_Texture,i*UNITX,j*UNITY);
+    end;
+  end;
+
+end;
+
+procedure TMir2Map.DrawTile(x, y: Integer);
+begin
+  inherited;
+
 end;
 
 procedure TMir2Map.LoadMap(sFileName: string);
