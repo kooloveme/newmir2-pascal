@@ -4,10 +4,10 @@ interface
 uses
 MondoZenGL,Texture;
 //X Y ÎªÆÁÄ»µÄÎ»ÖÃ
-Procedure DrawTexture2Canvas(Canvas:TMZcanvas;Texture:TMZTexture;X,Y:integer);
+Procedure DrawTexture2Canvas(Canvas:TMZcanvas;Texture:TMZTexture;X,Y:Single);
 implementation
 
-Procedure DrawTexture2Canvas(Canvas:TMZcanvas;Texture:TMZTexture;X,Y:integer);
+Procedure DrawTexture2Canvas(Canvas:TMZcanvas;Texture:TMZTexture;X,Y:Single);
 var
 coor:TMZTextureCoordinates;
 rect:TMZRect;

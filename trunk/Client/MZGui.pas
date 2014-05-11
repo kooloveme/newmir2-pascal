@@ -6,24 +6,20 @@ uses
 type
   TKeyState = (kAlt, kShift, kCtrl, mLeft, mMiddle, mRight);
   TKeyStates = set of TKeyState;
-  TOnClick = procedure (key: TKeyStates; X, Y: integer) of object;
-  TOnMouseMove = procedure(key: TKeyStates;X, Y: integer) of object;
-  TOnMouseDown = procedure(key: TKeyStates;Button:TMZMouseButton; X, Y: integer) of object;
-  TOnMouseUp = procedure(key: TKeyStates;Button:TMZMouseButton;X, Y: Integer) of object;
+  TOnClick = procedure (key: TKeyStates; X, Y: Single) of object;
+  TOnMouseMove = procedure(key: TKeyStates;X, Y: Single) of object;
+  TOnMouseDown = procedure(key: TKeyStates;Button:TMZMouseButton; X, Y: Single) of object;
+  TOnMouseUp = procedure(key: TKeyStates;Button:TMZMouseButton;X, Y: Single) of object;
   TOnEnterLeave =procedure of object;
   TKeyEvent=Procedure(Key:TKeyStates;Button:TMZKeyCode);
 
-  TGuiRect = record
-    X, Y, W, H: Integer;
-  end;
-
   TGuiObject = class
   protected
-  MovingDownX,MovingDownY:Integer; //为移动控件做处理
+  MovingDownX,MovingDownY:Single; //为移动控件做处理
   public
     SubGuiObjects: TList;
     Parent: TGuiObject;
-    Rect: TGuiRect;
+    Rect: TMZRect;
     Caption: string;
     Visable: Boolean;
     CanMove:Boolean;
@@ -41,16 +37,16 @@ type
     constructor Create; virtual;
     destructor Destroy; override;
     procedure Draw(S:TMZScene); virtual;
-    procedure ConvertLocalToScene(Lx, ly: Integer; var sX, sY: Integer);
-    procedure ConvertCoordinateToLocal(var lx,ly:Integer;sX,sY:integer); //转换父坐标到子坐标
-    procedure ConvertCoordinateToParent(var Dx,Dy:integer;Lx,ly:integer);//转换子坐标到父坐标
-    function InRange(x, y: integer): Boolean;
-    procedure RegMoveingObject(G:TGuiobject;x,y:integer);
+    procedure ConvertLocalToScene(Lx, ly: Single; var sX, sY: Single);
+    procedure ConvertCoordinateToLocal(var lx,ly:Single;sX,sY:Single); //转换父坐标到子坐标
+    procedure ConvertCoordinateToParent(var Dx,Dy:Single;Lx,ly:Single);//转换子坐标到父坐标
+    function InRange(x, y: Single): Boolean;
+    procedure RegMoveingObject(G:TGuiobject;x,y:Single);
     procedure Update(dt:Double);virtual;
-    function MouseMove(key: TKeyStates; X, Y: integer): Boolean; virtual;
-    function MouseDown(key: TKeyStates;Button:TMZMouseButton; X, Y: integer): Boolean; virtual;
-    function MouseUp(key: TKeyStates;Button:TMZMouseButton; X, Y: integer): Boolean; virtual;
-    function Click(key: TKeyStates;X, Y: integer): Boolean; virtual;
+    function MouseMove(key: TKeyStates; X, Y: Single): Boolean; virtual;
+    function MouseDown(key: TKeyStates;Button:TMZMouseButton; X, Y: Single): Boolean; virtual;
+    function MouseUp(key: TKeyStates;Button:TMZMouseButton; X, Y: Single): Boolean; virtual;
+    function Click(key: TKeyStates;X, Y: Single): Boolean; virtual;
     Function KeyUp(Key:TKeyStates;Button:TMZKeyCode):Boolean;virtual;
     Function KeyDown(Key:TKeyStates;Button:TMZKeyCode):Boolean;virtual;
     Function Enter:Boolean;virtual;
@@ -71,15 +67,15 @@ type
     TexturePressed: TTexture;
     TextureHit: TTexture;
     ClickSound: TMZStaticSound;
-    function Click(key: TKeyStates; X: Integer; Y: Integer): Boolean; override;
+    function Click(key: TKeyStates; X: Single; Y: Single): Boolean; override;
     constructor Create; override;
     destructor Destroy; override;
     procedure Draw(S:TMZScene); override;
-    function MouseDown(key: TKeyStates;Button:TMZMouseButton; X: Integer; Y: Integer): Boolean;
+    function MouseDown(key: TKeyStates;Button:TMZMouseButton; X: Single; Y: Single): Boolean;
       override;
-    function MouseUp(key: TKeyStates;Button:TMZMouseButton; X: Integer; Y: Integer): Boolean;
+    function MouseUp(key: TKeyStates;Button:TMZMouseButton; X: Single; Y: Single): Boolean;
       override;
-    function MouseMove(key: TKeyStates; X: Integer; Y: Integer): Boolean;
+    function MouseMove(key: TKeyStates; X: Single; Y:Single): Boolean;
       override;
     Function Enter:Boolean;override;
     Function leave:Boolean;override;
@@ -101,7 +97,7 @@ type
      procedure Draw(S:TMZScene);override;
      procedure Update(dt:double);override;
      constructor Create;
-     function Click(key: TKeyStates; X: Integer; Y: Integer): Boolean; override;
+     function Click(key: TKeyStates; X: Single; Y: Single): Boolean; override;
      function KeyUp(Key: TKeyStates; Button: TMZKeyCode): Boolean; override;
      function KeyDown(Key: TKeyStates; Button: TMZKeyCode): Boolean; override;
     end;
@@ -137,9 +133,10 @@ begin
   GuiObject.Parent := Self;
 end;
 
-function TGuiObject.Click(key: TKeyStates; X, Y: integer): Boolean;
+function TGuiObject.Click(key: TKeyStates; X, Y: Single): Boolean;
 var
-nX,nY,I:Integer;
+nX,nY:Single;
+I:Integer;
 GuiObject:TGuiObject;
 begin
   Result := False;
@@ -163,7 +160,7 @@ begin
   end;
 end;
 
-procedure TGuiObject.ConvertLocalToScene(Lx, ly: Integer; var sX, sY: Integer);
+procedure TGuiObject.ConvertLocalToScene(Lx, ly: Single; var sX, sY: Single);
 begin
   if Assigned(Parent) then
     Parent.ConvertLocalToScene(lx + Rect.X, ly + Rect.Y, sX, sY)
@@ -174,14 +171,14 @@ begin
   end;
 end;
 
-procedure TGuiObject.ConvertCoordinateToLocal(var lx, ly: Integer; sX, sY: integer);
+procedure TGuiObject.ConvertCoordinateToLocal(var lx, ly: Single; sX, sY: Single);
 begin
 lx:=sX-Rect.x;
 ly:=sy-Rect.y;
 end;
 
-procedure TGuiObject.ConvertCoordinateToParent(var Dx, Dy: integer; Lx,
-  ly: integer);
+procedure TGuiObject.ConvertCoordinateToParent(var Dx, Dy: Single; Lx,
+  ly: Single);
 begin
   Dx:=Rect.X+Lx;
   Dy:=Rect.y+ly;
@@ -224,7 +221,7 @@ begin
 if Assigned(OnEnter) then OnEnter;
 end;
 
-function TGuiObject.InRange(x, y: integer): Boolean;
+function TGuiObject.InRange(x, y: Single): Boolean;
 begin
   Result := False;
   if (X > Rect.X) and (X < (Rect.X + Rect.W)) and (Y > Rect.Y) and (Y < (Rect.Y + Rect.H)) then Result:=True;
@@ -289,11 +286,11 @@ if Assigned(OnLeave) then OnLeave;
 
 end;
 
-function TGuiObject.MouseDown(key: TKeyStates;Button:TMZMouseButton; X, Y: integer): Boolean;
+function TGuiObject.MouseDown(key: TKeyStates;Button:TMZMouseButton; X, Y: Single): Boolean;
 var
   i: Integer;
   GuiObject: TGuiObject;
-  nX,nY:Integer;
+  nX,nY:Single;
 begin
   Result := False;
   if not Visable then
@@ -329,11 +326,11 @@ begin
 
 end;
 
-function TGuiObject.MouseMove(key: TKeyStates; X, Y: integer): Boolean;
+function TGuiObject.MouseMove(key: TKeyStates; X, Y: Single): Boolean;
 var
   i: Integer;
   GuiObject: TGuiObject;
-  LocalX,LocalY:Integer;
+  LocalX,LocalY:Single;
   SubGuiIsProcessMsg:Boolean;
 begin
   Result := False;
@@ -389,11 +386,11 @@ begin
 
 end;
 
-function TGuiObject.MouseUp(key: TKeyStates;Button:TMZMouseButton; X, Y: integer): Boolean;
+function TGuiObject.MouseUp(key: TKeyStates;Button:TMZMouseButton; X, Y: Single): Boolean;
 var
   i: Integer;
   GuiObject: TGuiObject;
-  LocalX, LocalY: Integer;
+  LocalX, LocalY: Single;
 begin
   Result := False;
   if not Visable then
@@ -423,7 +420,7 @@ begin
 
 end;
 
-procedure TGuiObject.RegMoveingObject(G: TGuiobject; x, y: integer);
+procedure TGuiObject.RegMoveingObject(G: TGuiobject; x, y: Single);
 begin
 MoveObject:=G;
 MovingDownX:=x;
@@ -443,7 +440,7 @@ end;
 
 { TGuiButton }
 
-function TGuiButton.Click(key: TKeyStates; X, Y: Integer): Boolean;
+function TGuiButton.Click(key: TKeyStates; X, Y: Single): Boolean;
 begin
 Result:=inherited;
 if Result then
@@ -474,7 +471,7 @@ end;
 
 procedure TGuiButton.Draw(S:TMZScene);
 var
-  nX, nY: Integer;
+  nX, nY: Single;
 begin
   inherited;
   nX := 0;
@@ -500,7 +497,7 @@ Texture := TextureNormal;
 inherited;
 end;
 
-function TGuiButton.MouseDown(key: TKeyStates;Button:TMZMouseButton; X, Y: Integer): Boolean;
+function TGuiButton.MouseDown(key: TKeyStates;Button:TMZMouseButton; X, Y: Single): Boolean;
 begin
   Result:=False;
   if inherited then
@@ -510,7 +507,7 @@ begin
   end;
 end;
 
-function TGuiButton.MouseMove(key: TKeyStates; X, Y: Integer): Boolean;
+function TGuiButton.MouseMove(key: TKeyStates; X, Y:Single): Boolean;
 begin
   Result:=False;
   if inherited then
@@ -520,7 +517,7 @@ begin
   end;
 end;
 
-function TGuiButton.MouseUp(key: TKeyStates;Button:TMZMouseButton; X, Y: Integer): Boolean;
+function TGuiButton.MouseUp(key: TKeyStates;Button:TMZMouseButton; X, Y: Single): Boolean;
 begin
   Result:=False;
   if inherited then
@@ -617,7 +614,7 @@ end;
 
 { TGuiEdit }
 
-function TGuiEdit.Click(key: TKeyStates; X, Y: Integer): Boolean;
+function TGuiEdit.Click(key: TKeyStates; X, Y: Single): Boolean;
 var
 isFoucs:Boolean;
 begin
@@ -651,7 +648,7 @@ var
 Tmp:string;
 FontWidth,FontHeight:Single;
 FontSize:TSize;
-DrawX,DrawY:Integer;
+DrawX,DrawY:Single;
 i:Integer;
 begin
   inherited;

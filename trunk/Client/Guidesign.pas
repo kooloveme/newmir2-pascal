@@ -124,8 +124,8 @@ procedure TfrmGuiDesgin.TreeVChange(Sender: TObject; Node: TTreeNode);
 begin
 lbl1.Caption:=GUILabelCaption+TGuiObject(node.Data).Caption;
 FocusGui:=node.Data;
-se_X.Text:=IntToStr(FocusGui.Rect.X);
-se_Y.Text:=IntToStr(FocusGui.Rect.y);
+se_X.Text:=IntToStr(Trunc(FocusGui.Rect.X));
+se_Y.Text:=IntToStr(TRunc(FocusGui.Rect.y));
 FocusGUIVisable:=FocusGui.Visable;
 btn_ShowHideClick(TreeV);
 end;
