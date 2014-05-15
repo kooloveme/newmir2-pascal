@@ -21,6 +21,7 @@ var
   Application  :TMZApplication;
   GuiForm      :TfrmGuiDesgin;
 begin
+  {ÓÐÐ±¸Ü \ }
   g_sClientPath                   :=ExtractFilePath(ExtractFilePath(ParamStr(0)));
   g_nClientWidth                  :=800;
   g_nClientHeight                 :=600;

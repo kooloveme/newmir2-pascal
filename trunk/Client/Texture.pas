@@ -5,13 +5,18 @@ uses
 MondoZenGL;
 type
   TTexture=class
-    Public
+  private
     m_Texture:TMZTexture;
     m_nX:Smallint;
     m_nY:Smallint;
     m_nLastCheckTime:Cardinal;
+  Public
     constructor Create(Tex:TMZTexture;X,Y:Smallint);
     destructor Destroy; override;
+    property Texture:TMZTexture Read m_Texture;
+    property X:SmallInt Read m_nX;
+    property Y:SmallInt Read m_nY;
+    property CheckTime:Cardinal Read m_nLastCheckTime write m_nLastCheckTime;
   end;
 
 implementation
