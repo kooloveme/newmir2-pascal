@@ -1,2 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<BorlandProject/>
+<BorlandProject>
+	<Transactions>
+    <Transaction>2014/05/11 00:07:35.000.359,D:\newmir2-pascal\Client\Map\Mir2NewMap.pas=</Transaction>
+  </Transactions>
+</BorlandProject>

@@ -22,9 +22,8 @@ uses
   MZGui in 'MZGui.pas',
   PlayScene in 'Scene\PlayScene.pas',
   Map in 'Map\Map.pas',
-  Mir2Map in 'Map\Mir2Map.pas',
-  Mir2NewMap in 'Map\Mir2NewMap.pas';
+  Mir2Map in 'Map\Mir2Map.pas';
 
 begin
-Main.Init;
+  Main.Init;
 end.

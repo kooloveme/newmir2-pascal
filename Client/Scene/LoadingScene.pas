@@ -18,7 +18,7 @@ type
 var
 I:integer;
 implementation
-uses ResManager,kpp,DrawEx,sysutils,classes,Texture,LoginScene,Share;
+uses ResManager,kpp,DrawEx,sysutils,classes,Texture,LoginScene,PlayScene,Share;
 { TLoadingScene }
 
 procedure TLoadingScene.RenderFrame;
@@ -34,7 +34,8 @@ begin
   g_MainFont.TextOut(Application.ScreenWidth / 2-TextWidth div 2,Application.ScreenHeight/2,PWideChar(ShowText));
   if Percent = 100 then
   begin
-    Application.SetScene(TLoginScene.create);
+   // Application.SetScene(TLoginScene.create);
+   Application.SetScene(TPlayScene.Create);
   end;
 end;
 

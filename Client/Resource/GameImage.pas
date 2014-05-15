@@ -94,7 +94,7 @@ begin
     List:=m_TextureList.LockList;
     Count:=List.Count;
     Result:=List[idx];
-    if Assigned(Result) then Result.m_nLastCheckTime:=GetTickCount;
+    if Assigned(Result) then Result.CheckTime:=GetTickCount;
     m_TextureList.UnlockList;
   end;
 
