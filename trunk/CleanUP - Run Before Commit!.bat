@@ -8,4 +8,3 @@ del *.sav /s
 del *.prc /s
 del *.drc /s
 del *.identcache /s
-del *.dproj /s
