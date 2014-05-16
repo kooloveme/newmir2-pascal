@@ -2,7 +2,7 @@ unit Mir2Map;
 
 interface
 uses
-Map;
+Map,MondoZenGL{渲染到纹理需要};
 type
    TMapInfo = record
       wBkImg: Word;  //tiles 的值 最高位为1表示不可行走
@@ -35,7 +35,9 @@ type
     Private
       m_Arr_TilesInfo : array of array of TNewMapInfo;  //二维数组
       m_nAniCount    :Cardinal;
-      m_dwAniTime     :Cardinal;
+      m_dwAniTime    :Cardinal;
+      m_TilesRect    :TMZRect;
+      m_ObjsRect     :TMZRect;
     Protected
 
     public
@@ -54,7 +56,6 @@ System.SysUtils,{文件流需要}
 Texture,
 ResManager, {获取纹理需要}
 DrawEx, {绘制需要}
-MondoZenGL,{渲染到纹理需要}
 Math; {取整需要}
 { TMir2Map }
 
@@ -63,11 +64,12 @@ begin
   inherited;
   m_nAniCount:=0;
   m_dwAniTime:=GetTickCount;
+  m_TilesRect:=TMZRect.Create;
+  m_ObjsRect:=TMZRect.Create;
 end;
 
 destructor TMir2Map.Destroy;
 begin
-
   inherited;
 end;
 
@@ -81,7 +83,7 @@ var
   OverlapeRect:TMZRect;//被截取纹理的区域
   xx,yy:Single;}
 
-  LoopX,LoopY,cX,cY:Integer;
+  LoopX,LoopY,cX,cY,cXe,cYe:Integer;
   MapInfo:pTNewMapInfo;
   AniFrame:Byte;
   AniTick:Byte;
@@ -90,6 +92,7 @@ var
   ObjImageIndex:Integer;
   ObjFileIndex:Byte;
   OffsetX,OffsetY:Byte;
+  NowRect:TMZRect;
 begin
   inherited;
  (* Xt:=(g_nClientWidth div UNITX) + 1;
@@ -140,81 +143,148 @@ begin
     if m_nAniCount > 100000 then m_nAniCount := 0;
   end;
   m_Scene.Canvas.RenderTarget:=m_ObjsTarget;
-  m_Scene.Canvas.Clear;
   cX := Floor(x / UNITX);
   cY := Floor(y / UNITY);
-  OffsetX:= X Mod UNITX;
-  OffsetY:= Y Mod UNITY;
-  for LoopX := cX to (m_ObjsTarget.Texture.Width div UNITX)+cX do
+  cXe := cX + m_ObjsTarget.Texture.Width div UNITX ;
+  cYe := cY + m_ObjsTarget.Texture.Height div UNITY + 19 ;
+  NowRect:=TMZRect.Create(cX,cY,cXe,cYe);
+  OffsetX:= X Mod UNITX ;
+  OffsetY:= Y Mod UNITY ;
+  if not NowRect.Equals(m_ObjsRect) then
   begin
-    for LoopY := cY to (m_ObjsTarget.Texture.Height div UNITY)+ cY + 15  do
+    m_ObjsRect := NowRect;
+    m_Scene.Canvas.Clear;
+    for LoopY := cY to cYe do
     begin
-      tex := nil;
+      for LoopX := cX to cXe  do
+       begin
+        tex := nil;
+        if (loopX < 0) or (loopX >= m_nWidth) or (loopY < 0) or (loopY >= m_nHeight)then Continue;
+        MapInfo := @m_Arr_TilesInfo[LoopX,LoopY];
+        ObjImageIndex := MapInfo.wFrImg and $7FFF;
+        if ObjImageIndex > 0 then
+        begin
+          NeedBlend := False;
+          ObjFileIndex := MapInfo.btArea + 1;//因为资源管理的最低下标为 1。
+          if (MapInfo.btAniFrame and $80) > 0 then //最高位为1表示此帧需要Blend处理。实际有效帧最多能有128帧
+          begin
+            NeedBlend := TRUE;
+            AniFrame := MapInfo.btAniFrame and $7F;
+            if AniFrame > 0 then
+            begin
+              AniTick := MapInfo.btAniTick;
+              ObjImageIndex := ObjImageIndex + (m_nAniCount mod (AniFrame + (AniFrame * AniTick))) div (1 + AniTick);
+            end;
+          end;
+
+
+
+          if (MapInfo.btDoorOffset and $80) > 0 then // 门的最高位1表示此处有门
+          begin
+             if (MapInfo.btDoorIndex and $7F) > 0 then
+                ObjImageIndex :=  ObjImageIndex + (MapInfo.btDoorOffset and $7F);
+          end;
+
+          Dec(ObjImageIndex);
+          {按照如上处理方式，传奇地图优先处理 门，再是处理动画。最后才是普通的obj}
+          tex:=TResManager.GetInstance.GetTexture(MAPOBJ,ObjFileIndex,ObjImageIndex);
+          if tex = nil then Continue;
+
+          if (tex.Texture.Width=UNITX) and (tex.Texture.Height=UNITY) then
+          begin
+            DrawTexture2Canvas(m_Scene.Canvas,tex.Texture,(LoopX-cX)*UNITX+7,(LoopY-cY)*UNITY);
+          end else
+          begin
+            if NeedBlend then
+            begin
+              //画动画光亮
+
+              //m_Scene.Canvas.BlendMode:=bmAdd;
+              //DrawTexture2Canvas(m_Scene.Canvas,tex.Texture,(LoopX-cX)*UNITX+tex.X-2 , (LoopY-cY)*UNITY - tex.Texture.Height+UNITY+tex.Y);
+              //m_Scene.Canvas.BlendMode:=bmNormal;
+            end else
+            begin
+              DrawTexture2Canvas(m_Scene.Canvas,tex.Texture,(LoopX-cX)*UNITX+tex.X , (LoopY-cY)*UNITY-tex.Texture.Height+UNITY);
+            end;
+
+          end;
+
+        end;
+      end;
+
+    end;
+  end;
+  m_Scene.Canvas.RenderTarget:=Nil;
+  DrawTexture2Canvas(m_Scene.Canvas,m_ObjsTarget.Texture,-OffsetX,-OffsetY);
+
+  for LoopX := cX to cXe do
+  begin
+    for LoopY := cY to cYe do
+    begin
+      Tex:=nil;
       if (loopX < 0) or (loopX >= m_nWidth) or (loopY < 0) or (loopY >= m_nHeight)then Continue;
       MapInfo := @m_Arr_TilesInfo[LoopX,LoopY];
       ObjImageIndex := MapInfo.wFrImg and $7FFF;
       if ObjImageIndex > 0 then
       begin
         NeedBlend := False;
-        ObjFileIndex := MapInfo.btArea + 1;//因为资源管理的最低下标为 1。
-        if (MapInfo.btAniFrame and $80) > 0 then //最高位为1表示此帧需要Blend处理。实际有效帧最多能有128帧
-        begin
-          NeedBlend := TRUE;
-          AniFrame := MapInfo.btAniFrame and $7F;
-          if AniFrame > 0 then
-          begin
-            AniTick := MapInfo.btAniTick;
-            ObjImageIndex := ObjImageIndex + (m_nAniCount mod (AniFrame + (AniFrame * AniTick))) div (1 + AniTick);
-          end;
-        end;
-
-
-        if (MapInfo.btDoorOffset and $80) > 0 then // 门的最高位1表示此处有门
-        begin
-           if (MapInfo.btDoorIndex and $7F) > 0 then
-              ObjImageIndex :=  ObjImageIndex + (MapInfo.btDoorOffset and $7F);
-        end;
-
-        Dec(ObjImageIndex);
-        {按照如上处理方式，传奇地图优先处理 门，再是处理动画。最后才是普通的obj}
-        tex:=TResManager.GetInstance.GetTexture(MAPOBJ,ObjFileIndex,ObjImageIndex);
-        if tex = nil then Continue;
-
-        if (tex.Texture.Width=UNITX) and (tex.Texture.Height=UNITY) then
-        begin
-          DrawTexture2Canvas(m_Scene.Canvas,tex.Texture,(LoopX-cX)*UNITX,(LoopY-cY)*UNITY);
-        end else
-        begin
-          if NeedBlend then
-          begin
-            DrawTexture2Canvas(m_Scene.Canvas,tex.Texture,(LoopX-cX)*UNITX+tex.X-2 , (LoopY-cY)*UNITY - tex.Texture.Height+UNITY+tex.Y);
-          end else
-          begin
-            DrawTexture2Canvas(m_Scene.Canvas,tex.Texture,(LoopX-cX)*UNITX+tex.X , (LoopY-cY)*UNITY-tex.Texture.Height+UNITY);
-          end;
-
-        end;
-
+        ObjFileIndex := MapInfo.btArea + 1;
       end;
+
+      if (MapInfo.btAniFrame and $80) > 0 then //最高位为1表示此帧需要Blend处理。实际有效帧最多能有128帧
+      begin
+        NeedBlend := TRUE;
+        AniFrame := MapInfo.btAniFrame and $7F;
+      end;
+
+      if AniFrame > 0 then
+      begin
+        AniTick := MapInfo.btAniTick;
+        ObjImageIndex := ObjImageIndex + (m_nAniCount mod (AniFrame + (AniFrame * AniTick))) div (1 + AniTick);
+      end;
+
+
+      if (MapInfo.btDoorOffset and $80) > 0 then // 门的最高位1表示此处有门
+      begin
+      if (MapInfo.btDoorIndex and $7F) > 0 then
+        ObjImageIndex :=  ObjImageIndex + (MapInfo.btDoorOffset and $7F);
+      end;
+
+      Dec(ObjImageIndex);
+
+      tex:=TResManager.GetInstance.GetTexture(MAPOBJ,ObjFileIndex,ObjImageIndex);
+      if tex = nil then Continue;
+
+      if NeedBlend then
+      begin
+              //画动画光亮
+        m_Scene.Canvas.BlendMode:=bmadd;
+        //m_Scene.Canvas.ColorMode:=cmReplace;
+        DrawTexture2Canvas(m_Scene.Canvas,tex.Texture,(LoopX-cX)*UNITX+tex.X+4-OffsetX , (LoopY-cY)*UNITY - tex.Texture.Height+UNITY+tex.Y-OffsetY);
+        m_Scene.Canvas.BlendMode:=bmNormal;
+      end else
+      begin
+        //DrawTexture2Canvas(m_Scene.Canvas,tex.Texture,(LoopX-cX)*UNITX+tex.X , (LoopY-cY)*UNITY-tex.Texture.Height+UNITY);
+      end;
+
     end;
-
   end;
-  m_Scene.Canvas.RenderTarget:=Nil;
-  DrawTexture2Canvas(m_Scene.Canvas,m_ObjsTarget.Texture,-OffsetX,-OffsetY);
-
 end;
 
 
 procedure TMir2Map.DrawTile(x, y: Integer);
 var
   cX,cY:Integer; //坐标的x,y
+  cXe,cYe:Integer;//坐标x y 的结束
   loopX,loopY:Integer;//循环变量
+
   tex:TTexture;
   MapInfo:pTNewMapInfo;
 
   TilesImageIndex:Integer;
   TilesFileIndex :Byte;
   OffsetX,OffSetY:Byte; //以像素为单位的X,Y的偏移、
+  NowRect:TMZRect;
 begin
   inherited;
   {floor（取得小于等于X的最大的整数）
@@ -236,10 +306,16 @@ begin
     cY:=cY-1;
     OffSetY:=OffSetY +UNITY
   end;
-
+  cXe := cX + m_TilesTarget.Texture.Width div UNITX ;
+  cYe := cY + m_TilesTarget.Texture.Height div UNITY + 15 ;
+  NowRect:=TMZRect.Create(cX,cY,cXe,cYe);
   m_Scene.Canvas.RenderTarget:=m_TilesTarget;
-  {画Tiles}
-  for loopX := cX to (m_TilesTarget.Texture.Width div UNITX)+cX do
+  if not  NowRect.Equals(m_TilesRect) then
+  begin
+   //如果和上次绘制的区域是一样的就不用绘制了
+    m_TilesRect := NowRect;
+    {画Tiles}
+    for loopX := cX to (m_TilesTarget.Texture.Width div UNITX)+cX do
     begin
       for loopY := cY to (m_TilesTarget.Texture.Height div UNITY)+cY do
       begin
@@ -271,6 +347,7 @@ begin
         end;
       end;
     end;
+  end;
   m_Scene.Canvas.RenderTarget:=nil;
   DrawTexture2Canvas(m_Scene.Canvas,m_TilesTarget.Texture,-OffsetX,-OffSetY);
 end;

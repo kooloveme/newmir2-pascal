@@ -26,8 +26,8 @@ Share,Windows,System.SysUtils;
 procedure TPlayScene.RenderFrame;
 begin
   inherited;
-  Map.DrawTile(x,y*32);
-  map.DrawObject(x,y*32);
+  Map.DrawTile(x,y);
+  map.DrawObject(x,y);
   g_MainFont.TextOut(0,0,'FPS:'+inttostr(FPS));
 end;
 
@@ -40,12 +40,12 @@ end;
 procedure TPlayScene.Startup;
 begin
   inherited;
-  x:=8000;
-  Y:=321;
+  x:=333*48;
+  Y:=325*32;
   Map:=TMir2Map.Create;
   Map.Scene:=Self;
   Map.SetViewSize(800,600);
-  Map.LoadMap(g_sClientPath+'Map\3.map');
+  Map.LoadMap(g_sClientPath+'Map\0.map');
   TimeTick:=GettickCount;
   FPSTick:=GetTickCount;
   FPSLimite:=GetTickCount;
@@ -64,9 +64,9 @@ begin
     FPS:=0;
   end;
 
-  if GetTickCount-TimeTick > 100 then
+  if GetTickCount-TimeTick > 10 then
   begin
-  inc(x,10);
+  inc(Y,2);
   TimeTick:=GetTickCount;
   end;
 
