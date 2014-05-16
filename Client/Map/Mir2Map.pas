@@ -89,6 +89,7 @@ var
   tex:TTexture;
   ObjImageIndex:Integer;
   ObjFileIndex:Byte;
+  OffsetX,OffsetY:Byte;
 begin
   inherited;
  (* Xt:=(g_nClientWidth div UNITX) + 1;
@@ -139,8 +140,11 @@ begin
     if m_nAniCount > 100000 then m_nAniCount := 0;
   end;
   m_Scene.Canvas.RenderTarget:=m_ObjsTarget;
+  m_Scene.Canvas.Clear;
   cX := Floor(x / UNITX);
   cY := Floor(y / UNITY);
+  OffsetX:= X Mod UNITX;
+  OffsetY:= Y Mod UNITY;
   for LoopX := cX to (m_ObjsTarget.Texture.Width div UNITX)+cX do
   begin
     for LoopY := cY to (m_ObjsTarget.Texture.Height div UNITY)+ cY + 15  do
@@ -196,7 +200,7 @@ begin
 
   end;
   m_Scene.Canvas.RenderTarget:=Nil;
-  DrawTexture2Canvas(m_Scene.Canvas,m_ObjsTarget.Texture,0,0);
+  DrawTexture2Canvas(m_Scene.Canvas,m_ObjsTarget.Texture,-OffsetX,-OffsetY);
 
 end;
 
@@ -210,13 +214,29 @@ var
 
   TilesImageIndex:Integer;
   TilesFileIndex :Byte;
+  OffsetX,OffSetY:Byte; //以像素为单位的X,Y的偏移、
 begin
   inherited;
   {floor（取得小于等于X的最大的整数）
    如：floor(-123.55)=-124，floor(123.55)=123}
-  //首先根据X,Y判断出地图所在的cX,cY值
+  //首先根据X,Y判断出地图所在的cX,cY值,以及预计要画的偏移值
   cX := Floor(x / UNITX);
   cY := Floor(y / UNITY);
+  OffsetX := X Mod UNITX;
+  OffSetY := Y Mod UNITY;
+  {为了将大地砖完全绘制。需要进行2倍的偏移}
+  if cX mod 2 <> 0 then
+  begin
+    cX:=cX-1;
+    OffsetX:=OffsetX + UNITX;
+  end;
+
+  if cY mod 2 <> 0 then
+  begin
+    cY:=cY-1;
+    OffSetY:=OffSetY +UNITY
+  end;
+
   m_Scene.Canvas.RenderTarget:=m_TilesTarget;
   {画Tiles}
   for loopX := cX to (m_TilesTarget.Texture.Width div UNITX)+cX do
@@ -252,7 +272,7 @@ begin
       end;
     end;
   m_Scene.Canvas.RenderTarget:=nil;
-  DrawTexture2Canvas(m_Scene.Canvas,m_TilesTarget.Texture,0,0);
+  DrawTexture2Canvas(m_Scene.Canvas,m_TilesTarget.Texture,-OffsetX,-OffSetY);
 end;
 
 procedure TMir2Map.LoadMap(sFileName: string);
