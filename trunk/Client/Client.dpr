@@ -3,6 +3,7 @@ program Client;
 {$R *.res}
 {$I zglCustomConfig.cfg}
 uses
+ // FastMM4,
   Main in 'Main.pas',
   KPP in 'Resource\KPP.pas',
   LoadingScene in 'Scene\LoadingScene.pas',
@@ -22,8 +23,12 @@ uses
   MZGui in 'MZGui.pas',
   PlayScene in 'Scene\PlayScene.pas',
   Map in 'Map\Map.pas',
-  Mir2Map in 'Map\Mir2Map.pas';
+  Mir2Map in 'Map\Mir2Map.pas',
+  ActionType in 'Actor\ActionType.pas',
+  HumAction in 'Actor\HumAction.pas',
+  MonsterAction in 'Actor\MonsterAction.pas';
 
 begin
+  ReportMemoryLeaksOnShutdown := True;
   Main.Init;
 end.

@@ -40,26 +40,26 @@ begin
 
   fntMain := font_LoadFromFile( dirRes + 'font.zfi' );
 
-  // RU: Создае?RenderTarget ?"цепляем" пустую текстуру. ?процессе текстуру можн?сменит?присвоив rtarget.Surface другую zglPTexture, главно?чт?бы совпадал?размер??теми, чт?указан??
-  //     tex_CreateZero. Таргет?такж?указан флаг RT_FULL_SCREEN, отвечающий за то, чт?бы ?текстуру помещалось вс?содержимое экрана ?не област?256x256(ка??флагом RT_DEFAULT).
+  // RU: Создаем RenderTarget и "цепляем" пустую текстуру. В процессе текстуру можно сменить присвоив rtarget.Surface другую zglPTexture, главное что бы совпадали размеры с теми, что указаны в
+  //     tex_CreateZero. Таргету также указан флаг RT_FULL_SCREEN, отвечающий за то, что бы в текстуру помещалось все содержимое экрана а не область 256x256(как с флагом RT_DEFAULT).
   // EN: Create a RenderTarget and "bind" empty texture to it. Later texture can be changed via changing rtarget.Surface to another zglPTexture, the only requirement - the same size, that was
   //     set in tex_CreateZero. Also target use flag RT_FULL_SCREEN that responsible for rendering whole content of screen into target, not only region 256x256(like with flag RT_DEFAULT).
   rtFull := rtarget_Add( tex_CreateZero( 256, 256 ), RT_FULL_SCREEN );
 
-  // RU: Для сравнения создадим ещ?один RenderTarget ?флагом RT_DEFAULT.
+  // RU: Для сравнения создадим ещё один RenderTarget с флагом RT_DEFAULT.
   // EN: Create one more RenderTarget with flag RT_DEFAULT for comparison.
   rtDefault := rtarget_Add( tex_CreateZero( 256, 256 ), RT_DEFAULT );
 end;
 
 procedure Draw;
 begin
-  // RU: Устанавливае?текущи?RenderTarget.
+  // RU: Устанавливаем текущий RenderTarget.
   // EN: Set current RenderTarget.
   rtarget_Set( rtFull );
-  // RU: Рисуем ?него.
+  // RU: Рисуем в него.
   // EN: Render to it.
   asprite2d_Draw( texTux, random( 800 - 64 ), random( 600 - 64 ), 64, 64, 0, random( 9 ) + 1 );
-  // RU: Возвращаем? ?обычному рендер?
+  // RU: Возвращаемся к обычному рендеру.
   // EN: Return to default rendering.
   rtarget_Set( nil );
 

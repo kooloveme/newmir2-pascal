@@ -27,7 +27,7 @@ type
   public
     class function GetInstance: TResManager;
     destructor Destroy; override;
-    Function GetTexture(FileType:Integer;FileIndex:integer;ImageIndex:Integer;AutoFree:Boolean=True):TTexture;
+    Function GetTexture(FileType:Integer;FileIndex:integer;ImageIndex:Integer):TTexture;
     property LoadPercent: integer read CalcPercent;
   end;
 var
@@ -64,16 +64,12 @@ begin
 end;
 
 procedure TResManager.Execute;
-var
-  i: integer;
 begin
   inherited;
   if not m_bInited then
     LoadFile;
   while not Terminated do
   begin
-    //for i := 1 to PrguseCount do
-      //PrguseFile[i].CheckFreeTexture;
     Sleep(100);
   end;
 end;
@@ -97,10 +93,9 @@ begin
 end;
 
 
-function TResManager.GetTexture(FileType, FileIndex, ImageIndex: Integer;
-  AutoFree: Boolean): TTexture;
+function TResManager.GetTexture(FileType, FileIndex, ImageIndex: Integer): TTexture;
 begin
-  Result:=m_FileList[FileType+FileIndex-1].GetTexture(ImageIndex,AutoFree);
+  Result:=m_FileList[FileType+FileIndex-1].GetTexture(ImageIndex);
 end;
 
 procedure TResManager.LoadFile;
@@ -134,14 +129,14 @@ begin
     inc(m_nLoadedFileCount);
   end;
   TILES:=m_FileList.Count;
-  for I := 0 to TILESCOUNT do
+  for I := 1 to TILESCOUNT do
   begin
     GameImage:=LoadResFile(FileNameFormat('Tiles',i));
     m_FileList.Add(GameImage);
     inc(m_nLoadedFileCount);
   end;
   SMTILES := m_FileList.Count;
-  for I := 0 to SMTILESCOUNT do
+  for I := 1 to SMTILESCOUNT do
   begin
     GameImage:=LoadResFile(FileNameFormat('SmTiles',i));
     m_FileList.Add(GameImage);
@@ -190,8 +185,13 @@ begin
   FreeOnTerminate := False;
   m_bInited := False;
   m_sRoot := sRoot;
-  m_FileList:=TList<TGameImage>.Create;
+  m_FileList:= TList<TGameImage>.Create;
 end;
 
+initialization
+finalization
+begin
+
+end;
 end.
 

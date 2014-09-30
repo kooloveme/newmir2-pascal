@@ -25,12 +25,11 @@ uses
   {$ELSE}
   zglHeader
   {$ENDIF}
-  ,Zgl_TrueType;
+  ;
 
 var
   dirRes  : UTF8String {$IFNDEF MACOSX} = '../data/' {$ENDIF};
   fntMain : zglPFont;
-  FreeTypeFont:TFreeTypeFont;
 
 procedure Init;
   //var
@@ -43,21 +42,18 @@ begin
   // EN: If textures were named without special mask - "$(font_name)-page$(number).$(extension)", then use this method to load them(for png):
   //for i := 0 to fntMain.Count.Pages - 1 do
   //  fntMain.Pages[ i ] := tex_LoadFromFile( dirRes + 'font-page' + u_IntToStr( i ) + '.png' );
-   FreeTypeFont:=TFreeTypeFont.Create('D:/sensen.ttf',25,True);
-   FreeTypeFont.Quality:=grqHighQuality;
-   FreeTypeFont.Color:=$FFFFFFFF;
 end;
 
 procedure Draw;
   var
     r : zglTRect;
     s : UTF8String;
-    我操:string;
 begin
   batch2d_Begin();
 
   // RU: ZenGL работает исключительно с кодировкой UTF-8, поэтому весь текст должен быть в UTF-8.
   // EN: ZenGL works only with UTF-8 encoding, so all text should be encoded with UTF-8.
+
   text_Draw( fntMain, 400, 25, 'String with center alignment', TEXT_HALIGN_CENTER );
 
   text_DrawEx( fntMain, 400, 65, 2, 0, 'Scaling', 255, $FFFFFF, TEXT_HALIGN_CENTER );
@@ -69,7 +65,7 @@ begin
   r.Y := 300 - 128;
   r.W := 192;
   r.H := 256;
- { text_DrawInRect( fntMain, r, 'Simple text rendering in rectangle' );
+  text_DrawInRect( fntMain, r, 'Simple text rendering in rectangle' );
   pr2d_Rect( r.X, r.Y, r.W, r.H, $FF0000 );
 
   r.X := 800 - 192;
@@ -93,19 +89,14 @@ begin
   r.H := 128;
   text_DrawInRect( fntMain, r, 'For starting new line LF symbol can be used' + #10 + 'code of which is equal to 10 and named in Unicode as "Line Feed"',
                    TEXT_HALIGN_CENTER or TEXT_VALIGN_CENTER );
-  pr2d_Rect( r.X, r.Y, r.W, r.H, $FF0000 );}
+  pr2d_Rect( r.X, r.Y, r.W, r.H, $FF0000 );
 
   // RU: Выводим количество FPS в правом углу, используя text_GetWidth.
   // EN: Render FPS in the top right corner using text_GetWidth.
   s := 'FPS: ' + u_IntToStr( zgl_Get( RENDER_FPS ) );
   text_Draw( fntMain, 800 - text_GetWidth( fntMain, s ), 0, s );
-  r.x:=0;
-  r.y:=0;
-  r.w:=300;
-  r.H:=30;
-  FreeTypeFont.RenderText('一路随云TestDemo 热血传奇我擦擦擦擦',r) ;
-  batch2d_End()
-  我操:='123';
+
+  batch2d_End();
 end;
 
 procedure Timer;

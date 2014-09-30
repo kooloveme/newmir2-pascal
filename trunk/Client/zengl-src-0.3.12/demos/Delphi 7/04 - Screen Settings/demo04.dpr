@@ -48,25 +48,23 @@ end;
 
 procedure Timer;
 begin
-  // CN:НЖјцК№УГґЛЦЦИ«ЖБДЈКЅЎЈЦчТЄЛјПлКЗЗР»»µЅИ«ЖБПФКѕ¶ш·Ц±жВКТФЧАГжµД·Ц±жВКїнёЯ¶ИІўЗТ±ЈіЦїнёЯ±ИЎЈФЪТ»Р©LCDПФКѕЖчЙПїЙДЬУРР©ОКМв
-  //
-  // EN: Recommended fullscreen mode for using. Main idea is switching to fullscreen mode using current desktop resolution of user and saving the aspect.
-  //This will avoid some problems
+  // RU: Рекомендуемый к использованию полноэкранный режим. Основная идея - переключиться в полноэкранный режим используя текущее разрешение рабочего стола пользователя, но при этом
+  //     сохранить пропорции изображения. Это позволит избежать некоторых проблем с LCD.
+  // EN: Recommended fullscreen mode for using. Main idea is switching to fullscreen mode using current desktop resolution of user and saving the aspect. This will avoid some problems
   //     with LCD's.
   if key_Press( K_F1 ) Then
     begin
-      // CN:±ЈіЦїнёЯ±И
+      // RU: Включить коррекцию пропорций.
       // EN: Enable aspect correction.
       zgl_Enable( CORRECT_RESOLUTION );
-      // CN:ЙиЦГУОП·іМРт»­ГжµД·Ц±жВК.
+      // RU: Установить разрешение под которое изначально написано приложение.
       // EN: Set resolution for what application was wrote.
       scr_CorrectResolution( 800, 600 );
-      //ЙиЦГZENGLёІёЗИ«ПФКѕЖч
       scr_SetOptions( zgl_Get( DESKTOP_WIDTH ), zgl_Get( DESKTOP_HEIGHT ), REFRESH_MAXIMUM, TRUE, FALSE );
     end;
 
-  // CN:АаЛЖЗ°ГжµДµДДЈКЅЈ¬І»±ЈіЦ»­ГжµДїнёЯ±ИЎЈАэИз¶ФУЪ5:4µД·Ц±жВК(1280*1024)ТІУРєЬєГµДР§№ыЈ¬ТтОЄЖБД»»бА©Х№єЪЙ«ЗшУт
-  //
+  // RU: Схожий режим с предыдущим за одним исключением - отключена коррекция по ширине и высоте. Например, отключение коррекции по высоте может пригодиться при соотошении
+  //     сторон 5:4(разрешение экрана 1280x1024), т.к. можно заполнить всю область экрана без существенных искажений.
   // EN: Similar mode to previous one with one exception - disabled correction for width and height. E.g. this can be useful for aspect 5:4(resolution 1280x1024),
   //     because screen can be filled without significant distortion.
   if key_Press( K_F2 ) Then
@@ -78,9 +76,9 @@ begin
       scr_SetOptions( zgl_Get( DESKTOP_WIDTH ), zgl_Get( DESKTOP_HEIGHT ), REFRESH_MAXIMUM, TRUE, FALSE );
     end;
 
-  // CN:К№УГЙиЦГЦµїЄЖфИ«ЖБДЈКЅЈ¬ПЦФЪХвёц·Ѕ·ЁФЪLCDПФКѕЖчЙПУРБЅёцОКМвЎЈ
-  // 1.  Из№ыК№УГµД·Ц±жВКІ»КЗLCDµДЦчТЄ·Ц±жВКЎЈІўЗТЗэ¶ЇТІГ»УРМШКвµДЙиЦГµД»° »бїґµЅВнИьїЛЎЈ
-  // 2. 4:3·Ц±жВК»б±»Лх·ЕОЄїнЖБПФКѕЖч
+  // RU: Переключение в полноэкранный режим используя указанные размеры. В наше время такой подход имеет два больших недостатка на LCD:
+  //     - если указываемое разрешение не является родным для LCD, то без специальных настройках в драйверах пользователь будет наблюдать пикселизацию
+  //     - на широкоэкранных мониторах картинка с соотношением 4:3 будет смотрется растянутой
   // EN: Switching to fullscreen mode using set values. Nowadays this method two main problems with LCD:
   //     - if used resolution is not main for LCD, then without special options in drivers user will see pixelization
   //     - picture with aspect 4:3 will be stretched on widescreen monitors
@@ -90,7 +88,7 @@ begin
       scr_SetOptions( 800, 600, REFRESH_MAXIMUM, TRUE, FALSE );
     end;
 
-  // CN:ґ°їЪДЈКЅ
+  // RU: Оконный режим.
   // EN: Windowed mode.
   if key_Press( K_F4 ) Then
     begin

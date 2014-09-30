@@ -42,8 +42,6 @@ type
   public
     constructor Create(FileName:string);
     destructor Destroy;override;
-    Function GetTexture(idx:integer;AutoFree:Boolean=True):TTexture;override;
-
     end;
 
 implementation
@@ -74,7 +72,6 @@ var
   PBits16  : PWord;
   Pixel16  : Word;
   PTexData : PInteger;
-  PTexture : zglPTexture;
 begin
   Result:=nil;
   if  not ((idx >= 0) and (idx < ImageCount) and (m_FileStream <> Nil))  then Exit;
@@ -128,33 +125,10 @@ begin
   Result:=TTexture.Create(MZTexture,Imageinfo.Px,Imageinfo.Py);
 end;
 
-function TWilImage.GetTexture(idx: integer; AutoFree: Boolean): TTexture;
-var
-  List:Tlist;
-begin
-  Result:=nil;
-  if  not ((idx >= 0) and (idx < ImageCount) and (m_FileStream <> Nil))  then Exit;
-  if AutoFree then
-  begin
-    Result:=ReadyLoadTexture(idx);
-    if Result=nil then
-    begin
-      Result:=GetCacheTexture(idx);
-      List:=m_TextureList.lockList;
-      List[idx]:=Result;
-      m_TextureList.UnLockList;
-    end;
-  end else
-  begin
-    Result:=GetCacheTexture(idx);
-  end;
-end;
-
 procedure TWilImage.Init;
 var
   Header: TWMImageHeader;
-  List:TList;
-  Count:Integer;
+  sFileName :UTF8String;
 begin
   inherited;
   try
@@ -162,7 +136,8 @@ begin
   except
     m_FileStream.free;
     m_FileStream:=nil;
-    TMZLog.Log('Can not Read:'+m_sFileName);
+    sFileName := UTF8Encode(m_sFileName);
+    TMZLog.Log('Can not Read:'+ sFileName);
   end;
   if m_FileStream <> nil then
   begin
@@ -183,10 +158,9 @@ begin
     end;
 
     m_nFImageCount:=Header.ImageCount;
+
     //给纹理列表设置大小
-    List:=m_TextureList.lockList;
-    List.Count:=m_nFImageCount;
-    m_TextureList.UnLockList;
+    m_TextureList.Count := m_nFImageCount;
     //读色板
     LoadPalette;
     //读索引
@@ -196,12 +170,9 @@ end;
 
 procedure TWilImage.Loadindex;
 var
-  I: integer;
   Header: TWMIndexHeader;
-  PValue: PInteger;
   idxFile:string;
   S:TFileStream;
-  Value:Integer;
 begin
   S:=nil;
   idxfile := ExtractFilePath(m_sFileName) + ExtractFileNameOnly(m_sFileName) + '.WIX';

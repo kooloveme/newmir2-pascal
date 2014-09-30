@@ -2,7 +2,7 @@
 
 interface
 uses
-GameImage,Texture,Classes,SysUtils,Util32Ex,MondoZenGL,ZlibEx;
+GameImage,Texture,Classes,SysUtils,Util32Ex,MondoZenGL,Zlib;
 type
   TWzlImageHeader = record
     Title: string[40]; //'WEMADE Entertainment inc.'
@@ -14,11 +14,9 @@ type
   end;
   PTWzlImageHeader = ^TWzlImageHeader;
 
-  TWzlImageInfo = record
-    bt1: Byte; //bt1=3 8bit bt1=5 16bit
-    bt2: Byte;
-    bt3: Byte;
-    bt4: Byte;
+  TWzlImageInfo = packed record
+    btColorBit:Byte;
+    Reserver:Array [1..3] of Byte;
     nWidth: SmallInt;
     nHeight: SmallInt;
     px: SmallInt;
@@ -27,13 +25,14 @@ type
   end;
   PTWzlImageInfo = ^TWzlImageInfo;
 
-  TWzlIndexHeader = record
-    Title: string[40]; //'WEMADE Entertainment inc.'
+  TWzlIndexHeader = packed record
+    Title: string[43]; //'WEMADE Entertainment inc.'
     IndexCount: Integer;
   end;
+
   PTWzlIndexHeader = ^TWzlIndexHeader;
 
-  TWzlImage=Class(TGameImage)
+  TWzlImage = Class(TGameImage)
   Private
   protected
     function GetCacheTexture(idx: Integer): TTexture; override;
@@ -46,9 +45,8 @@ type
     procedure Init; override;
     procedure CreateFile; override;
     procedure Insert(idx: Integer; pData: Pointer; Len: Integer); override;
-    function GetTexture(idx: Integer; AutoFree: Boolean = True): TTexture;
-      override;
     End;
+
 implementation
 var
 ColorPalette: array[0..255] of Cardinal = (
@@ -157,7 +155,6 @@ var
   PtexData:Pointer;
   TexDataLen:Integer;
   OutZipLen:Integer;
-  i: Integer;
   MZTex:TMZTexture;
   ZipLen:Cardinal;
 begin
@@ -166,8 +163,12 @@ begin
   Offset := m_nArr_Index[idx];
   m_FileStream.Seek(Offset,soBeginning);
   m_FileStream.Read(ImageInfo,SizeOf(TWzlImageInfo));
+
+  //长宽不为 1 的则移除掉
+  if ImageInfo.nWidth * ImageInfo.nHeight < 1 then  Exit;
+  
   //计算原始长度
-  case ImageInfo.bt1 of
+  case ImageInfo.btColorBit of
     3:begin
       OrginalLen := ImageInfo.nWidth*ImageInfo.nHeight;
       ColorBit := 8;
@@ -177,7 +178,9 @@ begin
       ColorBit := 16;
     end;
   end;
+
   MZTex := TMZTexture.create(ImageInfo.nWidth,ImageInfo.nHeight,$FFFFFFFF,[]);
+
   if ImageInfo.Length<=0 then //当内部记录长度为0时候说明此文件并未压缩。不需要解压。
   begin
     //直接读入不需要解压
@@ -190,7 +193,8 @@ begin
     GetMem(PZipBits,ImageInfo.Length);
     m_FileStream.Read(PZipBits^,ImageInfo.Length);
     ZipLen := OrginalLen;
-    DecompressBuf(PZipBits,ImageInfo.Length,ZipLen,Pbits,OutZipLen);
+    //解压数据
+    ZDecompress(PZipBits,ImageInfo.Length,Pbits,OutZipLen,ZipLen);
     FreeMem(PZipBits,ImageInfo.Length);
     ConvertTextureDate(Pbits,OutZipLen,ColorBit,PtexData,TexDataLen);
     FreeMem(Pbits);
@@ -201,28 +205,6 @@ begin
   FreeMem(PtexData,TexDataLen);
   Result := TTexture.Create(MZTex,ImageInfo.px,ImageInfo.py);
 
-end;
-
-function TWzlImage.GetTexture(idx: Integer; AutoFree: Boolean): TTexture;
-var
-  List:TList;
-begin
-  Result := nil;
-  if  not ((idx >= 0) and (idx < ImageCount) and (m_FileStream <> Nil))  then Exit;
-  if AutoFree then
-  begin
-    Result := ReadyLoadTexture(idx);
-    if Result=nil then
-    begin
-      Result := GetCacheTexture(idx);
-      List := m_TextureList.lockList;
-      List[idx] := Result;
-      m_TextureList.UnLockList;
-    end;
-  end else
-  begin
-    Result := GetCacheTexture(idx);
-  end
 end;
 
 procedure TWzlImage.Init;
@@ -236,13 +218,11 @@ begin
     m_FileStream := TFileStream.Create(m_sFileName,fmOpenRead or fmShareExclusive);
     m_FileStream.Read(Header,SizeOf(TWzlImageHeader));
     m_nFImageCount := Header.ImageCount;
-    List := m_TextureList.lockList;
-    List.Count := m_nFImageCount;
-    m_TextureList.UnLockList;
+    m_TextureList.Count := m_nFImageCount;
     LoadIndex;
   except
     m_FileStream.Free;
-    TMZLog.Log('Can not Read:'+m_sFileName);
+    TMZLog.Log('Can not Read:'+ m_sFileName);
   end;
 end;
 
@@ -255,6 +235,7 @@ procedure TWzlImage.LoadIndex;
 var
   S:TFileStream;
   Header:TWzlIndexHeader;
+  nHeaderSize:Integer;
   idxFile:string;
   IndexCount:integer;
 begin
@@ -263,7 +244,8 @@ begin
   begin
     try
       S := TFileStream.Create(idxFile,fmOpenRead);
-      s.Read(Header,SizeOf(TWzlIndexHeader));
+      nHeaderSize := SizeOf(Header);
+      s.Read(Header,nHeaderSize);
       IndexCount := Header.IndexCount;
       SetLength(m_nArr_Index,IndexCount);
       s.Read(m_nArr_Index[0],IndexCount*4);

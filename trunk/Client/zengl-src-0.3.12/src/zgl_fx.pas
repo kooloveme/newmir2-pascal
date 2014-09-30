@@ -34,6 +34,7 @@ const
   FX_BLEND_BLACK  = $03;
   FX_BLEND_WHITE  = $04;
   FX_BLEND_MASK   = $05;
+  FX_BLEND_SRCADD = $06;
 
   FX_COLOR_MIX    = $00;
   FX_COLOR_SET    = $01;
@@ -132,6 +133,11 @@ begin
         srcBlend := GL_ZERO;
         dstBlend := GL_SRC_COLOR;
       end;
+   FX_BLEND_SRCADD:
+      begin
+        srcBlend := GL_SRC_COLOR;
+        dstBlend := GL_ONE;
+      end
   else
     begin
       srcBlend := GL_SRC_ALPHA;

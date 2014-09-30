@@ -28,7 +28,7 @@ uses
   {$ELSE}
   zglHeader
   {$ENDIF}
-  ,gfxFont;
+  ;
 
 type
   TTux = record
@@ -48,7 +48,6 @@ var
   tux         : array[ 0..20 ] of TTux;
   time        : Integer;
   camMain     : zglTCamera2D;
-  增强字体     : TGfxFont;
 
 procedure Init;
   var
@@ -100,7 +99,6 @@ begin
   // RU: Загружаем шрифт.
   // EN: Load the font.
   fntMain := font_LoadFromFile( dirRes + 'font.zfi' );
-  增强字体 :=TGfxFont.create('宋体',15);
 end;
 
 procedure Draw;
@@ -214,7 +212,6 @@ begin
 
   if time > 255 Then
     text_Draw( fntMain, 0, 0, 'FPS: ' + u_IntToStr( zgl_Get( RENDER_FPS ) ) );
-    增强字体.print(0,100,'测试中文输出');
   batch2d_End();
 end;
 

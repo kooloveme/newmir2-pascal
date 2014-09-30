@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0"?>
 <CONFIG>
   <ProjectOptions>
     <Version Value="9"/>
@@ -46,7 +46,6 @@
         <Filename Value="uMain.pas"/>
         <IsPartOfProject Value="True"/>
         <ComponentName Value="Form1"/>
-        <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
         <UnitName Value="uMain"/>
       </Unit1>
@@ -60,7 +59,7 @@
     </Units>
   </ProjectOptions>
   <CompilerOptions>
-    <Version Value="11"/>
+    <Version Value="9"/>
     <Target>
       <Filename Value="ZenFont"/>
     </Target>
@@ -82,7 +81,7 @@
     </CodeGeneration>
     <Linking>
       <Debugging>
-        <GenerateDebugInfo Value="False"/>
+        <UseLineInfoUnit Value="False"/>
         <StripSymbols Value="True"/>
       </Debugging>
       <LinkSmart Value="True"/>
@@ -100,7 +99,7 @@
       </Verbosity>
       <CompilerMessages>
         <UseMsgFile Value="True"/>
-        <MsgFileName Value="\usr\lib\fpc\2.4.4\msg\errore.msg"/>
+        <MsgFileName Value="/usr/lib/fpc/2.4.4/msg/errore.msg"/>
       </CompilerMessages>
       <CompilerPath Value="$(CompPath)"/>
     </Other>

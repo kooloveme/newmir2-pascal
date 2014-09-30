@@ -9,7 +9,7 @@ Type
       m_nArr_Index    :array of Integer;   //索引列表
       m_FileStream    :TFileStream; //打开文件的文件流
       m_nFImageCount  :Integer;  //图片数量;
-      m_TextureList   :TThreadList; //纹理列表。
+      m_TextureList   :TList; //纹理列表。
       m_sFileName     :string;//资源文件名。
 
       Function ReadyLoadTexture(idx:integer):TTexture;
@@ -20,7 +20,7 @@ Type
       destructor Destroy; override;
       Procedure Init;virtual;
       Procedure CreateFile;virtual;
-      Function GetTexture(idx:integer;AutoFree:Boolean=True):TTexture;virtual;
+      Function GetTexture(idx:integer):TTexture;virtual;
       Procedure Insert(idx:Integer;pData:Pointer;Len:integer);virtual;
       property ImageCount:Integer Read m_nFImageCount;
       property Texture[idx:integer]:TTexture Read GetTex;
@@ -30,7 +30,7 @@ function RGB565ToABGR(Pixel:Word):Integer;inline;
 Function ARGBToABGR(Pixel:Cardinal):Cardinal;inline;
 implementation
 uses
-windows;
+windows,Vcl.Dialogs,System.SysUtils;
 { TGameImage }
 
 
@@ -42,7 +42,7 @@ begin
   m_FileStream:=nil;
   m_nFImageCount:=0;
   m_sFileName:='';
-  m_TextureList:=TThreadList.Create;
+  m_TextureList:=TList.Create;
 end;
 
 procedure TGameImage.CreateFile;
@@ -51,10 +51,25 @@ begin
 end;
 
 destructor TGameImage.Destroy;
+var
+  Tex:TTexture;
+  I:Integer;
 begin
-  SetLength(m_nArr_Index,0);
+//  SetLength(m_nArr_Index,0);
+ { try
+    for I := m_TextureList.Count - 1 Downto 0 do
+    begin
+      Tex := TTexture(m_TextureList[I]);
+      if Assigned(Tex) then Tex.Free;
+      m_TextureList.Delete(I);
+    end;
+  except
+    ShowMessage(m_sFileName +  'Error:' + Inttostr(i));
+  end;}
+
   m_TextureList.Free;
   m_sFileName:='';
+  m_FileStream.Free;
   inherited;
 end;
 
@@ -65,12 +80,19 @@ end;
 
 function TGameImage.GetTex(idx: integer): TTexture;
 begin
-  Result:=GetTexture(idx);
+  Result:= GetTexture(idx);
 end;
 
-function TGameImage.GetTexture(idx: integer; AutoFree: Boolean): TTexture;
+function TGameImage.GetTexture(idx: integer): TTexture;
 begin
-
+  Result:=nil;
+  if  not ((idx >= 0) and (idx < ImageCount) and (m_FileStream <> Nil))  then Exit;
+  Result:=ReadyLoadTexture(idx);
+  if Result=nil then
+  begin
+    Result:=GetCacheTexture(idx);
+    m_TextureList[idx]:=Result;
+  end;
 end;
 
 procedure TGameImage.Init;
@@ -91,11 +113,9 @@ begin
   Result:=nil;
   if (idx >=0) and (idx < m_nFImageCount) then
   begin
-    List:=m_TextureList.LockList;
-    Count:=List.Count;
-    Result:=List[idx];
-    if Assigned(Result) then Result.CheckTime:=GetTickCount;
-    m_TextureList.UnlockList;
+    Count:=m_TextureList.Count;
+    Result:=m_TextureList[idx];
+    if Assigned(Result) then Result.CheckTime := GetTickCount;
   end;
 
 end;

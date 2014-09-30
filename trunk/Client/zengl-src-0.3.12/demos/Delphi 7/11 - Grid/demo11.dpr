@@ -40,7 +40,7 @@ begin
 
   fntMain := font_LoadFromFile( dirRes + 'font.zfi' );
 
-  // RU: Инициализация сетк?размером 21x16. Основн? ид? - каждый узел сетк?эт?смещение относительно её верхнего левого угла.
+  // RU: Инициализация сетки размером 21x16. Основная идея - каждый узел сетки это смещение относительно её верхнего левого угла.
   // EN: Initialization of grid with size 21x16. Main idea - every node of grid is an offset from the top left corner.
   grid.Cols := 21;
   grid.Rows := 16;
@@ -55,7 +55,7 @@ end;
 
 procedure Draw;
 begin
-  // RU: Рендерим сетк??координата?0,0.
+  // RU: Рендерим сетку в координатах 0,0.
   // EN: Render grid in coordinates 0,0.
   sgrid2d_Draw( texBack, 0, 0, @grid );
 
@@ -71,7 +71,7 @@ begin
   cwave := cos( wave );
   swave := sin( wave );
 
-  // RU: Симу?ция простого эффект?по?водо?
+  // RU: Симуляция простого эффекта под водой.
   // EN: Simulation of simple underwater effect.
   for i := 1 to grid.Cols - 2 do
     for j := 1 to grid.Rows - 2 do

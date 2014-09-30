@@ -31,11 +31,11 @@ uses
 type
   zglPMikuSprite = ^zglTMikuSprite;
   zglTMikuSprite = record
-    // CN: РВАаРНРиТЄ
+    // RU: Обязательная часть нового типа спрайта.
     // EN: New type should start with this.
     Sprite : zglTSprite2D;
 
-    // CN:РВЧЦ¶ОІОКэЎЈ
+    // RU: Новые параметры.
     // EN: New params.
     Speed  : zglTPoint2D;
   end;
@@ -56,7 +56,7 @@ begin
       X := 800 + random( 800 );
       Y := random( 600 - 128 );
 
-      // CN:ЙиЦГТЖ¶ЇЛЩ¶И
+      // RU: Задаем скорость движения.
       // EN: Set the moving speed.
       Speed.X := -random( 10 ) / 5 - 0.5;
       Speed.Y := ( random( 10 ) - 5 ) / 5;
@@ -79,11 +79,11 @@ begin
       if Frame > 8 Then
         Frame := 1;
 
-      // CN:µ±ѕ«БйµДXОЄ-128µДК±єт ТтОЄНјЖ¬КЗ128їн¶И ЛµГчІ»ФЪЖБД»ЙПБЛЎЈ
+      // RU: Если спрайт выходит за пределы по X, сразу же удаляем его.
       // EN: Delete the sprite if it goes beyond X.
       if X < -128 Then sengine2d_DelSprite( ID );
 
-      // CN:МнјУѕ«Бйі¬іцЖБД»НвµДѕ«БйјУИлЙѕіэ¶УБР
+      // RU: Если спрайт выходит за пределы по Y, ставим его в очередь на удаление.
       // EN: Add sprite to queue for delete if it goes beyond Y.
       if Y < -128 Then Destroy := TRUE;
       if Y > 600  Then Destroy := TRUE;
@@ -94,25 +94,25 @@ procedure MikuFree( var Miku : zglTMikuSprite );
 begin
 end;
 
-// CN:МнјУ100ёцѕ«Бй
+// RU: Добавить 100 спрайтов.
 // EN: Add 100 sprites.
 procedure AddMiku;
   var
     i : Integer;
 begin
-  // CN:МнјУѕ«БйµЅѕ«БйТэЗжДЪ±ШРлЦё¶ЁТ»ПВІОКэЈєОЖАн ZЧш±к ТФј° іхКј»Ї№эіМ дЦИѕ№эіМ ґ¦Ан№эіМ єНЙѕіэ№эіМµД єЇКэЦёХлЎЈ
+  // RU: При добавлении спрайта в менеджер спрайтов указывается текстура, слой(положение по Z) и указатели на основные функции - Инициализация, Рендер, Обработка и Уничтожение.
   // EN: For adding sprite to sprite engine must be set next parameters: texture, layer(Z-coordinate) and pointers to Initialization, Render, Process and Destroy functions.
   for i := 1 to 100 do
     sengine2d_AddCustom( texMiku, SizeOf( zglTMikuSprite ), random( 10 ), @MikuInit, @MikuDraw, @MikuProc, @MikuFree );
 end;
 
-// CN:Йѕіэ100ёцѕ«Бй
+// RU: Удалить 100 спрайтов.
 // EN: Delete 100 sprites.
 procedure DelMiku;
   var
     i : Integer;
 begin
-  // CN:Лж»ъЙѕіэ100ёцѕ«Бй
+  // RU: Удалим 100 спрайтов со случайным ID.
   // EN: Delete 100 sprites with random ID.
   for i := 1 to 100 do
     sengine2d_DelSprite( random( sengine2d.Count ) );
@@ -127,11 +127,11 @@ begin
   texMiku := tex_LoadFromFile( dirRes + 'miku.png' );
   tex_SetFrameSize( texMiku, 128, 128 );
 
-  // CN: ЙиЦГµ±З°ѕ«БйТэЗж
+  // RU: Устанавливаем текущим менеджером спрайтов свой.
   // EN: Set own sprite engine as current.
   sengine2d_Set( @sengine2d );
 
-  // CN:ґґЅЁ100ёцmiku
+  // RU: Создадим 1000 спрайтов Miku-chan :)
   // EN: Create 1000 sprites of Miku-chan :)
   for i := 0 to 9 do
     AddMiku();
@@ -142,7 +142,7 @@ end;
 procedure Draw;
 begin
   batch2d_Begin();
-  // CN:»жЦЖЛщУРµ±З°ѕ«БйТэЗжДЪµДЛщУРѕ«Бй
+  // RU: Рисуем все спрайты находящиеся в текущем спрайтовом менеджере.
   // EN: Render all sprites contained in current sprite engine.
   if time > 255 Then
     sengine2d_Draw();
@@ -170,11 +170,11 @@ procedure Timer;
 begin
   INC( time, 2 );
 
-  // CN:ґ¦Анѕ«БйТэЗжЦРµДЛщУРѕ«Бй
+  // RU: Выполняем обработку всех спрайтов в текущем спрайтовом менеджере.
   // EN: Process all sprites contained in current sprite engine.
   sengine2d_Proc();
 
-  // CN:јмІв°ґјьґ¦Анѕ«БйКВјю
+  // RU: По нажатию пробела очистить все спрайты.
   // EN: Delete all sprites if space was pressed.
   if key_Press( K_SPACE ) Then sengine2d_ClearAll();
   if key_Press( K_UP ) Then AddMiku();
@@ -187,7 +187,7 @@ end;
 
 procedure Quit;
 begin
-  // CN:КН·ЕЛщУРѕ«БйЛщХјУГµДДЪґж
+  // RU: Очищаем память от созданных спрайтов.
   // EN: Free allocated memory for sprites.
   sengine2d_Set( @sengine2d );
   sengine2d_ClearAll();

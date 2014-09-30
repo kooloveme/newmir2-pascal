@@ -12,4 +12,10 @@ var
   g_MainFont:TGfxFont;
 implementation
 
+initialization
+finalization
+begin
+
+end;
+
 end.

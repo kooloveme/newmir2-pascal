@@ -1,6 +1,16 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <BorlandProject>
 	<Transactions>
-    <Transaction>2014/05/11 00:07:35.000.359,D:\newmir2-pascal\Client\Map\Mir2NewMap.pas=</Transaction>
+    <Transaction>1899-12-30 00:00:00.000.248,D:\newmir2-pascal\Client\HumAction.pas=D:\newmir2-pascal\Client\Actor\HumAction.pas</Transaction>
+    <Transaction>1899-12-30 00:00:00.000.662,D:\newmir2-pascal\Client\Unit1.pas=D:\newmir2-pascal\Client\Actor\Unit1.pas</Transaction>
+    <Transaction>1899-12-30 00:00:00.000.788,D:\newmir2-pascal\Client\ActorType.pas=D:\newmir2-pascal\Client\Actor\ActorType.pas</Transaction>
+    <Transaction>1899-12-30 00:00:00.000.124,D:\newmir2-pascal\Client\Actor\ActorType.pas=D:\newmir2-pascal\Client\Actor\ActionType.pas</Transaction>
+    <Transaction>1899-12-30 00:00:00.000.359,D:\newmir2-pascal\Client\Map\Mir2NewMap.pas=</Transaction>
+    <Transaction>1899-12-30 00:00:00.000.223,=D:\newmir2-pascal\Client\Unit1.pas</Transaction>
+    <Transaction>1899-12-30 00:00:00.000.117,=D:\newmir2-pascal\Client\Unit1.pas</Transaction>
+    <Transaction>1899-12-30 00:00:00.000.845,D:\newmir2-pascal\Client\Actor\Unit1.pas=D:\newmir2-pascal\Client\Actor\MonsterAction.pas</Transaction>
+    <Transaction>1899-12-30 00:00:00.000.990,D:\newmir2-pascal\Client\Unit1.pas=D:\newmir2-pascal\Client\ActorType.pas</Transaction>
+    <Transaction>1899-12-30 00:00:00.000.724,D:\newmir2-pascal\Client\Unit1.pas=D:\newmir2-pascal\Client\HumAction.pas</Transaction>
+    <Transaction>1899-12-30 00:00:00.000.792,=D:\newmir2-pascal\Client\Unit1.pas</Transaction>
   </Transactions>
 </BorlandProject>

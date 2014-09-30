@@ -1683,7 +1683,9 @@ type
 
     { Summary:
         Masked blend mode. }
-    bmMask = FX_BLEND_MASK);
+    bmMask = FX_BLEND_MASK,
+     {}
+    bmSrcAdd = FX_BLEND_SRCADD);
 
 type
   { Summary:
