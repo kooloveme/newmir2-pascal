@@ -45,7 +45,7 @@ begin
   inputRect.W := 384;
   inputRect.H := 96;
 
-  // RU: Инициализируем обработк?ввод?джойстиков ?получаем количество подключенных джойстиков.
+  // RU: Инициализируем обработку ввода джойстиков и получаем количество подключенных джойстиков.
   // EN: Initialize processing joystick input and get count of plugged joysticks.
   joyCount := joy_Init();
 end;
@@ -56,11 +56,11 @@ procedure Draw;
 begin
   text_Draw( fntMain, 0, 0, 'Escape - Exit' );
 
-  // RU: Координаты мыши можн?получить пр?помощи функци?mouse_X ?mouse_Y.
+  // RU: Координаты мыши можно получить при помощи функций mouse_X и mouse_Y.
   // EN: Mouse coordinates can be got using functions mouse_X and mouse_Y.
   text_Draw( fntMain, 0, 16, 'Mouse X, Y: ' + u_IntToStr( mouse_X() ) + '; ' + u_IntToStr( mouse_Y() ) );
 
-  // RU: Выводи?введённы?пользователе?текс?
+  // RU: Выводим введённый пользователем текст.
   // EN: Show the inputted text.
   pr2d_Rect( inputRect.X, inputRect.Y, inputRect.W, inputRect.H, $FFFFFF, 255 );
   if trackInput Then
@@ -73,7 +73,7 @@ begin
   text_Draw( fntMain, 400, 300 - 70, userInput, TEXT_HALIGN_CENTER );
 
 
-  // RU: Выво?сост?ния осей ?кнопок первог?джойстик??систем?
+  // RU: Вывод состояния осей и кнопок первого джойстика в системе.
   // EN: Show the state of axes and buttons of first joystick in the system.
   text_Draw( fntMain, 400, 360, 'JOYSTICK ( Found: ' + u_IntToStr( joyCount ) + ' )', TEXT_HALIGN_CENTER );
 
@@ -111,7 +111,7 @@ begin
   else
     lineAlpha := 255;
 
-  // RU: Проверит?нажата ли левая кнопка мыши ?пределах inputRect ?начать отслеживат?ввод текста.
+  // RU: Проверить нажата ли левая кнопка мыши в пределах inputRect и начать отслеживать ввод текста.
   // EN: Check if left mouse button was pressed inside inputRect and start to track text input.
   if mouse_Click( M_BLEFT ) and col2d_PointInRect( mouse_X(), mouse_Y(), inputRect ) Then
     begin
@@ -119,7 +119,7 @@ begin
       key_BeginReadText( userInput, 24 );
     end;
 
-  // RU: Если бы?нажа?Enter прекращаем отслеживат?ввод текста.
+  // RU: Если был нажат Enter прекращаем отслеживать ввод текста.
   // EN: Finish to track text input if Enter was pressed.
   if key_Press( K_ENTER ) Then
     begin
@@ -127,16 +127,16 @@ begin
       key_EndReadText();
     end;
 
-  // RU: Получаем введённы?пользователе?текс?
+  // RU: Получаем введённый пользователем текст.
   // EN: Get inputted by user text.
   if trackInput Then
     userInput := key_GetText();
 
-  // RU: По нажати?Escape завершит?приложение.
+  // RU: По нажатию Escape завершить приложение.
   // EN: If Escape was pressed - shutdown the application.
   if key_Press( K_ESCAPE ) Then zgl_Exit();
 
-  // RU: Обязательно очищае?сост?ния всех подсисте?ввод?
+  // RU: Обязательно очищаем состояния всех подсистем ввода.
   // EN: Necessarily clear all the states of input subsystems.
   mouse_ClearState();
   key_ClearState();

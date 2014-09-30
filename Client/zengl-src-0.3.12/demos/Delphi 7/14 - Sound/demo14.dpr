@@ -31,7 +31,7 @@ uses
   ;
 
 const
-  SCREEN_WIDTH  = 1024;
+  SCREEN_WIDTH  = 800;
   SCREEN_HEIGHT = 600;
 
 var
@@ -42,7 +42,7 @@ var
   audio   : Integer;
   state   : Integer;
 
-// RU: ?? звуков? подсистема нацелена на 3D, для позиционирован? звуков ?2D нужн?некоторы?ухищрения.
+// RU: Т.к. звуковая подсистема нацелена на 3D, для позиционирования звуков в 2D нужны некоторые ухищрения.
 // EN: Because sound subsystem using 3D, there is some tricky way to calculate sound position in 2D.
 function CalcX2D( const X : Single ) : Single;
 begin
@@ -56,15 +56,15 @@ end;
 
 procedure Init;
 begin
-  // RU: Инициализируем звуковую подсистему. Для Windows можн?сделат?выбо?межд?DirectSound ?OpenAL отредактировав файл zgl_config.cfg.
+  // RU: Инициализируем звуковую подсистему. Для Windows можно сделать выбор между DirectSound и OpenAL отредактировав файл zgl_config.cfg.
   // EN: Initializing sound subsystem. For Windows can be used DirectSound or OpenAL, see zgl_config.cfg.
   snd_Init();
 
-  // RU: Загружае?звуковой файл ?устанавливае?для него максимальноe количество проигрываемы?источников ?2.
+  // RU: Загружаем звуковой файл и устанавливаем для него максимальноe количество проигрываемых источников в 2.
   // EN: Load the sound file and set maximum count of sources that can be played to 2.
   sound := snd_LoadFromFile( dirRes + 'click.wav', 2 );
 
-  // RU: Загружае?текстуры, которы?буду?индикаторами.
+  // RU: Загружаем текстуры, которые будут индикаторами.
   // EN: Load the textures, that will be indicators.
   icon[ 0 ] := tex_LoadFromFile( dirRes + 'audio-stop.png' );
   icon[ 1 ] := tex_LoadFromFile( dirRes + 'audio-play.png' );
@@ -96,9 +96,9 @@ procedure Timer;
     r : zglTRect;
     p : Integer;
 begin
-  // RU: Проверяем играет ли музыка(1 - играет, 0 - не играет). Та?же можн?проверит??звук?- подстави?zglPSound ?ID во?та?
+  // RU: Проверяем играет ли музыка(1 - играет, 0 - не играет). Так же можно проверить и звуки - подставив zglPSound и ID вот так:
   //     snd_Get( Sound, ID...
-  //     ID возвращает? функцией snd_Play
+  //     ID возвращается функцией snd_Play
   //
   // EN: Check if music playing(1 - playing, 0 - not playing). Sounds also can be checked this way - just use zglPSound and ID:
   //     snd_Get( Sound, ID...
@@ -109,8 +109,8 @@ begin
 
   if mouse_Click( M_BLEFT ) Then
     begin
-      // RU: ?данном случаи мы начинаем воспроизводить звук сраз??указанны?координата? но их можн?ме?ть ??процессе используя процедур?snd_SetPos.
-      //     Важн? Для OpenAL можн?позиционироват?только mono-звук?
+      // RU: В данном случаи мы начинаем воспроизводить звук сразу в указанных координатах, но их можно менять и в процессе используя процедуру snd_SetPos.
+      //     Важно: Для OpenAL можно позиционировать только mono-звуки
       //
       // EN: In this case, we begin to play the sound directly in these coordinates, but they can be changed later using procedure snd_SetPos.
       //     Important: OpenAL can position only mono-sounds.
@@ -124,7 +124,7 @@ begin
         audio := snd_PlayFile( dirRes + 'music.ogg');
     end;
 
-  // RU: Получаем ?процента?позици?проигрыван? аудиопоток??ставим громкост?для плавны?переходо?
+  // RU: Получаем в процентах позицию проигрывания аудиопотока и ставим громкость для плавных переходов.
   // EN: Get position in percent's for audio stream and set volume for smooth playing.
   p := snd_Get( SND_STREAM, audio, SND_STATE_PERCENT );
   if ( p >= 0 ) and ( p < 25 ) Then

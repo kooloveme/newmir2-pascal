@@ -29,7 +29,6 @@ type
   { TForm1 }
 
   TForm1 = class(TForm)
-    ButtonBuilderAll: TButton;
     ButtonRebuildFont: TButton;
     ButtonImportSymbols: TButton;
     ButtonDefaultSymbols: TButton;
@@ -60,7 +59,6 @@ type
     SpinLeft: TSpinEdit;
     SpinRight: TSpinEdit;
     SpinBottom: TSpinEdit;
-    procedure ButtonBuilderAllClick(Sender: TObject);
     procedure ButtonChooseFontClick(Sender: TObject);
     procedure ButtonDefaultSymbolsClick(Sender: TObject);
     procedure ButtonExitClick(Sender: TObject);
@@ -69,7 +67,6 @@ type
     procedure ButtonSaveFontClick(Sender: TObject);
     procedure CheckBoxAntialiasingChange(Sender: TObject);
     procedure CheckBoxPackChange(Sender: TObject);
-    procedure CheckBoxPackClick(Sender: TObject);
     procedure ComboBoxPageSizeChange(Sender: TObject);
     procedure FormActivate(Sender: TObject);
     procedure FormClose(Sender: TObject; var CloseAction: TCloseAction);
@@ -176,6 +173,7 @@ begin
     begin
       Form2.ProgressBar1.Position := i;
       Form2.ProgressBar1.Update();
+
       c := utf8_GetID( EditChars.Text, i, @j );
       if not fg_CharsUse[ c ] Then
         begin
@@ -214,43 +212,6 @@ begin
       fg_FontItalic := fsItalic in FontDialog.Font.Style;
       UpdateFont();
     end;
-end;
-
-procedure TForm1.ButtonBuilderAllClick(Sender: TObject);
-var
-  I:integer;
-    style : String;
-    name  : String;
-    dir   : String;
-begin
-  FillChar( fg_CharsUse, 65536, 1 );
-  fg_Font.Count.Chars:=65535;
-  fg_FontAA := CheckBoxAntialiasing.Checked;
-  fg_FontPack := CheckBoxPack.Checked;
-  fontgen_BuildFont( fg_Font, FontDialog.Font.Name );
-  if fg_FontBold and fg_FontItalic Then
-    style := 'BoldItalic'
-  else
-    if fg_FontBold Then
-      style := 'Bold'
-    else
-      if fg_FontItalic Then
-        style := 'Italic'
-      else
-        style := 'Regular';
-
-  SaveFontDialog.FileName := FontDialog.Font.Name + '-' + style + '-' + IntToStr( fg_FontSize ) + 'pt';
-  if SaveFontDialog.Execute() Then
-    begin
-      name := file_GetName( SaveFontDialog.FileName );
-      dir  := file_GetDirectory( SaveFontDialog.FileName );
-      fontgen_SaveFont( fg_Font, dir + name );
-    end;
-end;
-
-procedure TForm1.CheckBoxPackClick(Sender: TObject);
-begin
-  fg_FontPack := CheckBoxPack.Checked;
 end;
 
 procedure TForm1.ButtonDefaultSymbolsClick(Sender: TObject);

@@ -9,13 +9,12 @@ unit GfxFont;
 
 interface
 uses
-  Windows, {HGE, HGESprite,}zgl_main,zgl_textures,zgl_sprite_2d,zgl_types,zgl_fx,Vcl.Graphics;
+  Windows,zgl_main,zgl_textures,zgl_sprite_2d,zgl_types,zgl_fx,Vcl.Graphics;
 
 const
   Font_Count = High(Word);
 type
   tagEngineFontGlyph = record
-   // t: ITexture; //纹理
     t: ZglPTexture;
     w: Single;
     h: Single;
@@ -287,9 +286,8 @@ begin
   if m_hMemDC <> 0 then
     DeleteDC(m_hMemDC);
  // if m_pSprite <> nil then m_pSprite := nil;
-    if m_pSprite <> nil then tex_Del(m_pSprite);
-
- // if m_pHGE <> nil then m_pHGE := nil;  //ZenGL不需要
+  //if m_pSprite <> nil then tex_Del(m_pSprite);
+  if m_pSprite <> nil then m_pSprite := nil;
   inherited;
 end;
 

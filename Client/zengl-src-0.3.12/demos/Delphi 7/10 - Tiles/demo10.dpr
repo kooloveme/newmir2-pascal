@@ -42,20 +42,20 @@ begin
   texTiles := tex_LoadFromFile( dirRes + 'tiles.png' );
   tex_SetFrameSize( texTiles, 32, 32 );
 
-  // RU: Инициализация тайлов размером 32x32. Параметр Count указывае?на количество тайлов по X ?Y. Массив Tiles содержит кадр?для каждог?тайл?
+  // RU: Инициализация тайлов размером 32x32. Параметр Count указывает на количество тайлов по X и Y. Массив Tiles содержит кадры для каждого тайла.
   // EN: Initialization of tiles with size 32x32. Parameter Count set amount of tiles on X and Y. Array Tiles contains frames for every tile.
   map.Size.W  := 32;
   map.Size.H  := 32;
   map.Count.X := 25;
   map.Count.Y := 19;
   SetLength( map.Tiles, map.Count.X, map.Count.Y );
-  // RU: Заполняем карт?"травой", 19 кадр.
+  // RU: Заполняем карту "травой", 19 кадр.
   // EN: Fill the map by "grass", 19 frame.
   for i := 0 to map.Count.X - 1 do
     for j := 0 to map.Count.Y - 1 do
       map.Tiles[ i, j ] := 19;
 
-  // RU: Загружае?карт?из бинарног?файл?
+  // RU: Загружаем карту из бинарного файла.
   // EN: Load map from binary file.
   file_Open( f, dirRes + 'ground.map', FOM_OPENR );
   for i := 0 to map.Count.X - 1 do
@@ -65,7 +65,7 @@ end;
 
 procedure Draw;
 begin
-  // RU: Рендерим тайл??координата?0,0.
+  // RU: Рендерим тайлы в координатах 0,0.
   // EN: Render tiles in coordinates 0,0.
   tiles2d_Draw( texTiles, 0, 0, @map );
 

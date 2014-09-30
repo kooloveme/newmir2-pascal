@@ -37,7 +37,7 @@ begin
   fntMain := font_LoadFromFile( dirRes + 'font.zfi' );
 
   // EN: Open the video file.
-  // RU: Открыт?виде?файл.
+  // RU: Открыть видео файл.
   video := video_OpenFile( dirRes + 'video.ogv' );
 end;
 
@@ -46,11 +46,11 @@ begin
   if Assigned( video ) Then
     begin
       // EN: Rendering the current video frame in the center of screen using parameters of it from video.Info.
-      // RU: Рендерин?текущего кадр?виде??центре экрана используя параметр?из video.Info.
+      // RU: Рендеринг текущего кадра видео в центре экрана используя параметры из video.Info.
       ssprite2d_Draw( video.Texture, ( 800 - video.Info.Width ) / 2, ( 600 - video.Info.Height ) / 2, video.Info.Width, video.Info.Height, 0 );
 
       // EN: Rendering of progress bar.
-      // RU: Рендерин?полосы прогресс?
+      // RU: Рендеринг полосы прогресса.
       pr2d_Rect( 0, 600 - 100, 800, 20, $00FF00, 255 );
       pr2d_Rect( 0, 600 - 100, ( 800 / video.Info.Duration ) * video.Time, 20, $00FF00, 155, PR2D_FILL );
 
@@ -67,7 +67,7 @@ begin
   if key_Press( K_ESCAPE ) Then zgl_Exit();
 
   // EN: If left mouse button is down on progress bar, then seek the video.
-  // RU: Если зажата левая кнопка мыши на?полосо?прогресс?- перемещать? по виде?
+  // RU: Если зажата левая кнопка мыши над полосой прогресса - перемещаться по видео.
   if mouse_Down( M_BLEFT ) and ( mouse_Y() > 500 ) and ( mouse_Y() < 520 ) Then
     begin
       videoSeek := TRUE;

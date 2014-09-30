@@ -15,7 +15,7 @@ type
       btn_ChangePw               :TGuiButton;
     frm_ChangePw                 :TGuiForm;
 
-    m_TmpTexture                   :TTexture;
+    m_TmpTexture                 :TTexture;
     m_bCanDraw                   :Boolean;
     procedure NewAccountClick(key: TKeyStates; X, Y: Single);
     { private declarations }
@@ -31,7 +31,7 @@ type
   end;
 implementation
 uses
-ResManager,DrawEx,SoundEngine,Share;
+ResManager,DrawEx,SoundEngine,Share,System.SysUtils;
 
 
 
@@ -48,14 +48,15 @@ end;
 procedure TLoginScene.Shutdown;
 begin
   inherited;
- TGuiManager.GetInstance.ResetToScene(nil);
+  TGuiManager.GetInstance.ResetToScene(nil);
+  FreeAndNil(m_TmpTexture);
 end;
 
 procedure TLoginScene.Startup;
 begin
   m_bCanDraw := False;
   TGuiManager.GetInstance.ResetToScene(Self);
-  frm_LoginForm := TGuiForm.Create(TResManager.GetInstance.GetTexture(PRGUSE,1,60,False));
+  frm_LoginForm := TGuiForm.Create(TResManager.GetInstance.GetTexture(PRGUSE,1,60));
   //GetPrguseTexture(1,60,False));
   With frm_LoginForm do
   begin
@@ -78,8 +79,8 @@ begin
   begin
     Rect.X         := 170;
     Rect.Y         := 164;
-    TexturePressed := TResManager.GetInstance.GetTexture(PRGUSE,1,62,False);
-    //GetPrguseTexture(1,62,False);
+    TexturePressed := TResManager.GetInstance.GetTexture(PRGUSE,1,62);
+
     Rect.W         := TexturePressed.Texture.Width;
     Rect.H         := TexturePressed.Texture.Height;
     Caption        := '提交按钮';
@@ -113,7 +114,7 @@ begin
   btn_Cls := TGuiButton.Create;
   with btn_Cls do
   begin
-    TexturePressed := TResManager.GetInstance.GetTexture(PRGUSE,1,64,False);
+    TexturePressed := TResManager.GetInstance.GetTexture(PRGUSE,1,64);
    //TextureNormal := TexturePressed;
     Rect.X         := 252;
     Rect.Y         := 28;
@@ -127,7 +128,7 @@ begin
   begin
     Rect.X            := 25;
     Rect.Y            := 207;
-    TexturePressed    := TResManager.GetInstance.GetTexture(PRGUSE,1,61,False);
+    TexturePressed    := TResManager.GetInstance.GetTexture(PRGUSE,1,61);
     //TextureNormal   := TexturePressed;
     Rect.W            := TexturePressed.Texture.Width;
     Rect.H            := TexturePressed.Texture.Height;
@@ -140,14 +141,14 @@ begin
   begin
      Rect.X         := 130;
      Rect.Y         := 207;
-     TexturePressed := TResManager.GetInstance.GetTexture(PRGUSE,1,53,False);
+     TexturePressed := TResManager.GetInstance.GetTexture(PRGUSE,1,53);
      //TextureNormal:= TexturePressed;
      Rect.W         := TexturePressed.Texture.Width;
      Rect.H         := TexturePressed.Texture.Height;
      Caption        := '修改密码按钮';
   end;
   frm_LoginForm.Add(btn_ChangePw);
-  frm_ChangePw := TGuiForm.Create(TResManager.GetInstance.GetTexture(PRGUSE,1,63,False));
+  frm_ChangePw := TGuiForm.Create(TResManager.GetInstance.GetTexture(PRGUSE,1,63));
   with frm_ChangePw do
   begin
     Rect.X           := 81;
@@ -159,7 +160,7 @@ begin
   TSoundEngine.GetInstance.RegSound('背景音乐',g_sClientPath+'Wav\Log-in-long2.wav');
   TSoundEngine.GetInstance.PlaySound('背景音乐',True);
   m_bCanDraw := True;
-  end;
+end;
 
 
 procedure TLoginScene.NewAccountClick(key: TKeyStates; X, Y: Single);

@@ -13,7 +13,9 @@ uses
   LoadingScene,
   GuiDesign,
   Share,
-  GfxFont;
+  GfxFont,
+  SoundEngine,
+  MZGui;
 
 
 procedure Init;
@@ -36,8 +38,14 @@ begin
   g_MainFont                      :=TGfxFont.Create('宋体',12,false,false,False);
   Application.SetScene(TLoadingScene.create);
 
+    //
+  TResManager.GetInstance.Free;
+    //程序结束释放GUI管理器
+  TGuiManager.GetInstance.Free;
+
   //因为场景内是一个循环 当循环结束了也就表示程序结束了。所以需要再这里进行释放资源
   GuiForm.Free;
+  g_MainFont.Free;
 end;
 
 end.

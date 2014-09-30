@@ -1,9 +1,9 @@
 object Form1: TForm1
   Left = 192
   Top = 107
+  Width = 808
+  Height = 627
   Caption = '01 - Initialization VCL'
-  ClientHeight = 589
-  ClientWidth = 792
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
@@ -15,8 +15,8 @@ object Form1: TForm1
   OnActivate = FormActivate
   OnClose = FormClose
   DesignSize = (
-    792
-    589)
+    800
+    600)
   PixelsPerInch = 96
   TextHeight = 13
   object Panel1: TPanel

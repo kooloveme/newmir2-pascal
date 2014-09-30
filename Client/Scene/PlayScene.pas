@@ -11,6 +11,7 @@ type
     TimeTick:Cardinal;
     FPS:integer;
     FPSTick:Cardinal;
+    nFPS:Integer;
     FPSLimite:Integer;
     ShowFps:Integer;
     procedure RenderFrame; override;
@@ -57,20 +58,22 @@ begin
   inherited;
   if GetTickCount-FPSTick <= 1000 then
   begin
-    INC(FPS);
+    INC(nFPS);
   end else
   begin
     FPSTick := GetTickCount;
-    FPS:=0;
+    FPS := nFPS;
+    nFPS:=0;
+
   end;
 
   if GetTickCount-TimeTick > 10 then
   begin
-  inc(Y,2);
+  //inc(Y,8);
   TimeTick:=GetTickCount;
   end;
 
-  //inc(y,2);
+  inc(y,2);
 
 end;
 

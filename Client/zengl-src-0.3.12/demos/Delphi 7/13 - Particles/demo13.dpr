@@ -47,19 +47,19 @@ begin
   fntMain := font_LoadFromFile( dirRes + 'font.zfi' );
 
   // EN: Load three types of fire emitters.
-  // RU: Загрузка трёх разных видо?эмиттеро?ог?.
+  // RU: Загрузка трёх разных видов эмиттеров огня.
   emitterFire[ 0 ] := emitter2d_LoadFromFile( dirRes + 'emitter_fire00.zei' );
   emitterFire[ 1 ] := emitter2d_LoadFromFile( dirRes + 'emitter_fire01.zei' );
   emitterFire[ 2 ] := emitter2d_LoadFromFile( dirRes + 'emitter_fire02.zei' );
 
   // EN: Set own particels engine.
-  // RU: Установк?собственного движка эмиттеро?
+  // RU: Установка собственного движка эмиттеров.
   pengine2d_Set( @particles );
 
   // EN: Add 6 fire emitters to particles engine. Second parameter of function returns pointer to instance of new emitter, which can be processed manually.
   //     This instance will be nil after the death, so check everything.
-  // RU: Добавляем ?движок 6 эмиттеро?ог?. Второй параметр функци?позволяет получить указател?на конкретный экземп??эмиттера, которы?можн?буде?обрабатывать вручну?
-  //     Данный экземп??посл?смерти буде?содержат?nil, поэтом?используйт?проверку.
+  // RU: Добавляем в движок 6 эмиттеров огня. Второй параметр функции позволяет получить указатель на конкретный экземпляр эмиттера, который можно будет обрабатывать вручную.
+  //     Данный экземпляр после смерти будет содержать nil, поэтому используйте проверку.
   pengine2d_AddEmitter( emitterFire[ 0 ], nil, 642, 190 );
   pengine2d_AddEmitter( emitterFire[ 0 ], nil, 40, 368 );
   pengine2d_AddEmitter( emitterFire[ 0 ], nil, 246, 368 );
@@ -84,7 +84,7 @@ begin
   ssprite2d_Draw( texBack, 0, 0, 800, 600, 0 );
 
   // EN: Rendering of all emitters in current particles engine.
-  // RU: Рендерин?всех эмиттеро??текуще?движке частиц.
+  // RU: Рендеринг всех эмиттеров в текущем движке частиц.
   pengine2d_Draw();
 
   if debug Then
@@ -110,13 +110,13 @@ end;
 procedure Update( dt : Double );
 begin
   // EN: Process all emitters in current particles engine.
-  // RU: Обработк?всех эмиттеро??текуще?движке частиц.
+  // RU: Обработка всех эмиттеров в текущем движке частиц.
   pengine2d_Proc( dt );
 end;
 
 procedure Quit;
 begin
-  // RU: Очищае?па?ть от созданны?эмиттеро?
+  // RU: Очищаем память от созданных эмиттеров.
   // EN: Free allocated memory for emitters.
   pengine2d_Set( @particles );
   pengine2d_ClearAll();

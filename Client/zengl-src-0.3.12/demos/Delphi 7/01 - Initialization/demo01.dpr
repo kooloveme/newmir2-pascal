@@ -1,5 +1,6 @@
 program demo01;
-// CN:ХвёцОДјю°ьАЁТ»Р©ЙЯХв(АэИзК№УГІ»К№УГѕІМ¬БґЅУ) Ул ¶ЁТеК№УГБґЅУµДІЩЧчПµНі
+
+// RU: Этот файл содержит некоторые настройки(например использовать ли статическую компиляцию) и определения ОС под которую происходит компиляция.
 // EN: This file contains some options(e.g. whether to use static compilation) and defines of OS for which is compilation going.
 {$I zglCustomConfig.cfg}
 
@@ -7,7 +8,7 @@ program demo01;
 
 uses
   {$IFDEF USE_ZENGL_STATIC}
-  //CN:К№УГѕІМ¬БґЅУРиТЄuse ZenGLµД№¦ДЬµДµҐФЄЎЈ
+  // RU: При использовании статической компиляции необходимо подключать модули ZenGL содержащие необходимый функционал.
   // EN: Using static compilation needs to use ZenGL units with needed functionality.
   zgl_main,
   zgl_screen,
@@ -15,7 +16,7 @@ uses
   zgl_timers,
   zgl_utils
   {$ELSE}
-  // RU:К№УГ¶ЇМ¬БґЅУїв(so,dll,dylib) ЅцЅцРиТЄТ»ёцН·ОДјю
+  // RU: Используя ZenGL в качестве библиотеки(so, dll или dylib) нужен всего один заголовочный файл.
   // EN: Using ZenGL as a shared library(so, dll or dylib) needs only one header.
   zglHeader
   {$ENDIF}
@@ -24,87 +25,79 @@ uses
 var
   DirApp  : UTF8String;
   DirHome : UTF8String;
-  UpdateDt: Double;
 
 procedure Init;
 begin
-  // CN: їЙТФФЪХвАпФШИлЧКФґОДјю
+  // RU: Тут можно выполнять загрузку основных ресурсов.
   // EN: Here can be loading of main resources.
 end;
 
 procedure Draw;
 begin
-  // CN: ФЪХвАп»жЦЖЛщУР¶«Оч
+  // RU: Тут "рисуем" что угодно :)
   // EN: Here "draw" anything :)
 end;
 
 procedure Update( dt : Double );
 begin
-  // CN:ФЪґЛєЇКэКµПЦЖЅ»¬µДТЖ¶ЇКЗЧоАнПлµДЎЈТтОЄ¶ЁК±ЖчµДѕ«И·¶ИКЬПЮЦЖУЪfps
-  // ґЛєЇКэЅ«ФЪГїґОдЦИѕЦ®З°ЦґРРЎЈЖдґ«µЭЅшАґµДdtІОКэКЗµ±З°ЦЎєНЙПґОЦЎµДјдёфЎЈ
-  UpdateDt:=dt;
-
+  // RU: Эта функция наземенима для реализация плавного движения чего-либо, т.к. точность таймеров ограничена FPS.
   // EN: This function is the best way to implement smooth moving of something, because accuracy of timers are restricted by FPS.
 end;
 
 procedure Timer;
 begin
-  // CN: Caption Ѕ«»бПФКѕГїГлµДЦЎВК
+  // RU: Будем в заголовке показывать количество кадров в секунду.
   // EN: Caption will show the frames per second.
-  //wnd_SetCaption( '01 - Initialization[ FPS: ' + u_IntToStr( zgl_Get( RENDER_FPS ) ) + ' ]' );
-  wnd_SetCaption(AnsiToUtf8('01 - іхКј»ЇZenGl [ FPS: ' + u_IntToStr(zgl_Get(RENDER_FPS)))+']'+u_floatToStr(UpdateDt));
+  wnd_SetCaption( '01 - Initialization[ FPS: ' + u_IntToStr( zgl_Get( RENDER_FPS ) ) + ' ]' );
 end;
 
 procedure Quit;
 begin
-
+ //
 end;
 
 Begin
-  // CN: Из№ыГ»УРК№УГѕІМ¬Б¬ЅУ ПВГжµДґъВлЅ«»бФШИл¶ЇМ¬їв
+  // RU: Код ниже загружает библиотеку если статическая компиляция не используется.
   // EN: Code below loads a library if static compilation is not used.
   {$IFNDEF USE_ZENGL_STATIC}
   if not zglLoad( libZenGL ) Then exit;
   {$ENDIF}
 
-  // CN:ОЄБЛФШИл»тХЯ/ґґЅЁЙиЦГОДјю»тХЯЖдЛыµДЈ¬їЙТФ»сИЎУГ»§µДёщДїВјЎЈ»тХЯїЙЦґРРОДјюДїВј(І»Ц§іЦGNU/Linux)я ше
+  // RU: Для загрузки/создания каких-то своих настроек/профилей/etc. можно получить путь к домашенему каталогу пользователя, или к исполняемому файлу(не работает для GNU/Linux).
   // EN: For loading/creating your own options/profiles/etc. you can get path to user home directory, or to executable file(not works for GNU/Linux).
   DirApp  := utf8_Copy( PAnsiChar( zgl_Get( DIRECTORY_APPLICATION ) ) );
   DirHome := utf8_Copy( PAnsiChar( zgl_Get( DIRECTORY_HOME ) ) );
 
-  // CN:ґґЅЁТ»ёцјдёфОЄ1000msµД¶ЁК±Жч
+  // RU: Создаем таймер с интервалом 1000мс.
   // EN: Create a timer with interval 1000ms.
   timer_Add( @Timer, 1000 );
 
-  // CN:ЧўІбТ»ёц№эіМЈ¬Хвёц№эіМЅ«ФЪZenGLіхКј»ЇєуНкіЙ
+  // RU: Регистрируем процедуру, что выполнится сразу после инициализации ZenGL.
   // EN: Register the procedure, that will be executed after ZenGL initialization.
   zgl_Reg( SYS_LOAD, @Init );
-
-  // CN:ЧўІбдЦИѕ№эіМ
+  // RU: Регистрируем процедуру, где будет происходить рендер.
   // EN: Register the render procedure.
   zgl_Reg( SYS_DRAW, @Draw );
-  
-  // CNЈєЧўІбТ»ёц№эіМ Ј¬Хвёц№эіМЅ«»б»сИЎБЅґОЦЎµДјдёф
+  // RU: Регистрируем процедуру, которая будет принимать разницу времени между кадрами.
   // EN: Register the procedure, that will get delta time between the frames.
   zgl_Reg( SYS_UPDATE, @Update );
-
-  // CN:ЧўІбТ»ёц№эіМЈ¬ґЛ№эіМЅ«ФЪZenGl№Ш±ХєуЦґРР
+  // RU: Регистрируем процедуру, которая выполнится после завершения работы ZenGL.
   // EN: Register the procedure, that will be executed after ZenGL shutdown.
   zgl_Reg( SYS_EXIT, @Quit );
 
-  // CN:ЙиЦГґ°їЪµД±кМвКфРФ
+  // RU: Устанавливаем заголовок окна.
   // EN: Set the caption of the window.
-  wnd_SetCaption( AnsiToUtf8('ИИСЄґ«Жж') );
+  wnd_SetCaption( '01 - Initialization' );
 
-  // CN:ФКРнПФКѕКу±к№в±к
+  // RU: Разрешаем курсор мыши.
   // EN: Allow to show the mouse cursor.
   wnd_ShowCursor( TRUE );
 
-  // CN: ЙиЦГЖБД»
+  // RU: Указываем первоначальные настройки.
   // EN: Set screen options.
   scr_SetOptions( 800, 600, REFRESH_MAXIMUM, FALSE, FALSE );
 
-  // CN: іхКј»ЇZenGL.
+  // RU: Инициализируем ZenGL.
   // EN: Initialize ZenGL.
   zgl_Init();
 End.

@@ -470,25 +470,22 @@ procedure fontgen_BuildFont( var Font : zglPFont; const FontName : String );
     Rect       : TRect;
     minX, minY : Integer;
     {$ENDIF}
-    CharCount:integer;
 begin
-  CharCount:=Font.Count.Chars;
   if length( Font.Pages ) > 0 Then
     for i := 0 to length( Font.Pages ) - 1 do
-      tex_Del( Font.Pages[ i ] );  //删除已经使用的字体纹理
+      tex_Del( Font.Pages[ i ] );
   for i := 0 to 65535 do
     if Assigned( Font.CharDesc[ i ] ) Then
       begin
         Freememory( Font.CharDesc[ i ] );
         Font.CharDesc[ i ] := nil;
-      end;//清除空字体描述信息
+      end;
 
   MaxWidth := 0;
-  SetLength( fg_CharsSize,  Font.Count.Chars ); 
+  SetLength( fg_CharsSize,  Font.Count.Chars );
   SetLength( fg_CharsUID,   Font.Count.Chars );
   SetLength( fg_CharsImage, Font.Count.Chars );
   SetLength( fg_CharsP,     Font.Count.Chars );
-  //设置秒描述长度
   j := 0;
   for i := 0 to 65535 do
     if fg_CharsUse[ i ] Then
@@ -496,7 +493,7 @@ begin
         SetLength( fg_CharsUID, j + 1 );
         fg_CharsUID[ j ] := i;
         INC( j );
-      end; //遍历fg_CharUse 
+      end;
 
 {$IFDEF LINUX}
   scrVisual := DefaultVisual( scrDisplay, scrDefault );
@@ -840,8 +837,8 @@ begin
       file_Write( F, Font.CharDesc[ c ].ShiftP, 4 );
       file_Write( F, Font.CharDesc[ c ].TexCoords[ 0 ], SizeOf( zglTPoint2D ) * 4 );
     end;
-  file_Close( F );//写入zfi
-  for i := 0 to Font.Count.Pages - 1 do //循环页面写入page文件
+  file_Close( F );
+  for i := 0 to Font.Count.Pages - 1 do
     begin
       FillChar( TGA, SizeOf( zglTTGAHeader ), 0 );
       TGA.ImageType      := 2;
@@ -857,7 +854,7 @@ begin
       file_Write( F, Data^, sqr( fg_PageSize ) * 4 );
       file_Close( F );
       FreeMemory( Data );
-      //{$DEFINE USE_PNG}
+
       {$IFDEF USE_PNG}
       LoadImageFromFile( FileName + '-page' + u_IntToStr( i ) + '.tga', Image );
       ConvertImage( Image, ifA8R8G8B8 );

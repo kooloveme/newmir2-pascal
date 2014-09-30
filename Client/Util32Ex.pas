@@ -12,7 +12,8 @@ var
 begin
   ext := ExtractFileExt(fname);
   fn := ExtractFileName(fname);
-  if ext <> '' then begin
+  if ext <> '' then
+  begin
     extpos := Pos(ext, fn);
     Result := Copy(fn, 1, extpos - 1);
   end else

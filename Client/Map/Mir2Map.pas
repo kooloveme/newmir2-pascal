@@ -135,13 +135,7 @@ begin
     end;
   end; *)
 
-  {处理动画相关，50毫秒播放一帧动画}
-  if GetTickCount - m_dwAniTime >= 50 then
-  begin
-    m_dwAniTime := GetTickCount;
-    Inc(m_nAniCount);
-    if m_nAniCount > 100000 then m_nAniCount := 0;
-  end;
+
   m_Scene.Canvas.RenderTarget:=m_ObjsTarget;
   cX := Floor(x / UNITX);
   cY := Floor(y / UNITY);
@@ -186,6 +180,7 @@ begin
           end;
 
           Dec(ObjImageIndex);
+          if (ObjFileIndex <= 0) or (ObjFileIndex > MAPOBJCOUNT) then  ObjFileIndex:=1;
           {按照如上处理方式，传奇地图优先处理 门，再是处理动画。最后才是普通的obj}
           tex:=TResManager.GetInstance.GetTexture(MAPOBJ,ObjFileIndex,ObjImageIndex);
           if tex = nil then Continue;
@@ -217,9 +212,17 @@ begin
   m_Scene.Canvas.RenderTarget:=Nil;
   DrawTexture2Canvas(m_Scene.Canvas,m_ObjsTarget.Texture,-OffsetX,-OffsetY);
 
-  for LoopX := cX to cXe do
+    {处理动画相关，50毫秒播放一帧动画}
+  if GetTickCount - m_dwAniTime >= 50 then
   begin
-    for LoopY := cY to cYe do
+    m_dwAniTime := GetTickCount;
+    Inc(m_nAniCount);
+    if m_nAniCount > 100000 then m_nAniCount := 4;
+  end;
+
+  for LoopY := cY to cYe -20 do
+  begin
+    for LoopX := cX to cXe  do
     begin
       Tex:=nil;
       if (loopX < 0) or (loopX >= m_nWidth) or (loopY < 0) or (loopY >= m_nHeight)then Continue;
@@ -231,7 +234,7 @@ begin
         ObjFileIndex := MapInfo.btArea + 1;
       end;
 
-      if (MapInfo.btAniFrame and $80) > 0 then //最高位为1表示此帧需要Blend处理。实际有效帧最多能有128帧
+      if (MapInfo.btAniFrame and $80) > 0 then //最高位为1表示此帧需要 Blend处理。实际有效帧最多能有128帧
       begin
         NeedBlend := TRUE;
         AniFrame := MapInfo.btAniFrame and $7F;
@@ -244,13 +247,14 @@ begin
       end;
 
 
-      if (MapInfo.btDoorOffset and $80) > 0 then // 门的最高位1表示此处有门
+      if (MapInfo.btDoorOffset and $80) > 0 then // 门的最高位 1 表示此处有门
       begin
       if (MapInfo.btDoorIndex and $7F) > 0 then
         ObjImageIndex :=  ObjImageIndex + (MapInfo.btDoorOffset and $7F);
       end;
 
       Dec(ObjImageIndex);
+      if (ObjFileIndex <= 0) or (ObjFileIndex > MAPOBJCOUNT) then  ObjFileIndex:=1;
 
       tex:=TResManager.GetInstance.GetTexture(MAPOBJ,ObjFileIndex,ObjImageIndex);
       if tex = nil then Continue;
@@ -258,7 +262,7 @@ begin
       if NeedBlend then
       begin
               //画动画光亮
-        m_Scene.Canvas.BlendMode:=bmadd;
+        m_Scene.Canvas.BlendMode:=bmSrcAdd;
         //m_Scene.Canvas.ColorMode:=cmReplace;
         DrawTexture2Canvas(m_Scene.Canvas,tex.Texture,(LoopX-cX)*UNITX+tex.X+4-OffsetX , (LoopY-cY)*UNITY - tex.Texture.Height+UNITY+tex.Y-OffsetY);
         m_Scene.Canvas.BlendMode:=bmNormal;

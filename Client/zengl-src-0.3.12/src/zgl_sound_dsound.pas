@@ -184,7 +184,7 @@ begin
     begin
       dwSize  := SizeOf( TDSBUFFERDESC );
       dwFlags := DSBCAPS_LOCSOFTWARE or DSBCAPS_CTRLPAN or DSBCAPS_CTRLVOLUME or DSBCAPS_CTRLFREQUENCY or DSBCAPS_CTRLPOSITIONNOTIFY or
-                 DSBCAPS_GETCURRENTPOSITION2 or DSBCAPS_GLOBALFOCUS;
+                 DSBCAPS_GETCURRENTPOSITION2;
       dwBufferBytes := BufferSize;
       lpwfxFormat   := Format;
     end;

@@ -42,11 +42,11 @@ implementation
 
 procedure Init;
 begin
-  //CN: їЄЖфґ№Ц±Н¬ІЅЈ¬ґ№Ц±Н¬ІЅЅ«јхЙЩCPUµДёєФШБї
+  // RU: Вертикальная синхронизация поможет избежать загрузки процессора.
   // EN: Vertical synchronization will decrease a CPU loading.
   scr_SetVSync( TRUE );
 
-  // CN : їЄКјЦ®З°РиТЄЙиЦГКУТ°·¶О§ЎЈЙиЦГґ°їЪґуРЎ
+  // RU: Перед стартом необходимо настроить viewport.
   // EN: Before the start need to configure a viewport.
   wnd_SetSize( Form1.Panel1.ClientWidth, Form1.Panel1.ClientHeight );
 
@@ -55,9 +55,9 @@ end;
 
 procedure Draw;
 begin
-  pr2d_Rect( 10, 10, 800 - 30, 600 - 30, $FFFFFF, 255 );
+  pr2d_Rect( 10, 10, 800 - 30, 600 - 30, $FF0000, 255 );
 
-  // CN:ТтОЄZengGL ЅУ№ЬБЛїШЦЖИЁЎЈЛщТФХвАпРиТЄµчУГGUI№ЬАнґ¦Ан№эіМЎЈТФПмУ¦ґ°їЪПыПў
+  // RU: Т.к. ZenGL перехватывает "управление" нужно выполнять обработку интерфейса вручную.
   // EN: Because ZenGL intercepts "control" you need to call process of GUI manually.
   Application.ProcessMessages();
 end;
@@ -82,7 +82,7 @@ begin
 
       zgl_Reg( SYS_LOAD, @Init );
       zgl_Reg( SYS_DRAW, @Draw );
-      // CN: їґїґґЛЅ«ТЄ±»ЧўІбµД№эіМЈ¬ТтОЄUpdateКЗТ»ёцTFormµД·Ѕ·Ё
+      // RU: Стоит обратить внимание на название регистрируемой функции, т.к. Update является методом TForm.
       // EN: Take a look on name of function which will be registered, because Update is a method of TForm.
       zgl_Reg( SYS_UPDATE, @UpdateDT );
 
@@ -105,7 +105,7 @@ end;
 
 procedure TForm1.Panel1Resize(Sender: TObject);
 begin
-  // CN: КУТ°·¶О§У¦ёГФЪїШјюёьёДґуРЎєуѕНБўјґ±»ёьёД
+  // RU: Необходимо обновлять viewport как только изменились размеры контрола, куда был инициализирован ZenGL.
   // EN: Viewport should be updated as soon as size of control was changed.
   if zglInited Then
     wnd_SetSize( Panel1.ClientWidth, Panel1.ClientHeight );

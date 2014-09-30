@@ -33,10 +33,10 @@ procedure Init;
   //var
   //  i : Integer;
 begin
-  // CN:ФШИлЧЦМе
+  // RU: Загружаем данные о шрифте.
   // EN: Load the font.
   fntMain := font_LoadFromFile( dirRes + 'font.zfi' );
-  // CN: Из№ыОЖАнОґК№УГ--"ЧЦМеГыіЖ-pageРтєЕ.єуЧєГы"ёсКЅАґФШИл К№УГТ»ПВ·Ѕ·ЁАґФШИл(PNGНјЖ¬ЧЦМе);
+  // RU: Если же текстуры именуются без использования маски вида "$(имя_шрифта)FontName-page$(номер).$(расширение)", то загрузку можно произвести следующим образом(для png):
   // EN: If textures were named without special mask - "$(font_name)-page$(number).$(extension)", then use this method to load them(for png):
   //for i := 0 to fntMain.Count.Pages - 1 do
   //  fntMain.Pages[ i ] := tex_LoadFromFile( dirRes + 'font-page' + u_IntToStr( i ) + '.png' );
@@ -49,8 +49,8 @@ procedure Draw;
 begin
   batch2d_Begin();
 
-  // CN: ZenGL К№УГUTF-8±аВл ЛщТФЛщУРЧЦМе¶јУ¦ёГК№УГUTF-8Аґ±аВлЎЈИз№ыДгПлК№УГТ»Р©ОД±ѕ(·ЗУўОД)±ЈґжФЪpasОДјюДЪ ІўЗТdelphiµД°ж±ѕµНУЪ2009,
-  //    ДЗГґРиТЄК№УГНвІїUTF-8±аВлОДјюК№УГUTF8-StringАґ¶БИЎ
+  // RU: ZenGL работает исключительно с кодировкой UTF-8, поэтому весь текст должен быть в UTF-8. Если необходимо вывести какой-либо текст(не английский)
+  //     используя строки внутри pas-файлов и Delphi версии ниже 2009 - используйте внешние файлы со строками в кодировке UTF-8 и тип UTF8String для них.
   // EN: ZenGL works only with UTF-8 encoding, so all text should be encoded with UTF-8. If you want to write some text(not English) using strings
   //     inside pas-files and version of Delphi is lower than 2009, then you need to use external files with UTF-8 strings inside and type UTF8String.
 
@@ -91,7 +91,7 @@ begin
                    TEXT_HALIGN_CENTER or TEXT_VALIGN_CENTER );
   pr2d_Rect( r.X, r.Y, r.W, r.H, $FF0000 );
 
-  // CN:ФЪУТЙПЅЗК№УГtext_GetWidthєЇКэПФКѕFPS.
+  // RU: Выводим количество FPS в правом углу, используя text_GetWidth.
   // EN: Render FPS in the top right corner using text_GetWidth.
   s := 'FPS: ' + u_IntToStr( zgl_Get( RENDER_FPS ) );
   text_Draw( fntMain, 800 - text_GetWidth( fntMain, s ), 0, s );
